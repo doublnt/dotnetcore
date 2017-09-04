@@ -15,8 +15,9 @@ namespace MiddlewareTest.Controller
 
         //Attribute routing allows (and requires) precise control of which route templates apply to each action.
         [Route("Home/Attribute")]
-        public string AttributeContent()
+        public IActionResult AttributeContent()
         {
+            //var url = Url.Action("Index");
             return "Attribute!";
         }
     }
