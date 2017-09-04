@@ -8,9 +8,9 @@ namespace MiddlewareTest.Controller
 {
     public class HomeController
     {
-        public string Index()
+        public string Index(int? id)
         {
-            return "Robert";
+            return $"Hello,Robert,{id}";
         }
 
         //Attribute routing allows (and requires) precise control of which route templates apply to each action.
@@ -19,6 +19,16 @@ namespace MiddlewareTest.Controller
         {
             //var url = Url.Action("Index");
             return "Attribute!";
+        }
+        public string Test(int id)
+        {
+            return "Test1";
+        }
+
+        [HttpPost]
+        public string Test(int id, string s)
+        {
+            return "Test2";
         }
     }
 }
