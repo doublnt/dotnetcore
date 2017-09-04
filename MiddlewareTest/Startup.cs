@@ -11,6 +11,7 @@ using System.Text.Encodings.Web;
 using System.Text.Unicode;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
+using Microsoft.AspNetCore.Routing;
 
 namespace MiddlewareTest
 {
@@ -43,7 +44,7 @@ namespace MiddlewareTest
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<WebEncoderOptions>(options => options.TextEncoderSettings = new TextEncoderSettings(UnicodeRanges.All));
+            services.AddMvc();
         }
 
         public void Configure(IApplicationBuilder app)
@@ -64,16 +65,16 @@ namespace MiddlewareTest
 
             //Custom Middleware RequestCulture
             app.UseRequestCulture();
+            // route localhost:5000/map1
             app.Map("/map1", HandleMap1);
+            //route localhost:5000/map2
             app.Map("/map2", HandleMap2);
+            //route localhost:5000/?para={_}
             app.MapWhen(context => context.Request.Query.ContainsKey("para"), HandleMapWhenBranch);
 
-            app.Run(async context =>
+            app.UseMvc(routes =>
             {
-                context.Response.ContentType = "text/plain;charset=utf-8";
-                await context.Response.WriteAsync($"Hello,from Robert!" +
-                    $"The Culture there 是 {CultureInfo.CurrentCulture.DisplayName} \n" +
-                    $"{CultureInfo.CurrentCulture.EnglishName}");
+                routes.MapRoute("default", "{Controller=Home}/{Action=Index}/{Id?}");
             });
         }
     }
