@@ -9,6 +9,8 @@ using System.Globalization;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Text.Unicode;
+using Microsoft.Extensions.FileProviders;
+using System.IO;
 
 namespace MiddlewareTest
 {
@@ -46,12 +48,24 @@ namespace MiddlewareTest
 
         public void Configure(IApplicationBuilder app)
         {
+            app.UseStaticFiles();
+
+            //add route /files for invoke specific StaticFile
+            app.UseStaticFiles(new StaticFileOptions()
+            {
+                FileProvider = new PhysicalFileProvider(
+                    Path.Combine(Directory.GetCurrentDirectory(), @"StaticFile")),
+                RequestPath = new PathString("/files"),
+                OnPrepareResponse = orp =>
+                {
+                    orp.Context.Response.Headers.Append("Cache-Control", "Public,max-age=600");
+                }
+            });
+
+            //Custom Middleware RequestCulture
             app.UseRequestCulture();
-
             app.Map("/map1", HandleMap1);
-
             app.Map("/map2", HandleMap2);
-
             app.MapWhen(context => context.Request.Query.ContainsKey("para"), HandleMapWhenBranch);
 
             app.Run(async context =>
