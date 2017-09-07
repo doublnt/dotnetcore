@@ -4,9 +4,9 @@ using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MiddlewareTest.Controller
+namespace MiddlewareDemo.Controllers
 {
-    public class HomeController
+    public class HomeController : Controller
     {
         public string Index(int? id)
         {
@@ -29,6 +29,13 @@ namespace MiddlewareTest.Controller
         public string Test(int id, string s)
         {
             return "Test2";
+        }
+
+        [HttpGet("/test")]
+        public IActionResult Welcome()
+        {
+            ViewBag.Name = "Robert";
+            return View();
         }
     }
 }

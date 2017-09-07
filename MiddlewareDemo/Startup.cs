@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.WebEncoders;
-using MiddlewareTest.Middleware;
+using MiddlewareDemo.Middleware;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -12,11 +12,24 @@ using System.Text.Unicode;
 using Microsoft.Extensions.FileProviders;
 using System.IO;
 using Microsoft.AspNetCore.Routing;
+using Microsoft.Extensions.Configuration;
+using Serilog;
 
-namespace MiddlewareTest
+namespace MiddlewareDemo
 {
     public class Startup
     {
+        public IConfiguration Configuration { get; set; }
+
+        public Startup(IConfiguration configuration)
+        {
+            Configuration = configuration;
+
+            Log.Logger = new LoggerConfiguration()
+               .ReadFrom.Configuration(Configuration)
+               .WriteTo.RollingFile(Path.GetFullPath("logs/log-{Date}.txt"))
+               .CreateLogger();
+        }
         private static void HandleMap1(IApplicationBuilder app)
         {
             app.Run(async context =>
@@ -52,16 +65,16 @@ namespace MiddlewareTest
             app.UseStaticFiles();
 
             //add route /files for invoke specific StaticFile
-            app.UseStaticFiles(new StaticFileOptions()
-            {
-                FileProvider = new PhysicalFileProvider(
-                    Path.Combine(Directory.GetCurrentDirectory(), @"StaticFile")),
-                RequestPath = new PathString("/files"),
-                OnPrepareResponse = orp =>
-                {
-                    orp.Context.Response.Headers.Append("Cache-Control", "Public,max-age=600");
-                }
-            });
+            //app.UseStaticFiles(new StaticFileOptions()
+            //{
+            //    FileProvider = new PhysicalFileProvider(
+            //        Path.Combine(Directory.GetCurrentDirectory(), @"StaticFile")),
+            //    RequestPath = new PathString("/files"),
+            //    OnPrepareResponse = orp =>
+            //    {
+            //        orp.Context.Response.Headers.Append("Cache-Control", "Public,max-age=600");
+            //    }
+            //});
 
             //Custom Middleware RequestCulture
             app.UseRequestCulture();

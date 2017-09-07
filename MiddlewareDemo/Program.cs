@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using System;
 
-namespace MiddlewareTest
+namespace MiddlewareDemo
 {
     public class Program
     {
