@@ -14,6 +14,8 @@ using System.IO;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Serilog;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Rewrite;
 
 namespace MiddlewareDemo
 {
@@ -64,7 +66,7 @@ namespace MiddlewareDemo
         {
             app.UseStaticFiles();
 
-            //add route /files for invoke specific StaticFile
+            #region Add route /files for invoke specific StaticFile
             //app.UseStaticFiles(new StaticFileOptions()
             //{
             //    FileProvider = new PhysicalFileProvider(
@@ -75,19 +77,46 @@ namespace MiddlewareDemo
             //        orp.Context.Response.Headers.Append("Cache-Control", "Public,max-age=600");
             //    }
             //});
+            #endregion
 
             //Custom Middleware RequestCulture
             app.UseRequestCulture();
+
             // route localhost:5000/map1
             app.Map("/map1", HandleMap1);
+
             //route localhost:5000/map2
             app.Map("/map2", HandleMap2);
+
             //route localhost:5000/?para={_}
             app.MapWhen(context => context.Request.Query.ContainsKey("para"), HandleMapWhenBranch);
 
+            #region Url Rewrite and Redirect
+            using (StreamReader apacheModRewriteStreamReader = File.OpenText("ApacheModRewrite.txt"))
+            using (StreamReader iisUrlRewriteStreamReader = File.OpenText("IISUrlRewrite.xml"))
+            {
+                var options = new RewriteOptions()
+                   .AddRedirect("redirect-rule/(.*)", "redirected/$1")
+                   .AddRewrite(@"^rewrite-rule/(\d+)/(\d+)", "rewritten?var1=$1&var2=$2", skipRemainingRules: true)
+                   .AddApacheModRewrite(apacheModRewriteStreamReader)
+                   .AddIISUrlRewrite(iisUrlRewriteStreamReader);
+
+                app.UseRewriter(options);
+            }
+            #endregion
+
             app.UseMvc(routes =>
             {
-                routes.MapRoute("default", "{Controller=Home}/{Action=Index}/{Id?}");
+                routes.MapRoute(
+                    name: "Regex",
+                    template: "MultiRegex/{param1}/{param2}",
+                    defaults: new { controller = "Rewrite", action = "MultiRegexFunc" },
+                    constraints: new { param1 = @"^\d+", param2 = @"\d+" });
+
+                routes.MapRoute(
+                    name: "default",
+                    template: "{Controller}/{Action}/{Id?}",
+                    defaults: new { controller = "Home", action = "Index" });
             });
         }
     }
