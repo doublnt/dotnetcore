@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.WebEncoders;
-using MiddlewareDemo.Middleware;
+using MiddlewareDemo.CustomMiddleware;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
@@ -65,21 +65,30 @@ namespace MiddlewareDemo
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+
+            // app.UseStatusCodePages();
+            // app.UseStatusCodePages(async context => {
+            //     context.HttpContext.Response.ContentType = "text/plain";
+            //     await context.HttpContext.Response.WriteAsync($"What your statuscode get is :{context.HttpContext.Response.StatusCode}");
+            // });
+
             app.UseStatusCodePagesWithReExecute("/error","?StatusCode={0}");
-            
-            // app.UseStatusCodePagesWithRedirects("/error");
+
+            // app.UseErrorHandler();
+
+            //app.UseStatusCodePagesWithRedirects("/error");
 
             app.UseStaticFiles();
 
-            env.EnvironmentName = EnvironmentName.Production;
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/error");//It is something like rewrite url ?
-            }
+            // env.EnvironmentName = EnvironmentName.Development;
+            // if (env.IsDevelopment())
+            // {
+            //     app.UseDeveloperExceptionPage();
+            // }
+            // else
+            // {
+            //     app.UseExceptionHandler("/error");//It is something like rewrite url ?
+            // }
 
             #region Add route /files for invoke specific StaticFile
             //app.UseStaticFiles(new StaticFileOptions()

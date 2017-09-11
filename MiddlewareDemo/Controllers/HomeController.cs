@@ -29,7 +29,12 @@ namespace MiddlewareDemo.Controllers
             return "Robert,bingo!";
 
         }
-
+        public IActionResult TestPage(int? statusCode){
+            if(statusCode == null){
+                return NotFound();
+            }
+            return Content($"you statusCode is {statusCode}");
+        }
         [HttpPost]
         public string Test(int id, string s)
         {
