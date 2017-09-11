@@ -24,7 +24,7 @@ namespace MiddlewareDemo.Controllers
         {
             if (id == 1)
             {
-                throw new System.NullReferenceException("It is not equal to 1,Robert!"); 
+                throw new System.NullReferenceException("It is not equal to 1,Robert!");
             }
             return "Robert,bingo!";
 
@@ -43,7 +43,11 @@ namespace MiddlewareDemo.Controllers
             return View();
         }
 
-        public IActionResult Error(){
+        public IActionResult Error()
+        {
+            var statusCode = HttpContext.Response.StatusCode;
+            ViewBag.statusCode = $"Woow,You are catched by,{statusCode}";
+
             return View();
         }
     }

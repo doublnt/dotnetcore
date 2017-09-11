@@ -65,9 +65,13 @@ namespace MiddlewareDemo
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseStatusCodePagesWithReExecute("/error","?StatusCode={0}");
+            
+            // app.UseStatusCodePagesWithRedirects("/error");
+
             app.UseStaticFiles();
 
-            env.EnvironmentName = EnvironmentName.Development;
+            env.EnvironmentName = EnvironmentName.Production;
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -129,6 +133,12 @@ namespace MiddlewareDemo
                     name: "Error",
                     template: "error/",
                     defaults: new { controller = "Home", action = "error" }
+                );
+
+                routes.MapRoute(
+                    name: "404",
+                    template: "404/",
+                    defaults: new { controller = "Home", action = "pageNotFound" }
                 );
 
                 routes.MapRoute(
