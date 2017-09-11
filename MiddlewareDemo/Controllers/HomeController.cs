@@ -22,7 +22,12 @@ namespace MiddlewareDemo.Controllers
         }
         public string Test(int id)
         {
-            return "Test1";
+            if (id == 1)
+            {
+                throw new System.NullReferenceException("It is not equal to 1,Robert!"); 
+            }
+            return "Robert,bingo!";
+
         }
 
         [HttpPost]
@@ -31,10 +36,14 @@ namespace MiddlewareDemo.Controllers
             return "Test2";
         }
 
-        [HttpGet("/test")]
+        [HttpGet("/testWelcome")]
         public IActionResult Welcome()
         {
             ViewBag.Name = "Robert";
+            return View();
+        }
+
+        public IActionResult Error(){
             return View();
         }
     }

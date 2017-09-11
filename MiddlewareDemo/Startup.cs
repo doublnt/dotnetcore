@@ -16,6 +16,7 @@ using Microsoft.Extensions.Configuration;
 using Serilog;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Rewrite;
+using Microsoft.AspNetCore.Hosting;
 
 namespace MiddlewareDemo
 {
@@ -62,9 +63,19 @@ namespace MiddlewareDemo
             services.AddMvc();
         }
 
-        public void Configure(IApplicationBuilder app)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             app.UseStaticFiles();
+
+            env.EnvironmentName = EnvironmentName.Development;
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/error");//It is something like rewrite url ?
+            }
 
             #region Add route /files for invoke specific StaticFile
             //app.UseStaticFiles(new StaticFileOptions()
@@ -111,12 +122,20 @@ namespace MiddlewareDemo
                     name: "Regex",
                     template: "MultiRegex/{param1}/{param2}",
                     defaults: new { controller = "Rewrite", action = "MultiRegexFunc" },
-                    constraints: new { param1 = @"^\d+", param2 = @"\d+" });
+                    constraints: new { param1 = @"^\d+", param2 = @"\d+" }
+                );
+
+                routes.MapRoute(
+                    name: "Error",
+                    template: "error/",
+                    defaults: new { controller = "Home", action = "error" }
+                );
 
                 routes.MapRoute(
                     name: "default",
                     template: "{Controller}/{Action}/{Id?}",
-                    defaults: new { controller = "Home", action = "Index" });
+                    defaults: new { controller = "Home", action = "Index" }
+                );
             });
         }
     }
