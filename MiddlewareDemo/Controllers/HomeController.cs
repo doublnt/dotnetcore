@@ -33,7 +33,7 @@ namespace MiddlewareDemo.Controllers
             if(statusCode == null){
                 return NotFound();
             }
-            return Content($"you statusCode is {statusCode}");
+            return Content("you statusCode is {statusCode}");
         }
         [HttpPost]
         public string Test(int id, string s)
