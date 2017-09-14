@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using System.Net.WebSockets;
+using System.Threading;
 
 namespace WebSockets
 {
@@ -20,31 +22,66 @@ namespace WebSockets
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,ILoggerFactory loggerFactory)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole(LogLevel.Debug);
             loggerFactory.AddDebug(LogLevel.Debug);
-            
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-            // no options
+            #region no options
             app.UseWebSockets();
-            
-            //Options
-            var webSocketsOption = new WebSocketOptions()
-            {
-                KeepAliveInterval = TimeSpan.FromSeconds(120),
-                RecieveBufferSize = 4 * 1024 
-            };
-            
-            app.UseWebSockets(webSocketOptions);
+            #endregion
 
-            app.Run(async (context) =>
+            #region Options
+            //var webSocketsOption = new WebSocketOptions()
+            //{
+            //    KeepAliveInterval = TimeSpan.FromSeconds(120),
+            //    ReceiveBufferSize = 4 * 1024 
+            //};
+
+            //app.UseWebSockets(webSocketsOption);
+            #endregion
+            app.Use(async (context, next) =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                if (context.Request.Path == "/ws")
+                {
+                    if (context.WebSockets.IsWebSocketRequest)
+                    {
+                        var webSockets = await context.WebSockets.AcceptWebSocketAsync();
+                        await Echo(context, webSockets);
+                    }
+                    else
+                    {
+                        context.Response.StatusCode = 400;
+                    }
+                }
+                else
+                {
+                    await next();
+                }
             });
+            app.UseFileServer();
+        }
+
+        private async Task Echo(HttpContext context, WebSocket webSockets)
+        {
+            var buffer = new byte[1024 * 4];
+            var result = await webSockets.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+
+            while (!result.CloseStatus.HasValue)
+            {
+                await webSockets.SendAsync(
+                    new ArraySegment<byte>(buffer, 0, result.Count),
+                    result.MessageType,
+                    result.EndOfMessage,
+                    CancellationToken.None
+                    );
+                result = await webSockets.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
+            }
+            await webSockets.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
         }
     }
 }
