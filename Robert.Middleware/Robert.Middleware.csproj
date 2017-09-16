@@ -9,6 +9,6 @@
     <PackageReference Include="Microsoft.Extensions.Options" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="WebSockets\" />
+    <ProjectReference Include="..\WebSocketManage\WebSocketManage.csproj" />
   </ItemGroup>
 </Project>

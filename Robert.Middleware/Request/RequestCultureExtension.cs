@@ -6,7 +6,7 @@ using Robert.Middlerware.Request;
 
 namespace Robert.Middleware.Request
 {
-    public static class RequestCultureMiddlewareExtension
+    public static class RequestCultureExtension
     {
         public static IApplicationBuilder UseRequestCulture(this IApplicationBuilder builder)
         {
