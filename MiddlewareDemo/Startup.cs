@@ -1,22 +1,13 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.WebEncoders;
-using MiddlewareDemo.CustomMiddleware;
-using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Text;
-using System.Text.Encodings.Web;
-using System.Text.Unicode;
-using Microsoft.Extensions.FileProviders;
 using System.IO;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.Extensions.Configuration;
 using Serilog;
-using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.Hosting;
+using Robert.Middleware.Request;
 
 namespace MiddlewareDemo
 {

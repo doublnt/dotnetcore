@@ -44,6 +44,7 @@ namespace WebSockets
 
             //app.UseWebSockets(webSocketsOption);
             #endregion
+
             app.Use(async (context, next) =>
             {
                 if (context.Request.Path == "/ws")
