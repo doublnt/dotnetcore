@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
 using System.Globalization;
 
-namespace MiddlewareDemo.CustomMiddleware
+namespace Robert.Middlerware.Request
 {
     public class RequestCultureMiddleware
     {

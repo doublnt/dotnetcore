@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Options;
 
-namespace MiddlewareDemo.CustomMiddleware
+namespace Robert.Middleware.ErrorHandler
 {
 
     /// <summary>

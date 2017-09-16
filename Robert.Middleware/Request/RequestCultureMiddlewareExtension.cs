@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Builder;
 
-namespace MiddlewareDemo.CustomMiddleware
+namespace Robert.Middleware.Request
 {
     public static class RequestCultureMiddlewareExtension
     {
