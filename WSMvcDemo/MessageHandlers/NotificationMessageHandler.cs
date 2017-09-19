@@ -1,6 +1,6 @@
 using WebSocketManage;
 
-namespace WSMvcDemo.MessageHandler
+namespace WSMvcDemo.MessageHandlers
 {
     public class NotificationMessageHandler : WebSocketHandler
     {

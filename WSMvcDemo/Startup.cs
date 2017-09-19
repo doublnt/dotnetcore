@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Robert.Middleware.WebSockets;
-using WSMvcDemo.MessageHandler;
+using WSMvcDemo.MessageHandlers;
 
 namespace WSMvcDemo
 {
@@ -18,7 +18,7 @@ namespace WSMvcDemo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            services.AddWebSocketManager();
+            // services.AddWebSocketManager();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -27,15 +27,19 @@ namespace WSMvcDemo
             app.UseStaticFiles();
             app.UseWebSockets();
 
-            app.UseMvc(routes =>
+            app.Run(async context =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "api/{controller}/{action}/{id?}"
-                );
+                await context.Response.WriteAsync("11111");
             });
+            // app.UseMvc(routes =>
+            // {
+            //     routes.MapRoute(
+            //         name: "default",
+            //         template: "api/{controller}/{action}/{id?}"
+            //     );
+            // });
 
-            app.MapWebSocketManager("/notications", provider.GetService<NotificationMessageHandler>());
+            // app.MapWebSocketManager("/notications", provider.GetService<NotificationMessageHandler>());
         }
     }
 }
