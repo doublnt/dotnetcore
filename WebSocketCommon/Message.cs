@@ -1,4 +1,5 @@
-﻿using System;
+﻿// A Entity about Message.
+using System;
 
 namespace WebSocketCommon
 {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿// This class is for Managing WebSocket and Manage WebSocket group about get/set sockets which Created by Robert.
+using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
