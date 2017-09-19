@@ -10,10 +10,11 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceRoot}/MiddlewareDemo/bin/Debug/netcoreapp2.0/MiddlewareDemo.dll",
+            "program": "${workspaceRoot}/OfficialWSDemo/bin/Debug/netcoreapp2.0/OfficialWSDemo.dll",
             "args": [],
-            "cwd": "${workspaceRoot}/MiddlewareDemo",
+            "cwd": "${workspaceRoot}/OfficialWSDemo",
             "stopAtEntry": false,
+            "requireExactSource": false,
             "internalConsoleOptions": "openOnSessionStart",
             "launchBrowser": {
                 "enabled": true,
