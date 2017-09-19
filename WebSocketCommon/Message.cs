@@ -1,8 +1,10 @@
-﻿// A Entity about Message.
-using System;
+﻿using System;
 
 namespace WebSocketCommon
 {
+    /// <summary>
+    /// A Entity about Message.
+    /// </summary>
     public enum MessageType
     {
         Text,

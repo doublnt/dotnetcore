@@ -1,5 +1,4 @@
-﻿// This class is for handle websocket when connected or recieve message.
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Net.WebSockets;
 using System.Text;
@@ -11,6 +10,9 @@ using System.Reflection;
 
 namespace WebSocketManage
 {
+    /// <summary>
+    /// Handle websocket when connected or recieve message.
+    /// </summary>
     public abstract class WebSocketHandler
     {
         protected WebSocketConnectionManager _webSocketConnectionManager { get; set; }

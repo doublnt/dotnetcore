@@ -4,11 +4,13 @@ using WebSocketClient;
 
 namespace WSRecieveConsoleDemo
 {
+    /// <summary>
+    /// The Demo is to recieve the websocket message.
+    /// </summary>
     public class Program
     {
         private static Connection _connection;
 
-        //The function of this project is to recieve the message.
         public static void Main(string[] args)
         {
             StartConnectionAsync().ConfigureAwait(false);
