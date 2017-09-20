@@ -5,7 +5,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="wwwroot\" />
+    <None Include="wwwroot\Content\Scripts\jquery-3.1.1.min.js" />
+    <None Include="wwwroot\Content\Scripts\WebScoketManage.js" />
   </ItemGroup>
 
   <ItemGroup>
@@ -14,7 +15,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Robert.Middleware\Robert.Middleware.csproj" />
-    <ProjectReference Include="..\WebSocketManage\WebSocketManage.csproj"/>
+    <ProjectReference Include="..\WebSocketManage\WebSocketManage.csproj" />
   </ItemGroup>
 
 </Project>

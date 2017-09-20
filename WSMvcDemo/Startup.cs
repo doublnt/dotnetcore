@@ -18,7 +18,7 @@ namespace WSMvcDemo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
-            // services.AddWebSocketManager();
+            services.AddWebSocketManager();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -27,19 +27,15 @@ namespace WSMvcDemo
             app.UseStaticFiles();
             app.UseWebSockets();
 
-            app.Run(async context =>
+            app.UseMvc(routes =>
             {
-                await context.Response.WriteAsync("11111");
+                routes.MapRoute(
+                    name: "default",
+                    template: "api/{controller}/{action}/{id?}"
+                );
             });
-            // app.UseMvc(routes =>
-            // {
-            //     routes.MapRoute(
-            //         name: "default",
-            //         template: "api/{controller}/{action}/{id?}"
-            //     );
-            // });
 
-            // app.MapWebSocketManager("/notications", provider.GetService<NotificationMessageHandler>());
+            app.MapWebSocketManager("/notications", provider.GetService<NotificationMessageHandler>());
         }
     }
 }
