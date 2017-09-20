@@ -6,7 +6,6 @@
     <title>Real-Time Demo</title>
     <script src="../Content/Scripts/jquery-3.1.1.min.js" type="text/javascript"></script>
     <script src="../Content/Scripts/WebScoketManage.js" type="text/javascript"></script>
-
 </head>
 
 <body>
@@ -21,34 +20,24 @@
 
         connection.clientMethods["receiveMessage"] = (message) => {
             var messageText = "Someone said: " + message;
-
             console.log(messageText);
             appendItem(list, messageText);
         };
-
         connection.start();
-
         var list = document.getElementById("messages");
         var button = document.getElementById("sendButton");
-
-
         button.addEventListener("click", function () {
-
             var input = document.getElementById("textInput");
             sendMessage(input.value);
-
             input.value = "";
         });
-
         function sendMessage(message) {
             console.log("Sending through HTTP to a controller:" + message);
-
             $.ajax({
-                url: "http://" + window.location.host + "/api/message/sendmessage?message=" + message,
+                url: "http://" + window.location.host + "/api/messages/sendmessage?message=" + message,
                 method: 'GET'
             });
         }
-
         function appendItem(list, message) {
             var item = document.createElement("li");
             item.appendChild(document.createTextNode(message));
@@ -56,5 +45,4 @@
         }
     </script>
 </body>
-
 </html> 

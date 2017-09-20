@@ -4,6 +4,7 @@ using System.Net.WebSockets;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System.Threading;
 using WebSocketCommon;
 using System.Reflection;
@@ -16,7 +17,10 @@ namespace WebSocketManage
     public abstract class WebSocketHandler
     {
         protected WebSocketConnectionManager _webSocketConnectionManager { get; set; }
-        private JsonSerializerSettings _jsonSerializerSettings = new JsonSerializerSettings();
+        private JsonSerializerSettings _jsonSerializerSettings = new JsonSerializerSettings()
+        {
+            ContractResolver = new CamelCasePropertyNamesContractResolver()
+        };
 
         public WebSocketHandler(WebSocketConnectionManager webSocketConnectionManager)
         {

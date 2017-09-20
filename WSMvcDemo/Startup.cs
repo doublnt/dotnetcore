@@ -35,7 +35,7 @@ namespace WSMvcDemo
                 );
             });
 
-            app.MapWebSocketManager("/notications", provider.GetService<NotificationMessageHandler>());
+            app.MapWebSocketManager("/notifications", provider.GetService<NotificationsMessageHandler>());
         }
     }
 }

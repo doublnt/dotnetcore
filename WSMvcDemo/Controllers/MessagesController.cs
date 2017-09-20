@@ -3,12 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using WSMvcDemo.MessageHandlers;
 namespace WSMvcDemo.Controllers
 {
-    public class MessageController : Controller
+    public class MessagesController : Controller
     {
 
-        private NotificationMessageHandler _notificationsMessageHandler { get; set; }
+        private NotificationsMessageHandler _notificationsMessageHandler { get; set; }
 
-        public MessageController(NotificationMessageHandler notificationsMessageHandler)
+        public MessagesController(NotificationsMessageHandler notificationsMessageHandler)
         {
             _notificationsMessageHandler = notificationsMessageHandler;
         }
