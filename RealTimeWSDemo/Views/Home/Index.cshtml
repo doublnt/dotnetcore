@@ -1,0 +1,56 @@
+﻿@model string
+@{
+    ViewData["Title"] = "Home Page";
+}
+<script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+<style>
+    body {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .msg {
+        margin: 30px;
+        height: 300px;
+        border: 2px dotted red;
+    }
+</style>
+<div class="msg" id="msgs">
+</div>
+
+<input type="text" id="MessageField" placeholder="输入信息" style="margin-left:30px;" />
+<input type="button" id="submit" value="发送信息" />
+
+<script>
+    $(function () {
+        var userName = '@Model';
+
+        var protocol = location.protocol === "https:" ? "wss:" : "ws:";
+        var wsUri = protocol + "//" + window.location.host + "/ws";
+        var socket = new WebSocket(wsUri);
+        socket.onopen = e => {
+            console.log("socket opened", e);
+        };
+
+        socket.onclose = function (e) {
+            console.log("socket closed", e);
+        };
+
+        //function to recieve from server.
+        socket.onmessage = function (e) {
+            console.log("Message:" + e.data);
+            $('#msgs').append(e.data + '<br />');
+        };
+
+        socket.onerror = function (e) {
+            console.error(e.data);
+        };
+
+        $("#submit").click(function () {
+            var message = userName + ": " + $('#MessageField').val();
+            socket.send(message);
+            $('#MessageField').val('');
+        });
+    });
+</script>
+

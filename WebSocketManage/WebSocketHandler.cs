@@ -29,6 +29,7 @@ namespace WebSocketManage
 
         public virtual async Task OnConnected(WebSocket socket)
         {
+            //将当前Socket 存入Dictionary中
             _webSocketConnectionManager.AddSocket(socket);
 
             await SendMessageAsync(socket, new Message()

@@ -1,0 +1,8 @@
+﻿@Html.ValidationSummary()
+
+<div style="position:absolute;">
+    <form action="@Url.Action("Index")" method="post">
+        <input type="text" placeholder="请输入你的大名进行聊天" name="userName" />
+        <input type="submit" value="进入聊天" />
+    </form>
+</div>
