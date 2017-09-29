@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MiddlewareDemo\MiddlewareDemo.csproj" />
+    <ProjectReference Include="..\Middleware\MiddlewareDemo\MiddlewareDemo.csproj" />
   </ItemGroup>
 
   <Target Name="CopyDepsFiles" AfterTargets="Build" Condition="'$(TargetFramework)'!=''">

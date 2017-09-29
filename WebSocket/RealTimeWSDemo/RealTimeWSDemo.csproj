@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Robert.Middleware\Robert.Middleware.csproj" />
+    <ProjectReference Include="..\..\Middleware\Robert.Middleware\Robert.Middleware.csproj" />
   </ItemGroup>
 
 </Project>
