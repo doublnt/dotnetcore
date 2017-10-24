@@ -11,21 +11,24 @@ namespace EFConsoleDemo
         {
             using (var db = new BookDbContext())
             {
-                db.Books.Add(new Book
+                if (!db.Books.Any())
                 {
-                    Name = "Robert learn Python",
-                    Price = 1.1,
-                    Publisher = "China Publisher"
-                });
-                db.SaveChanges();
-                
+                    db.Books.Add(new Book
+                    {
+                        Name = "Robert learn Python",
+                        Price = 1.1,
+                        Publisher = "China Publisher"
+                    });
+                    db.SaveChanges();
+                }
+
                 var books = db.Books
                     .Where(p => p.Name != null)
                     .ToList();
-                
+
                 foreach (var b in books)
                 {
-                    Console.WriteLine(b.Name + b.Price + b.Publisher);
+                    Console.WriteLine(b.Name + "\n" + b.Price + "\n" + b.Publisher);
                 }
             }
         }
