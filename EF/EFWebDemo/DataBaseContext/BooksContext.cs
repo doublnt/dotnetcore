@@ -12,12 +12,13 @@ namespace EFWebDemo.DataBaseContext
 
         }
 
-        protected override void OnModelBuilding(ModelBuilder modelBuiler)
+        protected override void OnModelCreating(ModelBuilder modelBuiler)
         {
             modelBuiler.Entity<Book>()
-            .HasKey(p => p.Name);
+                .HasKey(p => p.Name);
         }
 
-        public DbSet<Book> Books{get;set;} 
+
+        public DbSet<Book> Books { get; set; }
     }
 }

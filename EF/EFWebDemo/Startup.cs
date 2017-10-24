@@ -2,9 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EFWebDemo.DataBaseContext;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace EFWebDemo
@@ -15,7 +17,8 @@ namespace EFWebDemo
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.add
+            services.AddMvc();
+            services.AddDbContext<BooksContext>(options => options.UseSqlite("Data Source =books.db"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -26,9 +29,11 @@ namespace EFWebDemo
                 app.UseDeveloperExceptionPage();
             }
 
-            app.Run(async (context) =>
+            app.UseMvc(routes =>
             {
-                await context.Response.WriteAsync("Hello World!");
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
             });
         }
     }
