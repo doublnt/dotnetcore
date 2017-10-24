@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2005
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest", "UnitTest\UnitTest.csproj", "{35FE531D-CC85-409C-85A4-30B513AD6EF9}"
 EndProject
@@ -28,6 +28,14 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebSocketManage", "WebSocket\WebSocketManage\WebSocketManage.csproj", "{E865891D-361B-4878-9EBB-B87854D45CE0}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WSMvcDemo", "WebSocket\WSMvcDemo\WSMvcDemo.csproj", "{F9ABC83E-1193-4449-AEB1-FEA6B15ED374}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Globaliation", "Globaliation", "{8B81E05E-9F87-4B47-9E4A-40D968E3071E}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GlobalDemo", "Globalization\GlobalDemo\GlobalDemo.csproj", "{E054E5AC-7C3D-4734-A4D2-BA310DC0576A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EF", "EF", "{43A2D807-F997-49A8-BAF0-17231D56064C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFConsoleDemo", "EF\EFConsoleDemo\EFConsoleDemo.csproj", "{264DFD6E-88AB-490E-92BE-6525DD9CA432}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -75,6 +83,14 @@ Global
 		{F9ABC83E-1193-4449-AEB1-FEA6B15ED374}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9ABC83E-1193-4449-AEB1-FEA6B15ED374}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9ABC83E-1193-4449-AEB1-FEA6B15ED374}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E054E5AC-7C3D-4734-A4D2-BA310DC0576A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E054E5AC-7C3D-4734-A4D2-BA310DC0576A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E054E5AC-7C3D-4734-A4D2-BA310DC0576A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E054E5AC-7C3D-4734-A4D2-BA310DC0576A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{264DFD6E-88AB-490E-92BE-6525DD9CA432}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{264DFD6E-88AB-490E-92BE-6525DD9CA432}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{264DFD6E-88AB-490E-92BE-6525DD9CA432}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{264DFD6E-88AB-490E-92BE-6525DD9CA432}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -90,6 +106,8 @@ Global
 		{E20507D9-C30E-44F7-AFF4-956172A5A3BC} = {BF9E1011-C3BF-4A89-9E17-5A280AC889C5}
 		{E865891D-361B-4878-9EBB-B87854D45CE0} = {BF9E1011-C3BF-4A89-9E17-5A280AC889C5}
 		{F9ABC83E-1193-4449-AEB1-FEA6B15ED374} = {BF9E1011-C3BF-4A89-9E17-5A280AC889C5}
+		{E054E5AC-7C3D-4734-A4D2-BA310DC0576A} = {8B81E05E-9F87-4B47-9E4A-40D968E3071E}
+		{264DFD6E-88AB-490E-92BE-6525DD9CA432} = {43A2D807-F997-49A8-BAF0-17231D56064C}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3EEFBAE4-764A-4969-BB8A-973F95DF5F16}
