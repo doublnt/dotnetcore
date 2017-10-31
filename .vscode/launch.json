@@ -10,9 +10,9 @@
             "request": "launch",
             "preLaunchTask": "build",
             // If you have changed target frameworks, make sure to update the program path.
-            "program": "${workspaceRoot}/OfficialWSDemo/bin/Debug/netcoreapp2.0/OfficialWSDemo.dll",
+            "program": "${workspaceRoot}/EFConsoleDemo/bin/Debug/netcoreapp2.0/EFConsoleDemo.dll",
             "args": [],
-            "cwd": "${workspaceRoot}/OfficialWSDemo",
+            "cwd": "${workspaceRoot}/EFConsoleDemo",
             "stopAtEntry": false,
             "requireExactSource": false,
             "internalConsoleOptions": "openOnSessionStart",

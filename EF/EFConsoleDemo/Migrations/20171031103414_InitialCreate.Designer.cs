@@ -10,9 +10,10 @@ using System;
 namespace EFConsoleDemo.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    partial class BookDbContextModelSnapshot : ModelSnapshot
+    [Migration("20171031103414_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

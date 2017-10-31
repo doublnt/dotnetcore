@@ -10,13 +10,16 @@ namespace EFConsoleDemo.DataBaseContext
     public class BookDbContext : DbContext
     {
         public DbSet<Book> Books { get; set; }
+        public DbSet<Author> Authors { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            //one-to-one relationship
             modelBuilder.Entity<Book>()
-                .HasKey(p => p.Name);
+                .HasOne(p => p.Authors)
+                .WithOne(p => p.Books)
+                .HasForeignKey<Author>(p => p.AuthorId);
         }
-        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlite("Data Source=books.db");

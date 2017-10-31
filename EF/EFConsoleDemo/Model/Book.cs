@@ -6,8 +6,11 @@ namespace EFConsoleDemo.Model
 {
     public class Book
     {
-        public string Name { get; set; }
+        public int BookId { get; set; }
+        public string BookName { get; set; }
         public string Publisher { get; set; }
         public double Price { get; set; }
+        public int AuthorId { get; set; }
+        public Author Authors { get; set; }
     }
 }
