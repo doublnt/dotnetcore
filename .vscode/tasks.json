@@ -7,7 +7,7 @@
         {
             "taskName": "build",
             "args": [
-                "${workspaceRoot}/MiddlewareDemo/MiddlewareDemo.csproj"
+                "${workspaceRoot}/EF/EFConsoleDemo/EFConsoleDemo.csproj"
             ],
             "isBuildCommand": true,
             "problemMatcher": "$msCompile"

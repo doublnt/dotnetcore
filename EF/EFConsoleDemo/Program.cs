@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Linq;
-using EFConsoleDemo.DataBaseContext;
+using EFConsoleDemo.DatabaseContext;
 using EFConsoleDemo.Model;
 using Microsoft.EntityFrameworkCore;
 
 namespace EFConsoleDemo
 {
-    class Program
+    public class Program
     {
-        static void Main(string[] args)
+        public static void Main(string[] args)
         {
             using (var db = new BookDbContext())
             {
@@ -65,6 +65,12 @@ namespace EFConsoleDemo
                 Console.WriteLine(books2.BookName + "\n" + books2.Price + "\n" +
                 books2.Publisher + "\n" + books2.Authors.Name);
 
+                books1.BookName = "How to Spend spare time!";
+                db.Books.Update(books1);
+                db.SaveChanges();
+
+                var author3 = db.Set<Author>().Find(1);
+                Console.WriteLine(author3.Age);
             }
         }
     }

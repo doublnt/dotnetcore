@@ -5,7 +5,7 @@ using System.Text;
 using EFConsoleDemo.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace EFConsoleDemo.DataBaseContext
+namespace EFConsoleDemo.DatabaseContext
 {
     public class BookDbContext : DbContext
     {
