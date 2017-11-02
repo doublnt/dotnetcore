@@ -8,16 +8,13 @@ namespace EFConsoleDemo.Repository.Interface
     {
         IQueryable<TEntity> All();
         IQueryable<TEntity> Filter(Expression<Func<TEntity, bool>> predicate);
-        IQueryable<TEntity> Filter(Expression<Func<TEntity, bool>> predicate,
-        out int total, int index = 0, int size = 50);
 
         bool Contains(Expression<Func<TEntity, bool>> predicate);
 
-        TEntity Find(params object[] keys);
         TEntity Find(Expression<Func<TEntity, bool>> predicate);
         TEntity Single(Expression<Func<TEntity, bool>> predicate);
         
-        TEntity Create(TEntity t);
+        void Create(TEntity t);
 
         void Delete(TEntity t);
         void Delete(Expression<Func<TEntity, bool>> predicate);
