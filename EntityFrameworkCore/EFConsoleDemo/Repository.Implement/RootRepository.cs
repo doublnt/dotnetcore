@@ -3,61 +3,89 @@ using System.Linq;
 using System.Linq.Expressions;
 using Microsoft.EntityFrameworkCore;
 using EFConsoleDemo.Repository.Interface;
+using Microsoft.EntityFrameworkCore.Query.ExpressionVisitors.Internal;
 
 namespace EFConsoleDemo.Repository.Implement
 {
     public class RootRepository<TEntity> : IRepository<TEntity> where TEntity : class
     {
-        protected readonly DbContext Context;
+        private readonly DbContext _context;
 
         public RootRepository(DbContext context)
         {
-            Context = context;
+            _context = context;
         }
 
-        IQueryable<TEntity> IRepository<TEntity>.All()
+        public IQueryable<TEntity> All()
         {
-            return Context.Set<TEntity>().AsQueryable();
+            return _context.Set<TEntity>().AsQueryable();
         }
 
-        bool IRepository<TEntity>.Contains(Expression<Func<TEntity, bool>> predicate)
+        public bool Contains(Expression<Func<TEntity, bool>> predicate)
         {
-            return Context.Set<TEntity>().Any(predicate);
+            return _context.Set<TEntity>().Any(predicate);
         }
 
-        void IRepository<TEntity>.Create(TEntity t)
+        public virtual void Create(TEntity t)
         {
-            Context.Set<TEntity>().Add(t);
+            _context.Set<TEntity>().Add(t);
         }
 
-        void IRepository<TEntity>.Delete(TEntity t)
+        public virtual void Delete(TEntity t)
         {
-            Context.Set<TEntity>().Remove(t);
+            _context.Set<TEntity>().Remove(t);
         }
 
-        void IRepository<TEntity>.Delete(Expression<Func<TEntity, bool>> predicate)
+        public virtual int Delete(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            var item = Filter(predicate);
+            foreach (var obj in item)
+            {
+                _context.Set<TEntity>().Remove(obj);
+            }
+            return _context.SaveChanges();
         }
 
-        IQueryable<TEntity> IRepository<TEntity>.Filter(Expression<Func<TEntity, bool>> predicate)
+        public IQueryable<TEntity> Filter(Expression<Func<TEntity, bool>> predicate, out int total, int index = 0, int size = 50)
         {
-            return Context.Set<TEntity>().Where(predicate).AsQueryable();
+            var skipCount = index * size;
+            var resetSet = predicate != null
+                ? _context.Set<TEntity>().Where<TEntity>(predicate).AsQueryable()
+                : _context.Set<TEntity>().AsQueryable();
+            resetSet = skipCount == 0 ? resetSet.Take(size) : resetSet.Skip(skipCount).Take(size);
+            total = resetSet.Count();
+            return resetSet.AsQueryable();
+
         }
 
-        TEntity IRepository<TEntity>.Find(Expression<Func<TEntity, bool>> predicate)
+        public virtual IQueryable<TEntity> Filter(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _context.Set<TEntity>().Where(predicate).AsQueryable();
         }
 
-        TEntity IRepository<TEntity>.Single(Expression<Func<TEntity, bool>> predicate)
+        public virtual TEntity Find(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return _context.Set<TEntity>().FirstOrDefault<TEntity>(predicate);
         }
 
-        void IRepository<TEntity>.Update(TEntity t)
+        public TEntity Single(Expression<Func<TEntity, bool>> predicate)
         {
-            throw new NotImplementedException();
+            return All().FirstOrDefault(predicate);
+        }
+
+        public virtual void Update(TEntity t)
+        {
+            try
+            {
+                var entry = _context.Entry(t);
+                _context.Set<TEntity>().Attach(t);
+                entry.State = EntityState.Modified;
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
     }
 }
