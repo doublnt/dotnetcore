@@ -5,13 +5,14 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
 namespace EFConsoleDemo.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    [Migration("20171106133656_new-property")]
-    partial class newproperty
+    [Migration("20171106141943_11")]
+    partial class _11
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,7 +35,12 @@ namespace EFConsoleDemo.Migrations
 
             modelBuilder.Entity("EFConsoleDemo.Model.Blog", b =>
                 {
-                    b.Property<int>("BlogId");
+                    b.Property<int>("BlogId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("UpdateTime")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("CONVERT(date, GETDATE())");
 
                     b.Property<string>("Url");
 

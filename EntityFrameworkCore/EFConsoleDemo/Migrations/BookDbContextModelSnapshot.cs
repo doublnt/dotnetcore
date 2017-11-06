@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage;
+using Microsoft.EntityFrameworkCore.Storage.Internal;
 using System;
 
 namespace EFConsoleDemo.Migrations
@@ -33,7 +34,12 @@ namespace EFConsoleDemo.Migrations
 
             modelBuilder.Entity("EFConsoleDemo.Model.Blog", b =>
                 {
-                    b.Property<int>("BlogId");
+                    b.Property<int>("BlogId")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<DateTime>("UpdateTime")
+                        .ValueGeneratedOnAdd()
+                        .HasDefaultValueSql("CONVERT(date, GETDATE())");
 
                     b.Property<string>("Url");
 
