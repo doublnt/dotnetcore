@@ -31,6 +31,17 @@ namespace EFConsoleDemo.Migrations
                     b.ToTable("Authors");
                 });
 
+            modelBuilder.Entity("EFConsoleDemo.Model.Blog", b =>
+                {
+                    b.Property<int>("BlogId");
+
+                    b.Property<string>("Url");
+
+                    b.HasKey("BlogId");
+
+                    b.ToTable("Blogs");
+                });
+
             modelBuilder.Entity("EFConsoleDemo.Model.Book", b =>
                 {
                     b.Property<int>("BookId")

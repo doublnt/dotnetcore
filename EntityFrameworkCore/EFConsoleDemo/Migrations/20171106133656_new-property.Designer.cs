@@ -10,8 +10,8 @@ using System;
 namespace EFConsoleDemo.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    [Migration("20171102023433_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20171106133656_new-property")]
+    partial class newproperty
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -30,6 +30,17 @@ namespace EFConsoleDemo.Migrations
                     b.HasKey("AuthorId");
 
                     b.ToTable("Authors");
+                });
+
+            modelBuilder.Entity("EFConsoleDemo.Model.Blog", b =>
+                {
+                    b.Property<int>("BlogId");
+
+                    b.Property<string>("Url");
+
+                    b.HasKey("BlogId");
+
+                    b.ToTable("Blogs");
                 });
 
             modelBuilder.Entity("EFConsoleDemo.Model.Book", b =>
