@@ -13,6 +13,7 @@ namespace MiddlewareDemo
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+            // .UseUrls("http://q.cnblogs.com:5006")
             .UseStartup<Startup>()
             .Build();
     }
