@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2006
+VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest", "UnitTest\UnitTest.csproj", "{35FE531D-CC85-409C-85A4-30B513AD6EF9}"
 EndProject
@@ -38,6 +38,12 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFWebDemo", "EntityFrameworkCore\EFWebDemo\EFWebDemo.csproj", "{0D78D734-6090-4457-B792-4C36D4CBB742}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EFConsoleDemo", "EntityFrameworkCore\EFConsoleDemo\EFConsoleDemo.csproj", "{4CAB6AD6-A32A-42EC-B653-FF067C2172BE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DoubleClickDemo", "DoubleClickDemo\DoubleClickDemo.csproj", "{5041DC6B-4BDC-4CEB-A5D7-0C1FFDE0A59A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MultipleTaskDemo", "MultipleTaskDemo\MultipleTaskDemo.csproj", "{B0CF60B2-84E2-4822-938F-3E6394D3FE67}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DoubleClick", "DoubleClick", "{A67B19F3-0567-4B2B-9231-8E3548DA45BD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -97,6 +103,14 @@ Global
 		{4CAB6AD6-A32A-42EC-B653-FF067C2172BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4CAB6AD6-A32A-42EC-B653-FF067C2172BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4CAB6AD6-A32A-42EC-B653-FF067C2172BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5041DC6B-4BDC-4CEB-A5D7-0C1FFDE0A59A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5041DC6B-4BDC-4CEB-A5D7-0C1FFDE0A59A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5041DC6B-4BDC-4CEB-A5D7-0C1FFDE0A59A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5041DC6B-4BDC-4CEB-A5D7-0C1FFDE0A59A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0CF60B2-84E2-4822-938F-3E6394D3FE67}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0CF60B2-84E2-4822-938F-3E6394D3FE67}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0CF60B2-84E2-4822-938F-3E6394D3FE67}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0CF60B2-84E2-4822-938F-3E6394D3FE67}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -115,6 +129,8 @@ Global
 		{E054E5AC-7C3D-4734-A4D2-BA310DC0576A} = {8B81E05E-9F87-4B47-9E4A-40D968E3071E}
 		{0D78D734-6090-4457-B792-4C36D4CBB742} = {C028ED1C-47FB-440F-B488-EEF7F6BFA7B4}
 		{4CAB6AD6-A32A-42EC-B653-FF067C2172BE} = {C028ED1C-47FB-440F-B488-EEF7F6BFA7B4}
+		{5041DC6B-4BDC-4CEB-A5D7-0C1FFDE0A59A} = {A67B19F3-0567-4B2B-9231-8E3548DA45BD}
+		{B0CF60B2-84E2-4822-938F-3E6394D3FE67} = {A67B19F3-0567-4B2B-9231-8E3548DA45BD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3EEFBAE4-764A-4969-BB8A-973F95DF5F16}
