@@ -1,0 +1,51 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+     <script src="~/lib/jquery/dist/jquery.js"></script>
+<script>
+$(function(){
+     $("#click_me").on("click", function () { AddData() })
+});
+
+function AddData() {
+    var a={},submitFlag=true;
+    a.qid=1;
+    $("#click_me").off("click").val("正在提交...").prop("disabled", true);
+    var startDate = new Date();
+    $.ajax({
+        timeout: 30000,//超时时间30s
+        type: "post",
+        data: a,
+        url: "/Home/AddData",
+        dataType: "Text",
+        contentType: "application/x-www-form-urlencoded; charset=UTF-8",
+        beforeSend: function () {
+            if (!submitFlag) {
+                alert("正在提交，请稍后！");
+                return;
+            }
+            submitFlag = false;
+        },
+        success: function (data) {
+            if (data.indexOf("添加失败") !== -1) {
+                $("#click_me").val("提交回答").prop("disabled", false).on("click", function () {AddData() });
+            } else {
+                $("#append_data");
+                $("#click_me").val("提交回答").prop("disabled", false).on("click", function () {AddData() });
+            }
+        },
+        complete: function () {
+            submitFlag = true;
+        },
+        error: function (xhr, textStatus) {
+            if (textStatus === "timeout") {
+                console.log("Timeout");
+            } else {
+            }
+            $("#click_me").val("提交回答").prop("disabled", false).on("click", function () { AddData()});
+        }
+    });
+};
+</script>
+<input type="button" id="click_me" value="提交回答" />
+<span id="append_data">11</span>
