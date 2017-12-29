@@ -8,6 +8,7 @@ using Serilog;
 using Microsoft.AspNetCore.Rewrite;
 using Microsoft.AspNetCore.Hosting;
 using Robert.Middleware.Request;
+using Robert.Middleware.OnlyPassGet;
 
 namespace MiddlewareDemo
 {
@@ -65,6 +66,7 @@ namespace MiddlewareDemo
 
             app.UseStatusCodePagesWithReExecute("/error","?StatusCode={0}");
 
+            app.UseOnlyPassGet();
             // app.UseErrorHandler();
 
             //app.UseStatusCodePagesWithRedirects("/error");
