@@ -11,8 +11,8 @@ using System;
 namespace EFConsoleDemo.Migrations
 {
     [DbContext(typeof(BookDbContext))]
-    [Migration("20171106141943_11")]
-    partial class _11
+    [Migration("20180119071556_test")]
+    partial class test
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -38,9 +38,7 @@ namespace EFConsoleDemo.Migrations
                     b.Property<int>("BlogId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("UpdateTime")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValueSql("CONVERT(date, GETDATE())");
+                    b.Property<DateTime>("UpdateTime");
 
                     b.Property<string>("Url");
 
@@ -55,8 +53,6 @@ namespace EFConsoleDemo.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("AuthorId");
-
-                    b.Property<string>("BookName");
 
                     b.Property<double>("Price");
 

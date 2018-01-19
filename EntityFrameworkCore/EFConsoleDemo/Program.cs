@@ -4,12 +4,9 @@ using EFConsoleDemo.DatabaseContext;
 using EFConsoleDemo.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace EFConsoleDemo
-{
-    public class Program
-    {
-        public static void Main(string[] args)
-        {
+namespace EFConsoleDemo {
+    public class Program {
+        public static void Main (string[] args) {
             #region Repository
             // using (var db = new BookDbContext())
             // {
@@ -75,19 +72,27 @@ namespace EFConsoleDemo
             // }
             #endregion
             #region Generated Value
-            using (var db = new BookDbContext())
-            {
-                if (!db.Blogs.Any())
-                {
-                    var blog = new Blog
-                    {
-                        Url = "Https://q.cnblogs.com"
+            using (var db = new BookDbContext ()) {
+                if (!db.Blogs.Any ()) {
+
+                var blog = new Blog {
+                Url = "Https://q.cnblogs.com",
                     };
-                    db.Blogs.AddRange(blog);
-                    db.SaveChanges();
+                    var book = new Book {
+                        BookId = 1,
+                        BookName = "111"
+                    };
+
+                    db.Blogs.AddRange (blog);
+                    db.Books.AddRange (book);
+                    db.SaveChanges ();
                 }
             }
-            #endregion
+            using (var db = new BookDbContext ()) {
+                var book = db.Books.Where (p => p.BookId == 1).FirstOrDefault ();
+                Console.WriteLine (book.BookName + book.BookId);
+                }
+                #endregion
+            }
         }
     }
-}

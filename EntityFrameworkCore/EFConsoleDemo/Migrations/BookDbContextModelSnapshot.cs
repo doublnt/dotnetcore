@@ -37,9 +37,7 @@ namespace EFConsoleDemo.Migrations
                     b.Property<int>("BlogId")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<DateTime>("UpdateTime")
-                        .ValueGeneratedOnAdd()
-                        .HasDefaultValueSql("CONVERT(date, GETDATE())");
+                    b.Property<DateTime>("UpdateTime");
 
                     b.Property<string>("Url");
 
@@ -54,8 +52,6 @@ namespace EFConsoleDemo.Migrations
                         .ValueGeneratedOnAdd();
 
                     b.Property<int>("AuthorId");
-
-                    b.Property<string>("BookName");
 
                     b.Property<double>("Price");
 

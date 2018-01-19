@@ -21,15 +21,6 @@ namespace EFConsoleDemo.DatabaseContext
                 .HasOne(p => p.Authors)
                 .WithOne(p => p.Books)
                 .HasForeignKey<Author>(p => p.AuthorId);
-
-            modelBuilder.Entity<Blog>()
-                .Property(p => p.UpdateTime)
-                .HasDefaultValueSql("CONVERT(date, GETDATE())");
-
-            modelBuilder.Entity<Blog>()
-                .Property(p => p.UpdateTime)
-                .Metadata.AfterSaveBehavior = PropertySaveBehavior.Ignore;
-
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

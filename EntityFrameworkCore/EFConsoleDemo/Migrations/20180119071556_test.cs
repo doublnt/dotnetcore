@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace EFConsoleDemo.Migrations
 {
-    public partial class _11 : Migration
+    public partial class test : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -14,7 +14,7 @@ namespace EFConsoleDemo.Migrations
                 {
                     BlogId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    UpdateTime = table.Column<DateTime>(type: "TEXT", nullable: false, defaultValueSql: "CONVERT(date, GETDATE())"),
+                    UpdateTime = table.Column<DateTime>(type: "TEXT", nullable: false),
                     Url = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
@@ -29,7 +29,6 @@ namespace EFConsoleDemo.Migrations
                     BookId = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     AuthorId = table.Column<int>(type: "INTEGER", nullable: false),
-                    BookName = table.Column<string>(type: "TEXT", nullable: true),
                     Price = table.Column<double>(type: "REAL", nullable: false),
                     Publisher = table.Column<string>(type: "TEXT", nullable: true)
                 },
