@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+VisualStudioVersion = 15.0.27130.2026
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTest", "UnitTest\UnitTest.csproj", "{35FE531D-CC85-409C-85A4-30B513AD6EF9}"
 EndProject
@@ -46,6 +46,8 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DoubleClick", "DoubleClick", "{A67B19F3-0567-4B2B-9231-8E3548DA45BD}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnlyPassGetDemo", "Middleware\OnlyPassGetDemo\OnlyPassGetDemo.csproj", "{3C8B601B-5D38-4CB3-92A6-5EE3889D2E7B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RegexMatchDemo", "RegexMatchDemo\RegexMatchDemo.csproj", "{934A748A-5616-4125-BFB6-F35CD8E25621}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +119,10 @@ Global
 		{3C8B601B-5D38-4CB3-92A6-5EE3889D2E7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C8B601B-5D38-4CB3-92A6-5EE3889D2E7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C8B601B-5D38-4CB3-92A6-5EE3889D2E7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{934A748A-5616-4125-BFB6-F35CD8E25621}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{934A748A-5616-4125-BFB6-F35CD8E25621}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{934A748A-5616-4125-BFB6-F35CD8E25621}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{934A748A-5616-4125-BFB6-F35CD8E25621}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
