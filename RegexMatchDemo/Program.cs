@@ -1,16 +1,17 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace RegexMatchDemo {
+
     class Program {
         static void Main (string[] args) {
             var text = @"http://q.cnblogs.com/test
-q.cnblogs.com/
-cnblogs.com/
-www.baidu.com/
-www.sina.com/
-www.google.com/";
+            q.cnblogs.com/
+            cnblogs.com/
+            www.baidu.com/
+            www.sina.com/
+            www.google.com/";
 
             var regex = new Regex (@"(?:[ａ-ｚa-z0-9]{1-50}[.．])?([ａ-ｚa-z0-9]{1,20}[.．][ａ-ｚa-z]{2,4}(?:[.．][ａ-ｚa-z]{2})?)/");
             var matches = regex.Matches (text);
