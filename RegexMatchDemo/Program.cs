@@ -3,8 +3,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace RegexMatchDemo {
-
-    class Program {
+    public lass Program {
         static void Main (string[] args) {
             var text = @"http://q.cnblogs.com/test
             q.cnblogs.com/
