@@ -2,8 +2,9 @@
 
 namespace CustomEvent {
 
+    //Declare the delegate 
     public delegate void CustomEventDelegate (object sender, CustomEventArgs e);
-    
+
     public class CustomEventArgs : EventArgs {
 
         public CustomEventArgs (string s) {
@@ -22,6 +23,7 @@ namespace CustomEvent {
         }
     }
     class Publisher {
+        // Define Event RaiseCustomEvent
         public event CustomEventDelegate RaiseCustomEvent;
 
         public void DoSomething () {
@@ -29,12 +31,10 @@ namespace CustomEvent {
         }
 
         protected virtual void OnRaiseCustomEvent (CustomEventArgs e) {
-            CustomEventDelegate handler = RaiseCustomEvent;
+            if (RaiseCustomEvent != null) {
+                e.Message += String.Format (" at {0}", DateTime.Now.ToString ());
 
-            if (handler != null) {
-                e.Message += String.Format ("at {0}", DateTime.Now.ToString ());
-
-                handler (this, e);
+                RaiseCustomEvent (this, e);
             }
         }
     }
