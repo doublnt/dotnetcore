@@ -32,7 +32,7 @@ namespace EventDemo {
             MyButton myButton = new MyButton ();
             myButton.OnClick += new MyButton.ClickHandler (btn_OnClick);
             myButton.OnClick += new MyButton.ClickHandler (btn_DoubleClick);
-            
+
             myButton.Click ();
         }
         public string MailSendMessage (string sender, string receiver) {
@@ -49,7 +49,7 @@ namespace EventDemo {
         }
 
         static void btn_OnClick (object sender, ButtonClickArgs e) {
-            Console.WriteLine ("You click me!");
+            Console.WriteLine ("You click me!" + e.Clicker.ToString ());
         }
 
         static void btn_DoubleClick (object sender, ButtonClickArgs e) {

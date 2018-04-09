@@ -5,7 +5,10 @@ namespace EventDemo {
         public event ClickHandler OnClick;
 
         public void Click () {
-            OnClick (this, new ButtonClickArgs () { Clicker = "Robert" });
+            var buttonClickArgs = new ButtonClickArgs {
+                Clicker = "Robert published!"
+            };
+            OnClick (this, buttonClickArgs);
         }
     }
 }
