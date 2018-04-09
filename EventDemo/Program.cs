@@ -8,13 +8,24 @@ namespace EventDemo {
             SendMessage mailSend = new SendMessage (new Program ().MailSendMessage);
             Console.WriteLine (mailSend ("Robert", "Mike"));
 
+            // Action delActions = OneVoke;
+            // delActions += TwoVoke;
+
+            // try {
+            //     delActions.Invoke ();
+            // } catch (Exception ex) {
+            //     Console.WriteLine ("I Caught you,", ex);
+            // }
             Action delActions = OneVoke;
             delActions += TwoVoke;
 
-            try {
-                delActions.Invoke ();
-            } catch (Exception ex) {
-                Console.WriteLine ("I Caught you,", ex);
+            Delegate[] delegates = delActions.GetInvocationList ();
+            foreach (Action item in delegates) {
+                try {
+                    item.Invoke ();
+                } catch (Exception ex) {
+                    Console.WriteLine ($"I Caught you,{ex}");
+                }
             }
         }
         public string MailSendMessage (string sender, string receiver) {
