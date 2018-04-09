@@ -7,7 +7,7 @@
             "type": "process",
             "args": [
                 "build",
-                "${workspaceFolder}/DoubleClickDemo/DoubleClickDemo.csproj"
+                "${workspaceFolder}/Event/CustomEvent/CustomEvent.csproj"
             ],
             "problemMatcher": "$msCompile"
         }
