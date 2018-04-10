@@ -1,12 +1,17 @@
 ﻿using System;
+using Microsoft.AspNetCore;
+using Microsoft.AspNetCore.Hosting;
 
-namespace EventBusDemo
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            Console.WriteLine("Hello World!");
+namespace EventBusDemo {
+    public class Program {
+        public static void Main (string[] args) {
+            BuildWebHost (args).Run ();
+        }
+
+        public static IWebHost BuildWebHost (string[] args) {
+            return WebHost.CreateDefaultBuilder (args)
+                .UseStartup<Startup> ()
+                .Build ();
         }
     }
 }

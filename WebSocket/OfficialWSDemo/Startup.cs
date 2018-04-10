@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.WebSockets;
@@ -10,81 +11,65 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using System.Collections.Concurrent;
 
-namespace OfficialWSDemo
-{
-    public class Startup
-    {
+namespace OfficialWSDemo {
+    public class Startup {
         // This method gets called by the runtime. Use this method to add services to the container.
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
-        public void ConfigureServices(IServiceCollection services)
-        {
-        }
+        public void ConfigureServices (IServiceCollection services) { }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
-        {
-            loggerFactory.AddConsole(LogLevel.Debug);
-            loggerFactory.AddDebug(LogLevel.Debug);
+        public void Configure (IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory) {
+            loggerFactory.AddConsole (LogLevel.Debug);
+            loggerFactory.AddDebug (LogLevel.Debug);
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
+            if (env.IsDevelopment ()) {
+                app.UseDeveloperExceptionPage ();
             }
 
-#region UseWebSockets
-            app.UseWebSockets();
-#endregion
+            #region UseWebSockets
+            app.UseWebSockets ();
+            #endregion
 
-# region UseWebSocketsOptions
+            #region UseWebSocketsOptions
             // var webSocketOptions = new WebSocketOptions()
             // {
             //     KeepAliveInterval = TimeSpan.FromSeconds(120),
             //     ReceiveBufferSize = 4 * 1024
             // };
             // app.UseWebSockets(webSocketOptions);
-#endregion
+            #endregion
 
-#region AcceptWebSocket
-            app.Use(async (context, next) =>
-            {
-                if (context.Request.Path == "/ws")
-                {
-                    if (context.WebSockets.IsWebSocketRequest)
-                    {
-                        WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync();
-                        await Echo(context, webSocket);
-                    }
-                    else
-                    {
+            #region AcceptWebSocket
+            app.Use (async (context, next) => {
+                if (context.Request.Path == "/ws") {
+                    if (context.WebSockets.IsWebSocketRequest) {
+                        WebSocket webSocket = await context.WebSockets.AcceptWebSocketAsync ();
+                        await Echo (context, webSocket);
+                    } else {
                         context.Response.StatusCode = 400;
                     }
-                }
-                else
-                {
-                    await next();
+                } else {
+                    await next ();
                 }
 
             });
-#endregion
-            app.UseFileServer();
+            #endregion
+            app.UseFileServer ();
         }
 
-#region Echo
-        private async Task Echo(HttpContext context, WebSocket webSocket)
-        {
+        #region Echo
+        private async Task Echo (HttpContext context, WebSocket webSocket) {
             var buffer = new byte[1024 * 4];
-            WebSocketReceiveResult result = await webSocket.ReceiveAsync(new ArraySegment<byte>(buffer), CancellationToken.None);
-            while (!result.CloseStatus.HasValue)
-            {
-                var abuffer = Encoding.ASCII.GetBytes("Hola, This is robert from cnblogs.");
-                await webSocket.SendAsync(new ArraySegment<byte>(abuffer, 0, abuffer.Length), result.MessageType, result.EndOfMessage, CancellationToken.None);
-                result = await webSocket.ReceiveAsync(new ArraySegment<byte>(abuffer), CancellationToken.None);
+            WebSocketReceiveResult result = await webSocket.ReceiveAsync (new ArraySegment<byte> (buffer), CancellationToken.None);
+            while (!result.CloseStatus.HasValue) {
+                var abuffer = Encoding.ASCII.GetBytes ("Hola, This is robert from cnblogs.");
+                await webSocket.SendAsync (new ArraySegment<byte> (abuffer, 0, abuffer.Length), result.MessageType, result.EndOfMessage, CancellationToken.None);
+                result = await webSocket.ReceiveAsync (new ArraySegment<byte> (abuffer), CancellationToken.None);
 
             }
-            await webSocket.CloseAsync(result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
+            await webSocket.CloseAsync (result.CloseStatus.Value, result.CloseStatusDescription, CancellationToken.None);
         }
-#endregion
+        #endregion
     }
 }
