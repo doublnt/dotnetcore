@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 
 namespace EventBusDemo.EventBus.Abstractions
 {
-    public interface IDynamicIntegationEventHandler
+    public interface IDynamicIntegrationEventHandler
     {
          Task Handle(dynamic eventDate);
     }
