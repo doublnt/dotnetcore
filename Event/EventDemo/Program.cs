@@ -5,6 +5,8 @@ namespace EventDemo {
     public class Program {
         public delegate string SendMessage (string sender, string receiver);
         public static void Main (string[] args) {
+            
+            #region Commentcode
             // SendMessage mailSend = new SendMessage (new Program ().MailSendMessage);
             // Console.WriteLine (mailSend ("Robert", "Mike"));
 
@@ -34,6 +36,7 @@ namespace EventDemo {
             // myButton.OnClick += btn_DoubleClick;
 
             // myButton.Click ();
+            #endregion
 
             MyCar benz = new MyCar { Name = "Benz" };
 
