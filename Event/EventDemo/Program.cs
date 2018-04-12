@@ -30,11 +30,23 @@ namespace EventDemo {
             // }
 
             MyButton myButton = new MyButton ();
-            myButton.OnClick += new MyButton.ClickHandler (btn_OnClick);
-            myButton.OnClick += new MyButton.ClickHandler (btn_DoubleClick);
+            myButton.OnClick += btn_OnClick;
+            myButton.OnClick += btn_DoubleClick;
 
             myButton.Click ();
+
+            MyCar benz = new MyCar { Name = "Benz" };
+
+            Passenger p4 = new Passenger { Name = "xiaoming" };
+            Passenger p2 = new Passenger { Name = "xiaohong" };
+
+            benz.RaiseCar += new MyCar.BeginOnCarHandler(p2.BeginToCar);
+            benz.RaiseCar += new MyCar.BeginOnCarHandler(p4.BeginToCar);
+
+            benz.RunCar ();
+
         }
+
         public string MailSendMessage (string sender, string receiver) {
             return "From:" + sender + "\nTo:" + receiver;
         }

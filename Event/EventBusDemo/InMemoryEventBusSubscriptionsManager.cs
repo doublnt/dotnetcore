@@ -47,7 +47,7 @@ namespace EventBusDemo {
                 _handlers[eventName].Add (SubscriptionInfo.Typed (handlerType));
             }
         }
-        
+
         public void RemoveDynamicSubscription<TH> (string eventName)
         where TH : IDynamicIntegrationEventHandler {
             var handlerToRemove = FindDynamicSubscriptionToRemove<TH> (eventName);
@@ -65,12 +65,16 @@ namespace EventBusDemo {
         private void DoRemoveHandler (string eventName, SubscriptionInfo subsToRemove) {
             if (subsToRemove != null) {
                 _handlers[eventName].Remove (subsToRemove);
+
                 if (!_handlers[eventName].Any ()) {
+                    
                     _handlers.Remove (eventName);
                     var eventType = _eventTypes.SingleOrDefault (e => e.Name == eventName);
+
                     if (eventType != null) {
                         _eventTypes.Remove (eventType);
                     }
+
                     RaiseOnEventRemoved (eventName);
                 }
 
