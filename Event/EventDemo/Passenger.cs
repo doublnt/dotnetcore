@@ -4,7 +4,7 @@ namespace EventDemo {
         public string Name { get; set; }
 
         public void BeginToCar () {
-            System.Console.WriteLine ("我上车了:" + Name);
+            System.Console.WriteLine ("我上车了，我是：" + Name);
         }
     }
 }

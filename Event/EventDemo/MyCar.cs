@@ -6,13 +6,13 @@ namespace EventDemo {
         public delegate void BeginOnCarHandler ();
 
         //定义一个 上车 委托方法的事件
-        public event BeginOnCarHandler RaiseCar;
+        public event BeginOnCarHandler CarNotification;
 
         public string Name { get; set; }
 
         public void RunCar () {
-            Console.WriteLine (Name + "开车了");
-            RaiseCar ();
+            CarNotification ();
+            Console.WriteLine ("好的，都上车了司机" + Name + "，开车了");
         }
     }
 }

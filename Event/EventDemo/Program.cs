@@ -5,8 +5,8 @@ namespace EventDemo {
     public class Program {
         public delegate string SendMessage (string sender, string receiver);
         public static void Main (string[] args) {
-            SendMessage mailSend = new SendMessage (new Program ().MailSendMessage);
-            Console.WriteLine (mailSend ("Robert", "Mike"));
+            // SendMessage mailSend = new SendMessage (new Program ().MailSendMessage);
+            // Console.WriteLine (mailSend ("Robert", "Mike"));
 
             // Action delActions = OneVoke;
             // delActions += TwoVoke;
@@ -29,19 +29,19 @@ namespace EventDemo {
             //     }
             // }
 
-            MyButton myButton = new MyButton ();
-            myButton.OnClick += btn_OnClick;
-            myButton.OnClick += btn_DoubleClick;
+            // MyButton myButton = new MyButton ();
+            // myButton.OnClick += btn_OnClick;
+            // myButton.OnClick += btn_DoubleClick;
 
-            myButton.Click ();
+            // myButton.Click ();
 
             MyCar benz = new MyCar { Name = "Benz" };
 
             Passenger p4 = new Passenger { Name = "xiaoming" };
             Passenger p2 = new Passenger { Name = "xiaohong" };
 
-            benz.RaiseCar += new MyCar.BeginOnCarHandler(p2.BeginToCar);
-            benz.RaiseCar += new MyCar.BeginOnCarHandler(p4.BeginToCar);
+            benz.CarNotification += new MyCar.BeginOnCarHandler(p2.BeginToCar);
+            benz.CarNotification += new MyCar.BeginOnCarHandler(p4.BeginToCar);
 
             benz.RunCar ();
 
