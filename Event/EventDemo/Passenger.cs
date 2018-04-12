@@ -3,8 +3,9 @@ namespace EventDemo {
 
         public string Name { get; set; }
 
-        public void BeginToCar () {
-            System.Console.WriteLine ("我上车了，我是：" + Name);
+        public void BeginToCar (MyCar car) {
+            car.Count++;
+            System.Console.WriteLine ($"我上车了，我是：{Name}，我坐的车是{car.Name}");
         }
     }
 }

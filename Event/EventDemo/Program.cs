@@ -5,7 +5,7 @@ namespace EventDemo {
     public class Program {
         public delegate string SendMessage (string sender, string receiver);
         public static void Main (string[] args) {
-            
+
             #region Commentcode
             // SendMessage mailSend = new SendMessage (new Program ().MailSendMessage);
             // Console.WriteLine (mailSend ("Robert", "Mike"));
@@ -40,14 +40,13 @@ namespace EventDemo {
 
             MyCar benz = new MyCar { Name = "Benz" };
 
-            Passenger p4 = new Passenger { Name = "xiaoming" };
+            Passenger p1 = new Passenger { Name = "xiaoming" };
             Passenger p2 = new Passenger { Name = "xiaohong" };
 
-            benz.CarNotification += new MyCar.BeginOnCarHandler(p2.BeginToCar);
-            benz.CarNotification += new MyCar.BeginOnCarHandler(p4.BeginToCar);
+            benz.CarNumberNotification += p1.BeginToCar;
+            benz.CarNumberNotification += p2.BeginToCar;
 
             benz.RunCar ();
-
         }
 
         public string MailSendMessage (string sender, string receiver) {
