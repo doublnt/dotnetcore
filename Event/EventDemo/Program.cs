@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
+using EventDemo.EventBus;
+using EventDemo.FishDemo;
 
 namespace EventDemo {
     public class Program {
@@ -38,15 +40,33 @@ namespace EventDemo {
             // myButton.Click ();
             #endregion
 
-            MyCar benz = new MyCar { Name = "Benz" };
+            // MyCar benz = new MyCar { Name = "Benz" };
 
-            Passenger p1 = new Passenger { Name = "xiaoming" };
-            Passenger p2 = new Passenger { Name = "xiaohong" };
+            // Passenger p1 = new Passenger { Name = "xiaoming" };
+            // Passenger p2 = new Passenger { Name = "xiaohong" };
 
-            benz.CarNumberNotification += p1.BeginToCar;
-            benz.CarNumberNotification += p2.BeginToCar;
+            // benz.CarNumberNotification += p1.BeginToCar;
+            // benz.CarNumberNotification += p2.BeginToCar;
 
-            benz.RunCar ();
+            // benz.RunCar ();
+
+            FishingMan fm = new FishingMan { Name = "Robert" };
+            // FishingPole fp = new FishingPole ();
+
+            // fm.FishingPole = fp;
+
+            // // fp.FishingEvent += fm.Update;
+
+            // // fp.FishingEvent += new FishingEventHandler ().EventHandle;
+
+            // while (fm.Count < 5) {
+            //     fm.Fishing ();
+            //     System.Console.WriteLine ("------");
+            // }
+            FishingEventData fishingEventData = new FishingEventData { FishingMan = fm };
+
+            EventBusManager eventBusManager = EventBusManager.Default;
+            eventBusManager.Trigger<FishingEventData> (fishingEventData);
         }
 
         public string MailSendMessage (string sender, string receiver) {
