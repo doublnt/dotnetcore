@@ -1,6 +1,6 @@
 using System;
 
-namespace EventDemo {
+namespace EventDemo.ButtonDemo {
     public class ButtonClickArgs : EventArgs {
         public string Clicker { get; set; }
     }

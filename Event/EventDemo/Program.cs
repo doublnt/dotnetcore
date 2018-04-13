@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Threading.Tasks;
+using EventDemo.ButtonDemo;
 using EventDemo.EventBus;
 using EventDemo.FishDemo;
 using Microsoft.Extensions.DependencyInjection;
@@ -8,13 +9,13 @@ namespace EventDemo {
     public class Program {
         public delegate string SendMessage (string sender, string receiver);
 
-        public void RegisterService(IServiceCollection services){
-            
+        public void RegisterService (IServiceCollection services) {
+
         }
 
         public static void Main (string[] args) {
 
-            #region Commentcode
+            #region Message And CarDemo
             // SendMessage mailSend = new SendMessage (new Program ().MailSendMessage);
             // Console.WriteLine (mailSend ("Robert", "Mike"));
 
@@ -46,6 +47,7 @@ namespace EventDemo {
             // myButton.Click ();
             #endregion
 
+            #region CarDemo
             // MyCar benz = new MyCar { Name = "Benz" };
 
             // Passenger p1 = new Passenger { Name = "xiaoming" };
@@ -55,6 +57,9 @@ namespace EventDemo {
             // benz.CarNumberNotification += p2.BeginToCar;
 
             // benz.RunCar ();
+            #endregion
+
+            #region FishDemo
 
             FishingMan fm = new FishingMan { Name = "Robert" };
             // FishingPole fp = new FishingPole ();
@@ -73,6 +78,8 @@ namespace EventDemo {
 
             EventBusManager eventBusManager = EventBusManager.Default;
             eventBusManager.Trigger<FishingEventData> (fishingEventData);
+
+            #endregion
         }
 
         public string MailSendMessage (string sender, string receiver) {

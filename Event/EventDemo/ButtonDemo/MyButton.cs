@@ -1,4 +1,4 @@
-namespace EventDemo {
+namespace EventDemo.ButtonDemo {
     public class MyButton {
         public delegate void ClickHandler (object sender, ButtonClickArgs e);
 
