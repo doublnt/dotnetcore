@@ -2,10 +2,16 @@
 using System.Threading.Tasks;
 using EventDemo.EventBus;
 using EventDemo.FishDemo;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EventDemo {
     public class Program {
         public delegate string SendMessage (string sender, string receiver);
+
+        public void RegisterService(IServiceCollection services){
+            
+        }
+
         public static void Main (string[] args) {
 
             #region Commentcode
