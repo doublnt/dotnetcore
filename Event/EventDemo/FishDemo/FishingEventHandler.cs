@@ -1,6 +1,6 @@
 using EventDemo.Abstraction;
 
-namespace EventDemo.EventBus {
+namespace EventDemo.FishDemo {
     public class FishingEventHandler : IEventHandler<FishingEventData> {
         public void EventHandle (FishingEventData eventData) {
             eventData.FishingMan.Count++;

@@ -1,6 +1,6 @@
-using EventDemo.FishDemo;
+using EventDemo.EventBus;
 
-namespace EventDemo.EventBus {
+namespace EventDemo.FishDemo {
     public class FishingEventData : EventData {
         public FishType FishType { get; set; }
 
