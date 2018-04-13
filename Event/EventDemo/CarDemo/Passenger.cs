@@ -1,4 +1,4 @@
-namespace EventDemo {
+namespace EventDemo.CarDemo {
     public class Passenger {
 
         public string Name { get; set; }

@@ -1,6 +1,6 @@
 using System;
 
-namespace EventDemo {
+namespace EventDemo.CarDemo {
     public class MyCar {
         //定义一个 上车 的委托
         public delegate void CarHandler (MyCar car);
