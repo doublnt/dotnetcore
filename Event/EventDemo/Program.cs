@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using EventDemo.ButtonDemo;
+using EventDemo.CarDemo;
 using EventDemo.EventBus;
 using EventDemo.FishDemo;
 using Microsoft.Extensions.DependencyInjection;
@@ -48,36 +49,55 @@ namespace EventDemo {
             #endregion
 
             #region CarDemo
-            // MyCar benz = new MyCar { Name = "Benz" };
+            MyCar car = new MyCar ();
+            Driver driver = new Driver { Name = "lao si ji" };
+            Passenger passenger = new Passenger { Name = "cheng ke xiaobai" };
 
-            // Passenger p1 = new Passenger { Name = "xiaoming" };
-            // Passenger p2 = new Passenger { Name = "xiaohong" };
+            //纯委托版本
+            CarHandler carHandler = null;
+            carHandler += driver.DriveCar;
+            carHandler += passenger.BoardCar;
 
-            // benz.CarNumberNotification += p1.BeginToCar;
-            // benz.CarNumberNotification += p2.BeginToCar;
+            //避免因为委托的某个回调方法调用失败，阻塞
+            Delegate[] arrayDelegate = carHandler.GetInvocationList ();
 
-            // benz.RunCar ();
+            foreach (CarHandler item in arrayDelegate) {
+                item.Invoke ();
+            }
+
+            Console.WriteLine (carHandler.Target + "\n" + carHandler.Method + "\n" + carHandler.GetInvocationList ());
+            carHandler.Invoke ();
+            carHandler -= driver.DriveCar;
+            carHandler.Invoke ();
+
+            //司机和乘客分别订阅发车通知事件
+            // car.CarNumberNotification += driver.DriveCar;
+            // car.CarNumberNotification += passenger.BoardCar;
+            // car.RunCar ();
             #endregion
 
             #region FishDemo
 
-            FishingMan fm = new FishingMan { Name = "Robert" };
-            // FishingPole fp = new FishingPole ();
+            // FishingMan fm = new FishingMan { Name = "Robert" };
+            // #region general event and delegte demo
+            // // FishingPole fp = new FishingPole ();
 
-            // fm.FishingPole = fp;
+            // // fm.FishingPole = fp;
 
-            // // fp.FishingEvent += fm.Update;
+            // // // fp.FishingEvent += fm.Update;
 
-            // // fp.FishingEvent += new FishingEventHandler ().EventHandle;
+            // // // fp.FishingEvent += new FishingEventHandler ().EventHandle;
 
-            // while (fm.Count < 5) {
-            //     fm.Fishing ();
-            //     System.Console.WriteLine ("------");
-            // }
-            FishingEventData fishingEventData = new FishingEventData { FishingMan = fm };
+            // // while (fm.Count < 5) {
+            // //     fm.Fishing ();
+            // //     System.Console.WriteLine ("------");
+            // // }
+            // #endregion
 
-            EventBusManager eventBusManager = EventBusManager.Default;
-            eventBusManager.Trigger<FishingEventData> (fishingEventData);
+            // FishingEventData fishingEventData = new FishingEventData { FishingMan = fm };
+
+            // EventBusManager eventBusManager = EventBusManager.Default;
+            // eventBusManager.Trigger<FishingEventData> (fishingEventData);
 
             #endregion
         }
