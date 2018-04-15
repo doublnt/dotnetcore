@@ -49,26 +49,28 @@ namespace EventDemo {
             #endregion
 
             #region CarDemo
-            MyCar car = new MyCar ();
-            Driver driver = new Driver { Name = "lao si ji" };
-            Passenger passenger = new Passenger { Name = "cheng ke xiaobai" };
+            CarManager car = new CarManager ();
+            Driver driver = new Driver (car) { Name = "lao si ji" };
+            Passenger passenger = new Passenger (car) { Name = "cheng ke xiaobai" };
+            CarNotificationEventData carNotificationEvent = new CarNotificationEventData (driver.Name, passenger.Name);
+
+            car.RunCar (driver, passenger);
 
             //纯委托版本
-            CarHandler carHandler = null;
-            carHandler += driver.DriveCar;
-            carHandler += passenger.BoardCar;
+            // CarNotificationEventHandler carHandler = null;
+            // carHandler += driver.DriverHandle;
+            // carHandler += passenger.PassengerHandle;
+            // carHandler.Invoke (carNotificationEvent);
 
             //避免因为委托的某个回调方法调用失败，阻塞
-            Delegate[] arrayDelegate = carHandler.GetInvocationList ();
+            // Delegate[] arrayDelegate = carHandler.GetInvocationList ();
 
-            foreach (CarHandler item in arrayDelegate) {
-                item.Invoke ();
-            }
+            // foreach (CarNotificationEventHandler item in arrayDelegate) {
+            //     item.Invoke (carNotificationEvent);
+            // }
 
-            Console.WriteLine (carHandler.Target + "\n" + carHandler.Method + "\n" + carHandler.GetInvocationList ());
-            carHandler.Invoke ();
-            carHandler -= driver.DriveCar;
-            carHandler.Invoke ();
+            // Console.WriteLine (carHandler.Target + "\n" + carHandler.Method + "\n" + carHandler.GetInvocationList ());
+            // carHandler.Invoke (carNotificationEvent);
 
             //司机和乘客分别订阅发车通知事件
             // car.CarNumberNotification += driver.DriveCar;
