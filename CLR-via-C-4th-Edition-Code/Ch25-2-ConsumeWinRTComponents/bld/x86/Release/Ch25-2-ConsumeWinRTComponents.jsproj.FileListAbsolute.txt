@@ -1,0 +1,17 @@
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\bin\x86\Release\resources.pri
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\bin\x86\Release\AppxManifest.xml
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\bin\x86\Release\Ch25-2-ConsumeWinRTComponents.build.appxrecipe
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\bld\x86\Release\priconfig.xml.intermediate
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\bld\x86\Release\layout.resfiles.intermediate
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\bld\x86\Release\resources.resfiles.intermediate
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\bld\x86\Release\pri.resfiles.intermediate
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\bld\x86\Release\priconfig.xml
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\bld\x86\Release\layout.resfiles
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\bld\x86\Release\resources.resfiles
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\bld\x86\Release\pri.resfiles
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\bld\x86\Release\LanguageQualifiers.txt
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\bld\x86\Release\ProjectArchitectures.txt
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\bin\x86\Release\Wintellect.WinRTComponents.winmd
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\bin\x86\Release\Wintellect.WinRTComponents.pdb
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\bin\x86\Release\Wintellect.WinRTComponents.pri
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\bld\x86\Release\Ch25-2-ConsumeWinRTComponents.jsprojResolveAssemblyReference.cache

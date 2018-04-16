@@ -1,0 +1,2 @@
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-1-WinRTComponents.csproj;x86
+C:\Users\Jeffrey\SkyDrive\Documents\CLR via C#\Code\Ch25-2-ConsumeWinRTComponents\Ch25-2-ConsumeWinRTComponents.jsproj;x86
