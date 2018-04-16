@@ -3,12 +3,14 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Reflection;
 using EventDemo.Abstraction;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EventDemo.EventBus {
     public class EventBusManager {
         public static EventBusManager Default => new EventBusManager ();
 
         private readonly ConcurrentDictionary<Type, List<Type>> _eventAndHandlerMapping;
+
 
         public EventBusManager () {
             _eventAndHandlerMapping = new ConcurrentDictionary<Type, List<Type>> ();
