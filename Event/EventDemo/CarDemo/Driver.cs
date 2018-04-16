@@ -12,7 +12,7 @@ namespace EventDemo.CarDemo {
         public void DriverHandle (CarNotificationEventData carNotificationEventData) {
             Console.WriteLine ("Driver Hanlder---------");
             Console.WriteLine (carNotificationEventData.Driver + "\n" + carNotificationEventData.Passenger +
-                "\n" + carNotificationEventData.NotifiDate);
+                "\n" + carNotificationEventData.EventDate);
         }
 
         public void UnRegister (CarManager carManager) {

@@ -14,7 +14,5 @@ namespace EventDemo.CarDemo {
         public string Driver { get { return _driverName; } }
 
         public string Passenger { get { return _passengerName; } }
-
-        public DateTime NotifiDate { get { return DateTime.Now; } }
     }
 }

@@ -11,7 +11,7 @@ namespace EventDemo.CarDemo {
         public void PassengerHandle (CarNotificationEventData carNotificationEventData) {
             Console.WriteLine ("Passenger Handler----------");
             Console.WriteLine (carNotificationEventData.Driver + "is the driver \n the passenger is " +
-                carNotificationEventData.Passenger + carNotificationEventData.NotifiDate);
+                carNotificationEventData.Passenger + carNotificationEventData.EventDate);
         }
 
         public void UnRegister (CarManager carManager) {
