@@ -18,3 +18,4 @@ ReleaseWeb/
 *.csproj.user
 *.lock.json
 log/
+*.DS_Store
