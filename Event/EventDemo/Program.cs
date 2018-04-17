@@ -54,7 +54,7 @@ namespace EventDemo {
             Passenger passenger = new Passenger (car) { Name = "cheng ke xiaobai" };
             CarNotificationEventData carNotificationEvent = new CarNotificationEventData (driver.Name, passenger.Name);
 
-            car.RunCar (driver, passenger);
+            car.OnCarToRun (driver, passenger);
 
             //纯委托版本
             // CarNotificationEventHandler carHandler = null;
