@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Threading.Tasks;
+using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using EventDemo.Abstraction;
 using EventDemo.ButtonDemo;
 using EventDemo.CarDemo;
 using EventDemo.EventBus;
@@ -9,10 +12,6 @@ using Microsoft.Extensions.DependencyInjection;
 namespace EventDemo {
     public class Program {
         public delegate string SendMessage (string sender, string receiver);
-
-        public void RegisterService (IServiceCollection services) {
-
-        }
 
         public static void Main (string[] args) {
 
@@ -49,12 +48,12 @@ namespace EventDemo {
             #endregion
 
             #region CarDemo
-            CarManager car = new CarManager ();
-            Driver driver = new Driver (car) { Name = "lao si ji" };
-            Passenger passenger = new Passenger (car) { Name = "cheng ke xiaobai" };
-            CarNotificationEventData carNotificationEvent = new CarNotificationEventData (driver.Name, passenger.Name);
+            // CarManager car = new CarManager ();
+            // Driver driver = new Driver (car) { Name = "lao si ji" };
+            // Passenger passenger = new Passenger (car) { Name = "cheng ke xiaobai" };
+            // CarNotificationEventData carNotificationEvent = new CarNotificationEventData (driver.Name, passenger.Name);
 
-            car.OnCarToRun (driver, passenger);
+            // car.OnCarToRun (driver, passenger);
 
             //纯委托版本
             // CarNotificationEventHandler carHandler = null;
@@ -102,6 +101,31 @@ namespace EventDemo {
             // eventBusManager.Trigger<FishingEventData> (fishingEventData);
 
             #endregion
+
+            #region EventBusRegister Demo
+
+            var serviceProvider = new ServiceCollection ()
+                .AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager> ()
+                .AddTransient<DriverHandler> ()
+                .AddTransient<PassengerHandler> ();
+
+            var container = new ContainerBuilder ();
+            container.Populate (serviceProvider);
+
+            var autofac = new AutofacServiceProvider (container.Build ());
+
+            var eventBus = new InMemoryEventBusSubscriptionsManager (autofac.GetRequiredService<ILifetimeScope> ());
+
+            RegisterEventBus (eventBus);
+
+            CarNotificationEventData carNotificationEventData = new CarNotificationEventData ("Robert 1", "Passenger 1");
+
+            eventBus.BeiginProcess (carNotificationEventData);
+            #endregion
+        }
+
+        private static void RegisterEventBus (IEventBusSubscriptionsManager eventBus) {
+            eventBus.AddSubscription<CarNotificationEventData, DriverHandler> ();
         }
 
         public string MailSendMessage (string sender, string receiver) {

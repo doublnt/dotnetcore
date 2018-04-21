@@ -11,7 +11,6 @@ namespace EventDemo.EventBus {
 
         private readonly ConcurrentDictionary<Type, List<Type>> _eventAndHandlerMapping;
 
-
         public EventBusManager () {
             _eventAndHandlerMapping = new ConcurrentDictionary<Type, List<Type>> ();
             MapEventToHandler ();
