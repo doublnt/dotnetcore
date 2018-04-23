@@ -106,15 +106,9 @@ namespace EventDemo {
 
             var serviceProvider = new ServiceCollection ()
                 .AddSingleton<IEventBusSubscriptionsManager, InMemoryEventBusSubscriptionsManager> ()
-                .AddTransient<DriverHandler> ()
-                .AddTransient<PassengerHandler> ();
+                .AddTransient<DriverHandler> ();
 
-            var container = new ContainerBuilder ();
-            container.Populate (serviceProvider);
-
-            var autofac = new AutofacServiceProvider (container.Build ());
-
-            var eventBus = new InMemoryEventBusSubscriptionsManager (autofac.GetRequiredService<ILifetimeScope> ());
+            var eventBus = new InMemoryEventBusSubscriptionsManager (serviceProvider);
 
             RegisterEventBus (eventBus);
 

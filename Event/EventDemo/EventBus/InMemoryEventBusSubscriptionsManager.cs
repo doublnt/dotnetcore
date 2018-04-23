@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using Autofac;
 using EventDemo.Abstraction;
 using EventDemo.CarDemo;
+using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 
 namespace EventDemo.EventBus {
@@ -12,12 +13,12 @@ namespace EventDemo.EventBus {
         private readonly Dictionary<string, List<Type>> _handler; //Type is HandlerType
         private readonly List<Type> _eventTypes;
         public event CarNotificationDelegate OnEventRemoved;
-        private readonly ILifetimeScope _autofac;
+        private readonly IServiceProvider _service;
 
-        public InMemoryEventBusSubscriptionsManager (ILifetimeScope autofac) {
+        public InMemoryEventBusSubscriptionsManager (IServiceCollection service) {
             _handler = new Dictionary<string, List<Type>> ();
             _eventTypes = new List<Type> ();
-            _autofac = autofac;
+            _service = service.BuildServiceProvider ();
             OnEventRemoved += BeiginProcess;
         }
 
@@ -108,16 +109,14 @@ namespace EventDemo.EventBus {
         private async Task Process (CarNotificationEventData eventBusData) {
             var eventName = eventBusData.GetType ().Name;
             if (HasSubscriptionsForEvent (eventName)) {
-                using (var scope = _autofac.BeginLifetimeScope ("RabbitMQ")) {
-                    var subscriptions = _handler[eventName];
+                var subscriptions = _handler[eventName];
 
-                    foreach (var subscription in subscriptions) {
-                        var eventType = GetEventTypeByName (eventName);
-                        var handler = scope.ResolveOptional (subscription);
-                        var concreteType = typeof (IEventHandler<>).MakeGenericType (eventType);
+                foreach (var subscription in subscriptions) {
+                    var eventType = GetEventTypeByName (eventName);
+                    var handler = _service.GetService (subscription);
+                    var concreteType = typeof (IEventHandler<>).MakeGenericType (eventType);
 
-                        await (Task) concreteType.GetMethod ("EventHandle").Invoke (handler, new object[] { eventBusData });
-                    }
+                    await (Task) concreteType.GetMethod ("EventHandle").Invoke (handler, new object[] { eventBusData });
                 }
             }
         }
