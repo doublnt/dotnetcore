@@ -1,12 +1,12 @@
 ﻿using System;
 
-namespace LRUDEMO
+namespace LRUDemo
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            LRUCache<int, int> cache = new LRUCache<int, int>(5);
         }
     }
 }
