@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace LRUDemo
 {
@@ -19,9 +20,8 @@ namespace LRUDemo
     {
         private int capacity;
 
-        //To-Do Dictionary 非线程安全，需要写 lock
-        private readonly Dictionary<TKey, LinkedListNode<LRUCacheItem<TKey, TValue>>> _cacheMap = new Dictionary<TKey, LinkedListNode<LRUCacheItem<TKey,TValue>>>();
-        private readonly LinkedList<LRUCacheItem<TKey, TValue>> _lruLinkedList = new LinkedList<LRUCacheItem<TKey,TValue>>();
+        private readonly Dictionary<TKey, LinkedListNode<LRUCacheItem<TKey, TValue>>> _cacheMap = new Dictionary<TKey, LinkedListNode<LRUCacheItem<TKey, TValue>>>();
+        private readonly LinkedList<LRUCacheItem<TKey, TValue>> _lruLinkedList = new LinkedList<LRUCacheItem<TKey, TValue>>();
 
         public LRUCache(int capacity)
         {
@@ -74,6 +74,24 @@ namespace LRUDemo
                 _lruLinkedList.AddFirst(newNode);
                 _cacheMap.Add(key, newNode);
             }
+        }
+
+        public void DisplayList()
+        {
+            StringBuilder sb = new StringBuilder();
+            LinkedListNode<LRUCacheItem<TKey, TValue>> cacheItem = _lruLinkedList.First;
+            while (cacheItem != null)
+            {
+                sb.Append(cacheItem.Value.cacheValue);
+                cacheItem = cacheItem.Next;
+
+                if (cacheItem != null)
+                {
+                    sb.Append("-->");
+                }
+            }
+
+            Console.WriteLine(sb.ToString());
         }
     }
 }
