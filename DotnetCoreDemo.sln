@@ -70,6 +70,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AbstractDemo", "AbstractDem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LRUDEMO", "LRUDEMO\LRUDEMO.csproj", "{9561B0F8-5190-4F96-B973-DEC31DD76C52}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet-core-version", "dotnet-core-version\dotnet-core-version.csproj", "{B127080F-64C6-487C-9CD8-789C97271E0F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -380,6 +382,18 @@ Global
 		{9561B0F8-5190-4F96-B973-DEC31DD76C52}.Release|x64.Build.0 = Release|Any CPU
 		{9561B0F8-5190-4F96-B973-DEC31DD76C52}.Release|x86.ActiveCfg = Release|Any CPU
 		{9561B0F8-5190-4F96-B973-DEC31DD76C52}.Release|x86.Build.0 = Release|Any CPU
+		{B127080F-64C6-487C-9CD8-789C97271E0F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B127080F-64C6-487C-9CD8-789C97271E0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B127080F-64C6-487C-9CD8-789C97271E0F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{B127080F-64C6-487C-9CD8-789C97271E0F}.Debug|x64.Build.0 = Debug|Any CPU
+		{B127080F-64C6-487C-9CD8-789C97271E0F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{B127080F-64C6-487C-9CD8-789C97271E0F}.Debug|x86.Build.0 = Debug|Any CPU
+		{B127080F-64C6-487C-9CD8-789C97271E0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B127080F-64C6-487C-9CD8-789C97271E0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B127080F-64C6-487C-9CD8-789C97271E0F}.Release|x64.ActiveCfg = Release|Any CPU
+		{B127080F-64C6-487C-9CD8-789C97271E0F}.Release|x64.Build.0 = Release|Any CPU
+		{B127080F-64C6-487C-9CD8-789C97271E0F}.Release|x86.ActiveCfg = Release|Any CPU
+		{B127080F-64C6-487C-9CD8-789C97271E0F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
