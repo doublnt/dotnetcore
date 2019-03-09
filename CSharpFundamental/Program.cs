@@ -20,6 +20,9 @@ namespace CSharpFundamental
             pClass = new PrivateClass("Robert", "2.0", "fakeHashcode");
 
             Console.WriteLine(pClass.Name + "|" + pClass.Version + "|" + pClass.HashCode);
+
+
+            new AnonymousType().CreateAnonymousAndExecute();
         }
     }
 }
