@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Reflection;
 
 namespace dotnet_core_version
 {
@@ -6,7 +7,13 @@ namespace dotnet_core_version
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+
+            var framework_Version = System.Runtime.InteropServices.RuntimeInformation.FrameworkDescription;
+            Console.WriteLine(framework_Version);
+            framework_Version = System.Runtime.InteropServices.RuntimeEnvironment.GetSystemVersion();
+            Console.WriteLine(framework_Version);
+             framework_Version = System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeDirectory();
+            Console.WriteLine(framework_Version);
         }
     }
 }

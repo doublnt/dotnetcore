@@ -72,6 +72,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LRUDEMO", "LRUDEMO\LRUDEMO.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet-core-version", "dotnet-core-version\dotnet-core-version.csproj", "{B127080F-64C6-487C-9CD8-789C97271E0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpFundamental", "CSharpFundamental\CSharpFundamental.csproj", "{2FDBC64F-1C86-47AC-9DC3-D9D319CAFDBD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -394,6 +396,18 @@ Global
 		{B127080F-64C6-487C-9CD8-789C97271E0F}.Release|x64.Build.0 = Release|Any CPU
 		{B127080F-64C6-487C-9CD8-789C97271E0F}.Release|x86.ActiveCfg = Release|Any CPU
 		{B127080F-64C6-487C-9CD8-789C97271E0F}.Release|x86.Build.0 = Release|Any CPU
+		{2FDBC64F-1C86-47AC-9DC3-D9D319CAFDBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2FDBC64F-1C86-47AC-9DC3-D9D319CAFDBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2FDBC64F-1C86-47AC-9DC3-D9D319CAFDBD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{2FDBC64F-1C86-47AC-9DC3-D9D319CAFDBD}.Debug|x64.Build.0 = Debug|Any CPU
+		{2FDBC64F-1C86-47AC-9DC3-D9D319CAFDBD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{2FDBC64F-1C86-47AC-9DC3-D9D319CAFDBD}.Debug|x86.Build.0 = Debug|Any CPU
+		{2FDBC64F-1C86-47AC-9DC3-D9D319CAFDBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2FDBC64F-1C86-47AC-9DC3-D9D319CAFDBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2FDBC64F-1C86-47AC-9DC3-D9D319CAFDBD}.Release|x64.ActiveCfg = Release|Any CPU
+		{2FDBC64F-1C86-47AC-9DC3-D9D319CAFDBD}.Release|x64.Build.0 = Release|Any CPU
+		{2FDBC64F-1C86-47AC-9DC3-D9D319CAFDBD}.Release|x86.ActiveCfg = Release|Any CPU
+		{2FDBC64F-1C86-47AC-9DC3-D9D319CAFDBD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
