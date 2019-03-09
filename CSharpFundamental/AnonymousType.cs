@@ -49,6 +49,10 @@ namespace CSharpFundamental
                  return Convert.ToInt32(num1) + Convert.ToInt32(num2);
              };
 
+            Func<string, string, int> returnAIntWithLambda3 = (num1, num2) => Convert.ToInt32(num1) + Convert.ToInt32(num2);
+
+            Func<string, int> returnAIntWithLambda4 = num1 => Convert.ToInt32(num1);
+
             System.Console.WriteLine(returnAInt("22", "33"));
 
             Action<string, string> NoReturnValue = delegate (string value1, string value2)
