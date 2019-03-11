@@ -74,6 +74,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Algorithm", "Algorithm", "{
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KMPAlgorithm", "Algorithm\KMPAlgorithm\KMPAlgorithm.csproj", "{CE05BBC0-8AD9-4AD3-9D0E-377ACADEE8D8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aliyun-core-demo", "aliyun-core-demo\aliyun-core-demo.csproj", "{021682BE-4EC9-446E-9966-C63A511E7598}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -396,6 +398,18 @@ Global
 		{CE05BBC0-8AD9-4AD3-9D0E-377ACADEE8D8}.Release|x64.Build.0 = Release|Any CPU
 		{CE05BBC0-8AD9-4AD3-9D0E-377ACADEE8D8}.Release|x86.ActiveCfg = Release|Any CPU
 		{CE05BBC0-8AD9-4AD3-9D0E-377ACADEE8D8}.Release|x86.Build.0 = Release|Any CPU
+		{021682BE-4EC9-446E-9966-C63A511E7598}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{021682BE-4EC9-446E-9966-C63A511E7598}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{021682BE-4EC9-446E-9966-C63A511E7598}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{021682BE-4EC9-446E-9966-C63A511E7598}.Debug|x64.Build.0 = Debug|Any CPU
+		{021682BE-4EC9-446E-9966-C63A511E7598}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{021682BE-4EC9-446E-9966-C63A511E7598}.Debug|x86.Build.0 = Debug|Any CPU
+		{021682BE-4EC9-446E-9966-C63A511E7598}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{021682BE-4EC9-446E-9966-C63A511E7598}.Release|Any CPU.Build.0 = Release|Any CPU
+		{021682BE-4EC9-446E-9966-C63A511E7598}.Release|x64.ActiveCfg = Release|Any CPU
+		{021682BE-4EC9-446E-9966-C63A511E7598}.Release|x64.Build.0 = Release|Any CPU
+		{021682BE-4EC9-446E-9966-C63A511E7598}.Release|x86.ActiveCfg = Release|Any CPU
+		{021682BE-4EC9-446E-9966-C63A511E7598}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
