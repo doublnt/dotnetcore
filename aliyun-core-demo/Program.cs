@@ -18,19 +18,26 @@ namespace Aliyun.Core.Demo
 
         static void Main(string[] args)
         {
+            Console.WriteLine(System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeDirectory());
             accessKey = Environment.GetEnvironmentVariable("ACCESS_KEY_ID") ?? "AccessKeyId";
             accessKeySecret = Environment.GetEnvironmentVariable("ACCESS_KEY_SECRET") ?? "AccessKeySecret";
 
             profile = DefaultProfile.GetProfile(regionId, accessKey, accessKeySecret);
             client = new DefaultAcsClient(profile);
 
-            DescribeRegionsRequest request = new DescribeRegionsRequest();
-            DescribeRegionsResponse response = client.GetAcsResponse(request);
-
-            // Console.WriteLine(System.Text.Encoding.UTF8.GetString(response.HttpResponse.Content));
-            foreach (KeyValuePair<string, string> item in request.Headers)
+            try
             {
-                Console.WriteLine("Key: " + item.Key + "   Value: " + item.Value);
+                DescribeRegionsRequest request = new DescribeRegionsRequest();
+                DescribeRegionsResponse response = client.GetAcsResponse(request);
+
+                foreach (KeyValuePair<string, string> item in request.Headers)
+                {
+                    Console.WriteLine("Key: " + item.Key + "   Value: " + item.Value);
+                }
+            }
+             catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
             }
         }
     }
