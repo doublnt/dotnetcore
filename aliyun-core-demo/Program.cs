@@ -35,7 +35,7 @@ namespace Aliyun.Core.Demo
                     Console.WriteLine("Key: " + item.Key + "   Value: " + item.Value);
                 }
             }
-             catch (Exception ex)
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.ToString());
             }
