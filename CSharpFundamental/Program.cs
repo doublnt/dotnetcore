@@ -7,9 +7,9 @@ namespace CSharpFundamental
     {
         static void Main(string[] args)
         {
-            // PythonDemo();
+            PythonDemo();
 
-            CLRDemo();
+            //CLRDemo();
         }
 
         public static void CLRDemo()

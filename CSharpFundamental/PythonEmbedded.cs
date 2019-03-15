@@ -14,9 +14,9 @@ namespace CSharpFundamental
 
         public void ExecutePythonMethodInCode()
         {
-            // string python = @"
-            // def sayHello(user):
-            //     print 'Hello %(name)s' % {'name' : user}
+            // string python = @"\
+            // def sayHello(user):\
+            //     print('The user is %(name)s',user)
             // ";
 
             // ScriptEngine engine = Python.CreateEngine();
