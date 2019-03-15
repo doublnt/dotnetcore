@@ -9,6 +9,33 @@ namespace CSharpFundamental
         {
             Console.WriteLine("Hello World!");
 
+            RefTestDemo refTestDemo = new RefTestDemo();
+            int[] array = new int[5];
+            refTestDemo.RefMethodTest(ref array);
+
+            foreach (var item in array)
+            {
+                Console.WriteLine(item);
+            }
+
+            dynamic array2 = new System.Collections.Generic.List<int>() { 1, 2, 3 };
+
+            dynamic addtoInt = 111;
+
+            foreach (var item in array2)
+            {
+                dynamic value = item + addtoInt;
+                Console.WriteLine(value);
+            }
+        }
+
+        public static void DoFollowing(string msg)
+        {
+            Console.WriteLine("I will do the following!");
+        }
+
+        public void DoSomething()
+        {
             //Public get and set method
             PrivateClass pClass = new PrivateClass();
             pClass.Name = "Robert";
@@ -37,11 +64,6 @@ namespace CSharpFundamental
 
             AnonymousType.DoTheFollowing doTheFollowing = new AnonymousType.DoTheFollowing(DoFollowing);
             doTheFollowing("Hello");
-        }
-
-        public static void DoFollowing(string msg)
-        {
-            Console.WriteLine("I will do the following!");
         }
     }
 
