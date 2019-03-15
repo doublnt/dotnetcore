@@ -5,4 +5,8 @@
     <TargetFramework>netcoreapp2.2</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="aliyun-net-sdk-core" Version="1.2.2" />
+  </ItemGroup>
+
 </Project>

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net;
 
 namespace CSharpFundamental
 {
@@ -23,6 +24,24 @@ namespace CSharpFundamental
             new AnonymousType().CreateAnonymousAndExecute();
 
             TestConstrcutor tc = new TestConstrcutor("222");
+
+            tc.SetNamespaceParams(y: 1, x: 2);
+            tc.SetNamespaceParams(1, 2);
+
+            HttpWebRequest request = (HttpWebRequest) WebRequest.Create("https://www.alibabacloud.com");
+            request.Timeout = 1000;
+            HttpWebResponse response = (HttpWebResponse) request.GetResponse();
+
+            request = (HttpWebRequest) WebRequest.Create("https://www.cnblogs.com");
+            response = (HttpWebResponse) request.GetResponse();
+
+            AnonymousType.DoTheFollowing doTheFollowing = new AnonymousType.DoTheFollowing(DoFollowing);
+            doTheFollowing("Hello");
+        }
+
+        public static void DoFollowing(string msg)
+        {
+            Console.WriteLine("I will do the following!");
         }
     }
 
@@ -31,5 +50,10 @@ namespace CSharpFundamental
         public TestConstrcutor() : base() { }
 
         public TestConstrcutor(string param1) : base(param1) { }
+
+        public void SetNamespaceParams(int x, int y)
+        {
+            Console.WriteLine("X: {0} Y: {1}", x, y);
+        }
     }
 }
