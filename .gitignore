@@ -19,3 +19,4 @@ ReleaseWeb/
 *.lock.json
 log/
 *.DS_Store
+.vscode
