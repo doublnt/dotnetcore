@@ -7,8 +7,19 @@ namespace CSharpFundamental
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            PythonDemo();
+        }
 
+        public static void PythonDemo()
+        {
+            PythonEmbedded pythonEmbedded = new PythonEmbedded();
+
+            pythonEmbedded.ExecutePythonCode();
+            pythonEmbedded.ExecutePythonMethodInCode();
+        }
+
+        public static void DynamicDemo()
+        {
             RefTestDemo refTestDemo = new RefTestDemo();
             int[] array = new int[5];
             refTestDemo.RefMethodTest(ref array);

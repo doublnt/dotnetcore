@@ -7,6 +7,7 @@
 
   <ItemGroup>
     <PackageReference Include="aliyun-net-sdk-core" Version="1.2.2" />
+    <PackageReference Include="IronPython" Version="2.7.10-alpha0" />
   </ItemGroup>
 
 </Project>
