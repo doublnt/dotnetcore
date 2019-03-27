@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
+using System.Reflection;
+
+using NuGet;
 
 namespace CSharpFundamental
 {
@@ -7,9 +11,21 @@ namespace CSharpFundamental
     {
         static void Main(string[] args)
         {
-            PythonDemo();
-
+            // PythonDemo();
             //CLRDemo();
+
+            // var type = Type.GetType("System.Int32");
+            // var typeInfo = type.GetTypeInfo();
+
+            // Console.WriteLine(typeInfo.Name);
+
+            
+        }
+
+        public static void Relection()
+        {
+            var demo = new ReflectionDemo();
+            demo.RelectionResovle();
         }
 
         public static void CLRDemo()

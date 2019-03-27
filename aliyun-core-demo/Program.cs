@@ -2,42 +2,44 @@
 using System.Collections.Generic;
 
 using Aliyun.Acs.Core;
+using Aliyun.Acs.Core.Exceptions;
+using Aliyun.Acs.Core.Http;
 using Aliyun.Acs.Core.Profile;
-using Aliyun.Acs.Ecs.Model.V20140526;
 
-namespace Aliyun.Core.Demo
+namespace CommonRequestDemo
 {
     class Program
     {
-        private static string regionId = "cn-hangzhou";
-        private static string accessKey;
-        private static string accessKeySecret;
-
-        private static IClientProfile profile;
-        private static DefaultAcsClient client;
-
         static void Main(string[] args)
         {
-            Console.WriteLine(System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeDirectory());
-            accessKey = Environment.GetEnvironmentVariable("ACCESS_KEY_ID") ?? "AccessKeyId";
-            accessKeySecret = Environment.GetEnvironmentVariable("ACCESS_KEY_SECRET") ?? "AccessKeySecret";
+            var accessKey = Environment.GetEnvironmentVariable("ACCESS_KEY_ID") ?? "AccessKeyId";
+            var accessKeySecret = Environment.GetEnvironmentVariable("ACCESS_KEY_SECRET") ?? "AccessKeySecret";
 
-            profile = DefaultProfile.GetProfile(regionId, accessKey, accessKeySecret);
-            client = new DefaultAcsClient(profile);
+            IClientProfile profile = DefaultProfile.GetProfile("cn-beijing", accessKey, accessKeySecret);
+            DefaultAcsClient client = new DefaultAcsClient(profile);
+            client.SetHttpsInsecure(true);
+            System.Environment.SetEnvironmentVariable("DEBUG", "sdk");
+            CommonRequest request = new CommonRequest();
+            request.Method = MethodType.POST;
+            request.Domain = "dysmsapi.aliyuncs.com";
+            request.Version = "2017-05-25";
+            request.Action = "SendSms";
+            request.AddQueryParameters("PhoneNumbers", "13306070606");
+            request.AddQueryParameters("SignName", "阿里云");
+            request.AddQueryParameters("TemplateCode", "SMS_158605071");
 
             try
             {
-                DescribeRegionsRequest request = new DescribeRegionsRequest();
-                DescribeRegionsResponse response = client.GetAcsResponse(request);
-
-                foreach (KeyValuePair<string, string> item in request.Headers)
-                {
-                    Console.WriteLine("Key: " + item.Key + "   Value: " + item.Value);
-                }
+                CommonResponse response = client.GetCommonResponse(request);
+                Console.WriteLine(System.Text.Encoding.Default.GetString(response.HttpResponse.Content));
             }
-            catch (Exception ex)
+            catch (ServerException e)
             {
-                Console.WriteLine(ex.ToString());
+                Console.WriteLine(e);
+            }
+            catch (ClientException e)
+            {
+                Console.WriteLine(e);
             }
         }
     }
