@@ -5,9 +5,20 @@ namespace CSharpFundamental
 {
     class Program
     {
+        public static int x;
+        public static int y;
         static void Main(string[] args)
         {
-            PythonDemo();
+            Console.WriteLine(x + " | " + y);
+
+            x = 20;
+            y = 1;
+            Console.WriteLine(x + " | " + y);
+
+            x = 30;
+            y = x;
+            Console.WriteLine(x + " | " + y);
+            // PythonDemo();
 
             //CLRDemo();
         }
@@ -74,12 +85,12 @@ namespace CSharpFundamental
             tc.SetNamespaceParams(y: 1, x: 2);
             tc.SetNamespaceParams(1, 2);
 
-            HttpWebRequest request = (HttpWebRequest) WebRequest.Create("https://www.alibabacloud.com");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://www.alibabacloud.com");
             request.Timeout = 1000;
-            HttpWebResponse response = (HttpWebResponse) request.GetResponse();
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
-            request = (HttpWebRequest) WebRequest.Create("https://www.cnblogs.com");
-            response = (HttpWebResponse) request.GetResponse();
+            request = (HttpWebRequest)WebRequest.Create("https://www.cnblogs.com");
+            response = (HttpWebResponse)request.GetResponse();
 
             AnonymousType.DoTheFollowing doTheFollowing = new AnonymousType.DoTheFollowing(DoFollowing);
             doTheFollowing("Hello");
