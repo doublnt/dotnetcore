@@ -13,7 +13,6 @@ namespace CSharpFundamental
         public static int y;
         static void Main(string[] args)
         {
-<<<<<<< HEAD
             Console.WriteLine(x + " | " + y);
 
             x = 20;
@@ -25,9 +24,6 @@ namespace CSharpFundamental
             Console.WriteLine(x + " | " + y);
             // PythonDemo();
 
-=======
-            // PythonDemo();
->>>>>>> 1dc10e0e42dde947f3707d3694b7889290c9f359
             //CLRDemo();
 
             // var type = Type.GetType("System.Int32");
