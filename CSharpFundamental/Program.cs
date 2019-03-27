@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net;
+using System.Reflection;
+
+using NuGet;
 
 namespace CSharpFundamental
 {
@@ -9,6 +13,7 @@ namespace CSharpFundamental
         public static int y;
         static void Main(string[] args)
         {
+<<<<<<< HEAD
             Console.WriteLine(x + " | " + y);
 
             x = 20;
@@ -20,7 +25,23 @@ namespace CSharpFundamental
             Console.WriteLine(x + " | " + y);
             // PythonDemo();
 
+=======
+            // PythonDemo();
+>>>>>>> 1dc10e0e42dde947f3707d3694b7889290c9f359
             //CLRDemo();
+
+            // var type = Type.GetType("System.Int32");
+            // var typeInfo = type.GetTypeInfo();
+
+            // Console.WriteLine(typeInfo.Name);
+
+            
+        }
+
+        public static void Relection()
+        {
+            var demo = new ReflectionDemo();
+            demo.RelectionResovle();
         }
 
         public static void CLRDemo()
