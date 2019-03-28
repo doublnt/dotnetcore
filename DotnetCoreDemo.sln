@@ -78,7 +78,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aliyun-core-demo", "aliyun-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpFundamental", "CSharpFundamental\CSharpFundamental.csproj", "{2FDBC64F-1C86-47AC-9DC3-D9D319CAFDBD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenericHostWebSample", "GenericHostWebSample\GenericHostWebSample.csproj", "{F1A3BD70-82AA-41B4-82A5-1B5357B46ED9}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerFactorySample", "LoggerFactorySample\LoggerFactorySample.csproj", "{C05792B1-076E-4770-A51D-DD151DFD3BBD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -462,6 +462,18 @@ Global
 		{F1A3BD70-82AA-41B4-82A5-1B5357B46ED9}.Release|x64.Build.0 = Release|Any CPU
 		{F1A3BD70-82AA-41B4-82A5-1B5357B46ED9}.Release|x86.ActiveCfg = Release|Any CPU
 		{F1A3BD70-82AA-41B4-82A5-1B5357B46ED9}.Release|x86.Build.0 = Release|Any CPU
+		{C05792B1-076E-4770-A51D-DD151DFD3BBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C05792B1-076E-4770-A51D-DD151DFD3BBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C05792B1-076E-4770-A51D-DD151DFD3BBD}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{C05792B1-076E-4770-A51D-DD151DFD3BBD}.Debug|x64.Build.0 = Debug|Any CPU
+		{C05792B1-076E-4770-A51D-DD151DFD3BBD}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{C05792B1-076E-4770-A51D-DD151DFD3BBD}.Debug|x86.Build.0 = Debug|Any CPU
+		{C05792B1-076E-4770-A51D-DD151DFD3BBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C05792B1-076E-4770-A51D-DD151DFD3BBD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C05792B1-076E-4770-A51D-DD151DFD3BBD}.Release|x64.ActiveCfg = Release|Any CPU
+		{C05792B1-076E-4770-A51D-DD151DFD3BBD}.Release|x64.Build.0 = Release|Any CPU
+		{C05792B1-076E-4770-A51D-DD151DFD3BBD}.Release|x86.ActiveCfg = Release|Any CPU
+		{C05792B1-076E-4770-A51D-DD151DFD3BBD}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

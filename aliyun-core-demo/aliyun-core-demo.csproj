@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="aliyun-net-sdk-bssopenapi" Version="1.1.0" />
     <PackageReference Include="aliyun-net-sdk-core" Version="1.2.5" />
   </ItemGroup>
 

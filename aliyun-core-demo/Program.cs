@@ -6,6 +6,8 @@ using Aliyun.Acs.Core.Exceptions;
 using Aliyun.Acs.Core.Http;
 using Aliyun.Acs.Core.Profile;
 
+using Aliyun.Acs.BssOpenApi.Model.V20171214;
+
 namespace CommonRequestDemo
 {
     class Program
@@ -15,22 +17,13 @@ namespace CommonRequestDemo
             var accessKey = Environment.GetEnvironmentVariable("ACCESS_KEY_ID") ?? "AccessKeyId";
             var accessKeySecret = Environment.GetEnvironmentVariable("ACCESS_KEY_SECRET") ?? "AccessKeySecret";
 
-            IClientProfile profile = DefaultProfile.GetProfile("cn-beijing", accessKey, accessKeySecret);
+            IClientProfile profile = DefaultProfile.GetProfile("cn-hangzhou", accessKey, accessKeySecret);
             DefaultAcsClient client = new DefaultAcsClient(profile);
-            client.SetHttpsInsecure(true);
-            System.Environment.SetEnvironmentVariable("DEBUG", "sdk");
-            CommonRequest request = new CommonRequest();
-            request.Method = MethodType.POST;
-            request.Domain = "dysmsapi.aliyuncs.com";
-            request.Version = "2017-05-25";
-            request.Action = "SendSms";
-            request.AddQueryParameters("PhoneNumbers", "13306070606");
-            request.AddQueryParameters("SignName", "阿里云");
-            request.AddQueryParameters("TemplateCode", "SMS_158605071");
 
-            try
-            {
-                CommonResponse response = client.GetCommonResponse(request);
+            var request = new DescribeResourcePackageProductRequest();
+            request.ProductCode = "live";
+            try {
+                var response = client.GetAcsResponse(request);
                 Console.WriteLine(System.Text.Encoding.Default.GetString(response.HttpResponse.Content));
             }
             catch (ServerException e)
