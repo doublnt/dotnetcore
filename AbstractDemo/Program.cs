@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using Serilog;
 
 namespace AbstractDemo
 {
@@ -6,9 +9,28 @@ namespace AbstractDemo
     {
         static void Main(string[] args)
         {
-            Bird a = new ExplictBird("DiDi");
-            
-            a.PrintBird();
+            // Bird a = new ExplictBird("DiDi");
+
+            // a.PrintBird();
+
+            string outputTemplate = "{age} {name} {test} {22}{NewLine}";
+            var logger = new LoggerConfiguration()
+                .WriteTo.Console(outputTemplate: outputTemplate)
+                .CreateLogger();
+
+            object[] value = { "1008", "robert", "test", "invalue" };
+
+            var list = new List<string>{
+                "1008",
+                "robert",
+                "test",
+                "invalue"
+            };
+
+            var testValue = list.Cast<object>().ToArray();
+
+            logger.Information(outputTemplate, value);
+            logger.Information(outputTemplate, testValue);
         }
     }
 
@@ -22,18 +44,21 @@ namespace AbstractDemo
         {
             Console.WriteLine("Hello, World!" + BirdName);
         }
-        public string GetName(){
+        public string GetName()
+        {
             return BirdName;
         }
-        
-        public void SetName(string name){
+
+        public void SetName(string name)
+        {
             BirdName = name;
         }
     }
 
     class ExplictBird : Bird
     {
-        public ExplictBird(string name){
+        public ExplictBird(string name)
+        {
             base.SetName(name);
         }
         public override void PrintBird()

@@ -1,4 +1,5 @@
 using MiddlewareDemo;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Net;
@@ -26,16 +27,14 @@ namespace TestingControllersSample.Tests.IntegrationTests
         [Fact]
         public void WelcomeTest()
         {
-            Regex re = new Regex(regexPattern, RegexOptions.IgnoreCase | RegexOptions.Compiled);
-            var matches = re.Matches(LogTemplate);
+            string outputTemplate = "{age} {name} {test}{NewLine} {22}";
+            var logger = new LoggerConfiguration()
+                .WriteTo.Console(outputTemplate: outputTemplate)
+                .CreateLogger();
 
-            if (0 < matches.Count)
-            {
-                foreach (Match item in matches)
-                {
-                    LogMessageValueMap.Add
-                }
-            }
+            object[] value = { "1008", "robert", "test", "invalue" };
+
+            logger.Information(outputTemplate, value);
         }
     }
 }
