@@ -80,6 +80,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpFundamental", "CSharp
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LoggerFactorySample", "LoggerFactorySample\LoggerFactorySample.csproj", "{C05792B1-076E-4770-A51D-DD151DFD3BBD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unit-test-auto-generate", "unit-test-auto-generate\unit-test-auto-generate.csproj", "{A469C39A-3BA3-48B6-BB5A-0AADC95EBC7F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -474,6 +476,18 @@ Global
 		{C05792B1-076E-4770-A51D-DD151DFD3BBD}.Release|x64.Build.0 = Release|Any CPU
 		{C05792B1-076E-4770-A51D-DD151DFD3BBD}.Release|x86.ActiveCfg = Release|Any CPU
 		{C05792B1-076E-4770-A51D-DD151DFD3BBD}.Release|x86.Build.0 = Release|Any CPU
+		{A469C39A-3BA3-48B6-BB5A-0AADC95EBC7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A469C39A-3BA3-48B6-BB5A-0AADC95EBC7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A469C39A-3BA3-48B6-BB5A-0AADC95EBC7F}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{A469C39A-3BA3-48B6-BB5A-0AADC95EBC7F}.Debug|x64.Build.0 = Debug|Any CPU
+		{A469C39A-3BA3-48B6-BB5A-0AADC95EBC7F}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{A469C39A-3BA3-48B6-BB5A-0AADC95EBC7F}.Debug|x86.Build.0 = Debug|Any CPU
+		{A469C39A-3BA3-48B6-BB5A-0AADC95EBC7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A469C39A-3BA3-48B6-BB5A-0AADC95EBC7F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A469C39A-3BA3-48B6-BB5A-0AADC95EBC7F}.Release|x64.ActiveCfg = Release|Any CPU
+		{A469C39A-3BA3-48B6-BB5A-0AADC95EBC7F}.Release|x64.Build.0 = Release|Any CPU
+		{A469C39A-3BA3-48B6-BB5A-0AADC95EBC7F}.Release|x86.ActiveCfg = Release|Any CPU
+		{A469C39A-3BA3-48B6-BB5A-0AADC95EBC7F}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
