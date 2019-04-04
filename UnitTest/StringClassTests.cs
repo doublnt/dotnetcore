@@ -33,8 +33,8 @@ namespace UnitTest
         {
             // Arrange
             var unitUnderTest = this.CreateStringClass();
-            string str1 = TODO;
-            string str2 = TODO;
+            string str1 = "TODO";
+            string str2 = "TODO";
 
             // Act
             var result = unitUnderTest.GetComposeValue(
@@ -50,7 +50,7 @@ namespace UnitTest
         {
             // Arrange
             var unitUnderTest = this.CreateStringClass();
-            string str1 = TODO;
+            string str1 = "TODO";
 
             // Act
             var result = unitUnderTest.TranscodeToInt(
