@@ -11,7 +11,6 @@ namespace DeserializeJsonDemo
         static void Main(string[] args)
         {
             string filepath = "../../../endpoints.json";
-
             var dictionary = new Dictionary<string, Dictionary<string, string>>();
 
             using (StreamReader r = new StreamReader(filepath))
