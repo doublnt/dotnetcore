@@ -84,6 +84,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "unit-test-auto-generate", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DeserializeJsonDemo", "DeserializeJsonDemo\DeserializeJsonDemo.csproj", "{2B6A0D57-A5C7-4470-AF7A-B5E6D53A70FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThreadSample", "ThreadSample\ThreadSample.csproj", "{3E3D28BB-6F98-487A-AB7A-C9AE1C11565B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -502,6 +504,18 @@ Global
 		{2B6A0D57-A5C7-4470-AF7A-B5E6D53A70FC}.Release|x64.Build.0 = Release|Any CPU
 		{2B6A0D57-A5C7-4470-AF7A-B5E6D53A70FC}.Release|x86.ActiveCfg = Release|Any CPU
 		{2B6A0D57-A5C7-4470-AF7A-B5E6D53A70FC}.Release|x86.Build.0 = Release|Any CPU
+		{3E3D28BB-6F98-487A-AB7A-C9AE1C11565B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E3D28BB-6F98-487A-AB7A-C9AE1C11565B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E3D28BB-6F98-487A-AB7A-C9AE1C11565B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{3E3D28BB-6F98-487A-AB7A-C9AE1C11565B}.Debug|x64.Build.0 = Debug|Any CPU
+		{3E3D28BB-6F98-487A-AB7A-C9AE1C11565B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3E3D28BB-6F98-487A-AB7A-C9AE1C11565B}.Debug|x86.Build.0 = Debug|Any CPU
+		{3E3D28BB-6F98-487A-AB7A-C9AE1C11565B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E3D28BB-6F98-487A-AB7A-C9AE1C11565B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E3D28BB-6F98-487A-AB7A-C9AE1C11565B}.Release|x64.ActiveCfg = Release|Any CPU
+		{3E3D28BB-6F98-487A-AB7A-C9AE1C11565B}.Release|x64.Build.0 = Release|Any CPU
+		{3E3D28BB-6F98-487A-AB7A-C9AE1C11565B}.Release|x86.ActiveCfg = Release|Any CPU
+		{3E3D28BB-6F98-487A-AB7A-C9AE1C11565B}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
