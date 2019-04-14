@@ -33,7 +33,7 @@ namespace ThreadSample
                 m_generation = generation;
             }
 
-            ~GenObject()
+            ~GenObject()//Finalize Method
             {
                 if (GC.GetGeneration(this) >= m_generation)
                 {
