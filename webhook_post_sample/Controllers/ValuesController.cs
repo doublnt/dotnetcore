@@ -33,7 +33,9 @@ namespace webhook_post_sample.Controllers
         {
             using (StreamReader streamReader = new StreamReader(Request.Body, Encoding.UTF8))
             {
-                return await streamReader.ReadToEndAsync();
+                var value = await streamReader.ReadToEndAsync();
+                Console.WriteLine(value);
+                return value;
             }
         }
 
