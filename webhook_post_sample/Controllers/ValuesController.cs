@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 using Microsoft.AspNetCore.Mvc;
@@ -26,10 +28,13 @@ namespace webhook_post_sample.Controllers
         // }
 
         // POST api/values
-        [HttpPost]
-        public void Post()
+        [HttpPost("/payload")]
+        public async Task<string> Post()
         {
-            Console.WriteLine("test");
+            using (StreamReader streamReader = new StreamReader(Request.Body, Encoding.UTF8))
+            {
+                return await streamReader.ReadToEndAsync();
+            }
         }
 
         // PUT api/values/5
