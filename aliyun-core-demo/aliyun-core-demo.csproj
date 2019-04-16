@@ -10,6 +10,7 @@
     <PackageReference Include="aliyun-net-sdk-bssopenapi" Version="1.1.0" />
     <PackageReference Include="aliyun-net-sdk-core" Version="1.2.8" />
     <PackageReference Include="aliyun-net-sdk-dm-overseas" Version="4.7.2" />
+    <PackageReference Include="aliyun-net-sdk-domain-intl" Version="1.4.0" />
     <PackageReference Include="aliyun-net-sdk-finmall" Version="1.0.1" />
     <PackageReference Include="aliyun-net-sdk-imagesearch" Version="2.0.0" />
     <PackageReference Include="aliyun-net-sdk-industry-brain" Version="1.0.0" />
@@ -17,6 +18,7 @@
     <PackageReference Include="aliyun-net-sdk-jarvis" Version="1.2.4" />
     <PackageReference Include="aliyun-net-sdk-jarvis-public" Version="1.0.1" />
     <PackageReference Include="aliyun-net-sdk-mts" Version="2.6.1" />
+    <PackageReference Include="aliyun-net-sdk-vod" Version="2.15.2" />
      <PackageReference Include="Newtonsoft.Json" Version="12.0.2-beta1" />
   </ItemGroup>
 
