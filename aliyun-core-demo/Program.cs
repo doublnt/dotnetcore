@@ -6,10 +6,12 @@ using Aliyun.Acs.Core;
 using Aliyun.Acs.Core.Exceptions;
 using Aliyun.Acs.Core.Http;
 using Aliyun.Acs.Core.Profile;
-using Aliyun.Acs.Domain_intl.Model.V20171218;
-using Aliyun.Acs.industry_brain.Model.V20180712;
-using Aliyun.Acs.ImageSearch.Model.V20190325;
-using Aliyun.Acs.Iot.Model.V20180120;
+// using Aliyun.Acs.Domain_intl.Model.V20171218;
+// using Aliyun.Acs.industry_brain.Model.V20180712;
+// using Aliyun.Acs.ImageSearch.Model.V20190325;
+// using Aliyun.Acs.Iot.Model.V20180120;
+
+using Aliyun.Acs.Sts.Model.V20150401;
 using Aliyun.Acs.vod.Model.V20170321;
 
 using Newtonsoft.Json;

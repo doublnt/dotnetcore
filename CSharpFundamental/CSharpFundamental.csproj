@@ -7,8 +7,15 @@
 
   <ItemGroup>
     <PackageReference Include="aliyun-net-sdk-core" Version="1.2.2" />
-    <PackageReference Include="IronPython" Version="2.7.10-alpha0" />
-    <PackageReference Include="NuGet.Core" Version="2.14.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeAnalysis">
+      <HintPath>C:\Users\wb-yx518000\.nuget\packages\microsoft.codeanalysis.common\2.3.1\lib\netstandard1.3\Microsoft.CodeAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeAnalysis.CSharp">
+      <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.codeanalysis.csharp\2.8.0\lib\netstandard1.3\Microsoft.CodeAnalysis.CSharp.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

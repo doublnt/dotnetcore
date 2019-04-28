@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using System.Net;
 using System.Reflection;
 
-using NuGet;
-
 namespace CSharpFundamental
 {
     class Program
@@ -31,7 +29,6 @@ namespace CSharpFundamental
 
             // Console.WriteLine(typeInfo.Name);
 
-            
         }
 
         public static void Relection()
@@ -44,14 +41,6 @@ namespace CSharpFundamental
         {
             CLRStackDemo demo = new CLRStackDemo();
             demo.M1();
-        }
-
-        public static void PythonDemo()
-        {
-            PythonEmbedded pythonEmbedded = new PythonEmbedded();
-
-            pythonEmbedded.ExecutePythonCode();
-            pythonEmbedded.ExecutePythonMethodInCode();
         }
 
         public static void DynamicDemo()
@@ -102,12 +91,12 @@ namespace CSharpFundamental
             tc.SetNamespaceParams(y: 1, x: 2);
             tc.SetNamespaceParams(1, 2);
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://www.alibabacloud.com");
+            HttpWebRequest request = (HttpWebRequest) WebRequest.Create("https://www.alibabacloud.com");
             request.Timeout = 1000;
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            HttpWebResponse response = (HttpWebResponse) request.GetResponse();
 
-            request = (HttpWebRequest)WebRequest.Create("https://www.cnblogs.com");
-            response = (HttpWebResponse)request.GetResponse();
+            request = (HttpWebRequest) WebRequest.Create("https://www.cnblogs.com");
+            response = (HttpWebResponse) request.GetResponse();
 
             AnonymousType.DoTheFollowing doTheFollowing = new AnonymousType.DoTheFollowing(DoFollowing);
             doTheFollowing("Hello");
@@ -117,7 +106,6 @@ namespace CSharpFundamental
     class TestConstrcutor : ConstructorClass
     {
         public TestConstrcutor() : base() { }
-
         public TestConstrcutor(string param1) : base(param1) { }
 
         public void SetNamespaceParams(int x, int y)
