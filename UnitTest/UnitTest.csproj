@@ -17,7 +17,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Middleware\MiddlewareDemo\MiddlewareDemo.csproj" />
-    <ProjectReference Include="..\unit-test-auto-generate\unit-test-auto-generate.csproj" />
   </ItemGroup>
 
   <ItemGroup>

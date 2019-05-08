@@ -1,22 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Dynamic;
 
 using Aliyun.Acs.Core;
 using Aliyun.Acs.Core.Exceptions;
 using Aliyun.Acs.Core.Http;
 using Aliyun.Acs.Core.Profile;
-// using Aliyun.Acs.Domain_intl.Model.V20171218;
-// using Aliyun.Acs.industry_brain.Model.V20180712;
-// using Aliyun.Acs.ImageSearch.Model.V20190325;
-// using Aliyun.Acs.Iot.Model.V20180120;
+using Aliyun.Acs.Cms.Model.V20180308;
 
-using Aliyun.Acs.Sts.Model.V20150401;
-using Aliyun.Acs.vod.Model.V20170321;
-
-using Newtonsoft.Json;
-
-namespace CommonRequestDemo
+namespace Aliyun.Core.Demo
 {
     class Program
     {
@@ -58,7 +49,7 @@ namespace CommonRequestDemo
             // request.ProductKey = "a1LsCUpgf5n";
             // request.DeviceName = "yinxi-test";
 
-            // var jsonItem = JsonConvert.SerializeObject(items);
+            // var jsonItem = JsonConvert.SerializeObject("items");
             // Console.WriteLine(jsonItem);
 
             // jsonItem = "{LightAdjustLevel:1}";
@@ -73,20 +64,46 @@ namespace CommonRequestDemo
             //request.DeviceName = "SzAfkec0rv0RgfdnicbK";
 
             //request.Items = "{\"AlarmText\":\"E7BB93E69D9FE5BE85E69CBAE4B8AD20202020202020202020202020202020202020202020202020202020202030303830202020202020202020202020202020207C4F50454E2054484520444F4F52205448454E20434C4F5345207C\"}";
-
+            // var request = new CreateUploadVideoRequest();
+            // request.FileName = "03552d1d9235583a5e20ce3b677ea176.mp4";
+            // request.Title = null;
             #endregion
 
-            var request = new CreateUploadVideoRequest();
-            request.FileName = "03552d1d9235583a5e20ce3b677ea176.mp4";
-            request.Title = null;
+            //            var request = new FindSimilarFacesRequest();
+
+            //            var request = new DescribeAccessPointsRequest();
+            //            var filter = new DescribeAccessPointsRequest.Filter();
+            //            filter.Key = "RegionId";
+            //            filter.Values = new List<string> { "cn-hangzhou" };
+            //
+            //            var filterList = new List<DescribeAccessPointsRequest.Filter> { filter };
+            //
+            //            request.Filters = filterList;
+
+
+            CommonRequest request = new CommonRequest();
+            request.Method = MethodType.POST;
+            request.Domain = "metrics.cn-hangzhou.aliyuncs.com";
+            request.Version = "2019-01-01";
+            request.Action = "DescribeMetricLast";
+
+            request.AddQueryParameters("MetricName", "CPUUtilization");
+            request.AddQueryParameters("Namespace", "acs_ecs_dashboard");
+
+            // request.AddQueryParameters("PhoneNumbers","xx");
+            // request.AddQueryParameters("SignName","李刚");
+            // request.AddQueryParameters("TemplateCode","xx");
+            // request.AddQueryParameters("TemplateParam","{\"code\":\"3433\"}");
+
+//            var request = new QueryMetricDataRequest();
 
             try
             {
-                var response = client.GetAcsResponse(request);
-                Console.WriteLine(response.UploadAddress);
-                Console.WriteLine(response.UploadAddress);
-                Console.WriteLine(response.RequestId);
-                Console.WriteLine(response.VideoId);
+                var response = client.GetCommonResponse(request);
+                // Console.WriteLine(response.UploadAddress);
+                // Console.WriteLine(response.UploadAddress);
+                // Console.WriteLine(response.RequestId);
+                // Console.WriteLine(response.VideoId);
                 Console.WriteLine(System.Text.Encoding.Default.GetString(response.HttpResponse.Content));
             }
             catch (ServerException e)
@@ -101,10 +118,8 @@ namespace CommonRequestDemo
 
         public static DefaultAcsClient InitVodClient(string accessKeyId, string accessKeySecret)
         {
-            // 点播服务接入区域
             string regionId = "cn-shanghai";
             IClientProfile profile = DefaultProfile.GetProfile(regionId, accessKeyId, accessKeySecret);
-            // DefaultProfile.AddEndpoint(regionId, regionId, "vod", "vod." + regionId + ".aliyuncs.com");
             return new DefaultAcsClient(profile);
         }
     }
