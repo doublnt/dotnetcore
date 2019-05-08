@@ -1,7 +1,6 @@
 using Moq;
 using System;
 using Xunit;
-using unit_test_auto_generate;
 
 namespace UnitTest
 {
