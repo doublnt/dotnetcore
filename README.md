@@ -1,1 +1,4 @@
-## Hello From Robert,This project contains some demo that I learned from .net core official document. Hope you enjoy it.
+- 每个 Project 基本都是一个知识的抽象实现
+- 包含 C# 基础的知识和理解
+- 关于 类 变量 内存 线程 等等
+- 欢迎贡献您的代码一起完善
