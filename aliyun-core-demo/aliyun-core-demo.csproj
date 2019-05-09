@@ -8,7 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="aliyun-net-sdk-cms" Version="6.0.14" />
-    <PackageReference Include="aliyun-net-sdk-core" Version="1.2.6" />   
+    <PackageReference Include="aliyun-net-sdk-cdn" Version="3.0.8" />
   </ItemGroup>
 
 

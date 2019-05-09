@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-
+using System.Net.Http.Headers;
 using Aliyun.Acs.Core;
 using Aliyun.Acs.Core.Exceptions;
 using Aliyun.Acs.Core.Http;
 using Aliyun.Acs.Core.Profile;
-using Aliyun.Acs.Cms.Model.V20180308;
+using Aliyun.Acs.Cdn.Model.V20180510;
 
 namespace Aliyun.Core.Demo
 {
@@ -81,25 +81,27 @@ namespace Aliyun.Core.Demo
             //            request.Filters = filterList;
 
 
-            CommonRequest request = new CommonRequest();
-            request.Method = MethodType.POST;
-            request.Domain = "metrics.cn-hangzhou.aliyuncs.com";
-            request.Version = "2019-01-01";
-            request.Action = "DescribeMetricLast";
-
-            request.AddQueryParameters("MetricName", "CPUUtilization");
-            request.AddQueryParameters("Namespace", "acs_ecs_dashboard");
+            //            CommonRequest request = new CommonRequest();
+            //            request.Method = MethodType.POST;
+            //            request.Domain = "metrics.cn-hangzhou.aliyuncs.com";
+            //            request.Version = "2019-01-01";
+            //            request.Action = "DescribeMetricLast";
+            //
+            //            request.AddQueryParameters("MetricName", "CPUUtilization");
+            //            request.AddQueryParameters("Namespace", "acs_ecs_dashboard");
 
             // request.AddQueryParameters("PhoneNumbers","xx");
             // request.AddQueryParameters("SignName","李刚");
             // request.AddQueryParameters("TemplateCode","xx");
             // request.AddQueryParameters("TemplateParam","{\"code\":\"3433\"}");
 
-//            var request = new QueryMetricDataRequest();
+            //            var request = new QueryMetricDataRequest();
+
+            var request = new DescribeCdnCertificateDetailRequest();
 
             try
             {
-                var response = client.GetCommonResponse(request);
+                var response = client.GetAcsResponse(request);
                 // Console.WriteLine(response.UploadAddress);
                 // Console.WriteLine(response.UploadAddress);
                 // Console.WriteLine(response.RequestId);
