@@ -11,15 +11,15 @@ namespace CSharpFundamental
         public static int y;
         static void Main(string[] args)
         {
-            Console.WriteLine(x + " | " + y);
-
-            x = 20;
-            y = 1;
-            Console.WriteLine(x + " | " + y);
-
-            x = 30;
-            y = x;
-            Console.WriteLine(x + " | " + y);
+//            Console.WriteLine(x + " | " + y);
+//
+//            x = 20;
+//            y = 1;
+//            Console.WriteLine(x + " | " + y);
+//
+//            x = 30;
+//            y = x;
+//            Console.WriteLine(x + " | " + y);
             // PythonDemo();
 
             //CLRDemo();
@@ -28,6 +28,9 @@ namespace CSharpFundamental
             // var typeInfo = type.GetTypeInfo();
 
             // Console.WriteLine(typeInfo.Name);
+
+            var reflect = new ReflectionDemo();
+            reflect.LoadAssemblyWithPublicTypes();
 
         }
 
