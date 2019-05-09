@@ -13,20 +13,34 @@ namespace AsyncAndSyncTest
             Console.WriteLine("Hello World!");
 
             var value1 = GetWebStringCount();
+            Console.WriteLine(value1);
 
             var value2 = await GetWebStringCountAsync();
+            Console.WriteLine(value2);
         }
 
         static async Task<string> GetWebStringCountAsync()
         {
+//            Stopwatch watch = new Stopwatch();
+//            watch.Start();
+//            var request = (HttpWebRequest)WebRequest.Create("https://www.baidu.com");
+//            var response = (HttpWebResponse)await request.GetResponseAsync();
+//            watch.Stop();
+//            Console.WriteLine("The Async Current execute Time is(ms):" + watch.ElapsedMilliseconds);
+//
+//            return response.StatusCode.ToString();
+            
             Stopwatch watch = new Stopwatch();
             watch.Start();
-            var request = (HttpWebRequest)WebRequest.Create("https://www.baidu.com");
-            var response = (HttpWebResponse)await request.GetResponseAsync();
+            var task = Task.Run(async () =>
+            {
+                var request = (HttpWebRequest) WebRequest.Create("https://www.baidu.com");
+                var response = (HttpWebResponse) await request.GetResponseAsync();
+                return response.StatusCode.ToString();
+            });
             watch.Stop();
-            Console.WriteLine("The Async Current execute Time is:" + watch.ElapsedMilliseconds);
-
-            return response.StatusCode.ToString();
+            Console.WriteLine("The Async Current execute Time is(ms):" + watch.ElapsedMilliseconds);
+            return await task;
         }
 
         static string GetWebStringCount()
@@ -36,7 +50,7 @@ namespace AsyncAndSyncTest
             var request = (HttpWebRequest)WebRequest.Create("https://www.baidu.com");
             var response = (HttpWebResponse)request.GetResponse();
             watch.Stop();
-            Console.WriteLine("The Sync Current execute Time is:" + watch.ElapsedMilliseconds);
+            Console.WriteLine("The Sync Current execute Time is(ms):" + watch.ElapsedMilliseconds);
 
             return response.StatusCode.ToString();
         }
