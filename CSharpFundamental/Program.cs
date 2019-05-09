@@ -32,6 +32,10 @@ namespace CSharpFundamental
             var reflect = new ReflectionDemo();
             reflect.LoadAssemblyWithPublicTypes();
 
+            var serialize = new Serialize();
+
+            serialize.ExecuteMemory();
+
         }
 
         public static void Relection()
