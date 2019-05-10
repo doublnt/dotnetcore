@@ -43,7 +43,46 @@ namespace CSharpFundamental
             //            CancelRegister();
             //            LinkCancelTokenSource();
 
-            DoTaskSum();
+            //            DoTaskSum();
+            //            DoWithTheMaxAndMinThread();
+
+            ThreadPool.QueueUserWorkItem(CallbackFunc);
+        }
+
+        private void DoWithTheMaxAndMinThread()
+        {
+            ThreadPool.SetMaxThreads(100, 100);
+            ThreadPool.SetMinThreads(5, 5);
+
+            //            WaitCallback callback = index =>
+            //            {
+            //                Console.WriteLine("Start--------------{0}", index);
+            //
+            //                Thread.Sleep(1000);
+            //
+            //                Console.WriteLine("--------------End-{0}", index);
+            //            };
+            //
+            //            for (int i = 0; i < 20; i++)
+            //            {
+            //                ThreadPool.QueueUserWorkItem(callback, i);
+            //            }
+
+            for (int i = 0; i < 10; i++)
+            {
+                Task.Run(() => CallbackFunc(i));
+            }
+        }
+
+        private void CallbackFunc(Object state)
+        {
+            Console.WriteLine("Start--------------{0}", state);
+
+            Thread.Sleep(1000);
+
+            Console.WriteLine("--------------End-{0}", state);
+
+            Console.ReadLine();
         }
 
         private void SuppressFlowTest()

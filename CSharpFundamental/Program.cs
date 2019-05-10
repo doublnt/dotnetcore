@@ -7,8 +7,9 @@ namespace CSharpFundamental
 {
     class Program
     {
-        public static int x;
-        public static int y;
+        //        public static int x;
+        //        public static int y;
+
         static void Main(string[] args)
         {
             //            Console.WriteLine(x + " | " + y);

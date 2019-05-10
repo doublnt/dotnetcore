@@ -16,7 +16,7 @@ namespace CSharpFundamental
 
         internal struct Point
         {
-            public Int32 x, y;
+//            public Int32 x, y;
 
             //ERROR In Compile
             // public Point()

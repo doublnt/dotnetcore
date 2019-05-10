@@ -12,7 +12,6 @@ namespace CSharpFundamental
         public void M2(string name)
         {
             int length = name.Length;
-            int total;
 
             return;
         }
