@@ -31,7 +31,11 @@ namespace AsyncAndSyncTest
             //
             //            Console.WriteLine(await deaklock.GetResponseValue());
 
-            Marshalling();
+            //            Marshalling();
+
+
+            var frontAndBack = new FrontAndBackEndThread();
+            frontAndBack.ExecuteThread();
         }
 
         static async Task<string> GetWebStringCountAsync()
