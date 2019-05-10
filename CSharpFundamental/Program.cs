@@ -37,9 +37,11 @@ namespace CSharpFundamental
             //
             //            serialize.ExecuteMemory();
 
-            var threadPool = new ThreadPoolClass();
-            threadPool.MonitorTheThreadPool();
+            //var threadPool = new ThreadPoolClass();
+            //threadPool.MonitorTheThreadPool();
 
+            var parallel = new ParallelTest();
+            parallel.Parallel1();
         }
 
         public static void Relection()
