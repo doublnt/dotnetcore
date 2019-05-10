@@ -46,7 +46,62 @@ namespace CSharpFundamental
             //            DoTaskSum();
             //            DoWithTheMaxAndMinThread();
 
-            ThreadPool.QueueUserWorkItem(CallbackFunc);
+            Console.WriteLine("Get The Main Thread ID={0}", Thread.CurrentThread.ManagedThreadId);
+            ThreadPool.QueueUserWorkItem(CallbackFunc, 1000);
+
+            //Output the max threads and max compleetion port thread
+            //....
+            //ThreadPool.GetMaxThreads(out int maxThreads, out int maxcompletionPortThread);
+            //System.Console.WriteLine(maxThreads + "||||" + maxcompletionPortThread);
+
+            Task t1 = Task.Run(() => Console.WriteLine("Do the task run things={0}", 10086));
+
+            //for (Int32 i = 0; i < 20; i++)
+            //{
+            //    Int32 temp = i;
+            //    var t3 = Task.Run(() => CallbackFunc(temp));
+            //}
+
+            Task<Int32> t2 = new Task<Int32>(n => Sum((Int32)n), 1000);
+            t2.Start();
+            t2.Wait();
+            Console.WriteLine(t2.Result);
+
+            //Continue Task Demo
+            CancellationTokenSource cts = new CancellationTokenSource();
+            //cts.Cancel();
+
+            Task t3 = Task.Run(() =>
+            {
+                Console.WriteLine("This is a main continue demo1");
+                Thread.Sleep(5000);
+            }, cts.Token);
+            Console.WriteLine("Current Task status= {0}", t3.Status);//Waiting to run
+            t3.ContinueWith(task => Console.WriteLine("This is a method only main func is canceled"), TaskContinuationOptions.OnlyOnCanceled);
+            Console.WriteLine("Current Task status= {0}", t3.Status);//Running
+            t3.ContinueWith(task =>
+            {
+                Console.WriteLine("This is method only run to completion");
+            }, TaskContinuationOptions.OnlyOnRanToCompletion);
+            Console.WriteLine("Current Task status= {0}", t3.Status);//Running
+
+            //Task<Int32[]> parent = new Task<Int32[]>(() =>
+            //{
+            //    var results = new Int32[3];
+
+            //    new Task(() => results[0] = Sum(10000), TaskCreationOptions.AttachedToParent).Start();
+            //    new Task(() => results[1] = Sum(20000), TaskCreationOptions.AttachedToParent).Start();
+            //    new Task(() => results[2] = Sum(30000), TaskCreationOptions.AttachedToParent).Start();
+
+            //    return results;
+            //});
+
+            //var cwt = parent.ContinueWith(parentTask => Array.ForEach(parentTask.Result, Console.WriteLine));
+            //parent.Start();
+
+            //如果不用readline，屏幕上会没有任何输出，因为 CallbackFunc 通过线程池来执行，
+            //执行它的线程可能不是当前线程，而且又是异步的,屏幕上就会没有任何输出。
+            Console.ReadLine();
         }
 
         private void DoWithTheMaxAndMinThread()
@@ -76,13 +131,13 @@ namespace CSharpFundamental
 
         private void CallbackFunc(Object state)
         {
+            Console.WriteLine("Get The CallbackFunc current Thread ID={0}", Thread.CurrentThread.ManagedThreadId);
+
             Console.WriteLine("Start--------------{0}", state);
 
             Thread.Sleep(1000);
 
             Console.WriteLine("--------------End-{0}", state);
-
-            Console.ReadLine();
         }
 
         private void SuppressFlowTest()
