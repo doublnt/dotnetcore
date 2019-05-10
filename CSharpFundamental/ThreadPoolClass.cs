@@ -77,8 +77,10 @@ namespace CSharpFundamental
                 Thread.Sleep(5000);
             }, cts.Token);
             Console.WriteLine("Current Task status= {0}", t3.Status);//Waiting to run
+
             t3.ContinueWith(task => Console.WriteLine("This is a method only main func is canceled"), TaskContinuationOptions.OnlyOnCanceled);
             Console.WriteLine("Current Task status= {0}", t3.Status);//Running
+
             t3.ContinueWith(task =>
             {
                 Console.WriteLine("This is method only run to completion");
