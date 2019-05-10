@@ -11,15 +11,15 @@ namespace CSharpFundamental
         public static int y;
         static void Main(string[] args)
         {
-//            Console.WriteLine(x + " | " + y);
-//
-//            x = 20;
-//            y = 1;
-//            Console.WriteLine(x + " | " + y);
-//
-//            x = 30;
-//            y = x;
-//            Console.WriteLine(x + " | " + y);
+            //            Console.WriteLine(x + " | " + y);
+            //
+            //            x = 20;
+            //            y = 1;
+            //            Console.WriteLine(x + " | " + y);
+            //
+            //            x = 30;
+            //            y = x;
+            //            Console.WriteLine(x + " | " + y);
             // PythonDemo();
 
             //CLRDemo();
@@ -29,12 +29,15 @@ namespace CSharpFundamental
 
             // Console.WriteLine(typeInfo.Name);
 
-            var reflect = new ReflectionDemo();
-            reflect.LoadAssemblyWithPublicTypes();
+            //            var reflect = new ReflectionDemo();
+            //            reflect.LoadAssemblyWithPublicTypes();
+            //
+            //            var serialize = new Serialize();
+            //
+            //            serialize.ExecuteMemory();
 
-            var serialize = new Serialize();
-
-            serialize.ExecuteMemory();
+            var threadPool = new ThreadPoolClass();
+            threadPool.MonitorTheThreadPool();
 
         }
 
@@ -65,11 +68,11 @@ namespace CSharpFundamental
 
             dynamic addtoInt = 111;
 
-            foreach (var item in array2)
-            {
-                dynamic value = item + addtoInt;
-                Console.WriteLine(value);
-            }
+            //            foreach (var item in array2)
+            //            {
+            //                dynamic value = item + addtoInt;
+            //                Console.WriteLine(value);
+            //            }
         }
 
         public static void DoFollowing(string msg)
@@ -98,12 +101,12 @@ namespace CSharpFundamental
             tc.SetNamespaceParams(y: 1, x: 2);
             tc.SetNamespaceParams(1, 2);
 
-            HttpWebRequest request = (HttpWebRequest) WebRequest.Create("https://www.alibabacloud.com");
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://www.alibabacloud.com");
             request.Timeout = 1000;
-            HttpWebResponse response = (HttpWebResponse) request.GetResponse();
+            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
 
-            request = (HttpWebRequest) WebRequest.Create("https://www.cnblogs.com");
-            response = (HttpWebResponse) request.GetResponse();
+            request = (HttpWebRequest)WebRequest.Create("https://www.cnblogs.com");
+            response = (HttpWebResponse)request.GetResponse();
 
             AnonymousType.DoTheFollowing doTheFollowing = new AnonymousType.DoTheFollowing(DoFollowing);
             doTheFollowing("Hello");
