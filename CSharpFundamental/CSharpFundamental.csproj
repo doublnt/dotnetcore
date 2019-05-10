@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="aliyun-net-sdk-core" Version="1.2.2" />
+    <PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
   </ItemGroup>
 
 </Project>
