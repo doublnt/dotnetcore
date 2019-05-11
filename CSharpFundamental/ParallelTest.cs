@@ -29,7 +29,7 @@ namespace CSharpFundamental
             for (; number > 0; number--)
             {
                 sum += number;
-                Console.WriteLine("The available threads={0}\t the available completion port threads={1}", availCompletionPortThreads, availCompletionPortThreads);
+                Console.WriteLine("The available threads={0}\t the available completion port threads={1}", availableWorkerThreads, availCompletionPortThreads);
             }
 
             return sum;
