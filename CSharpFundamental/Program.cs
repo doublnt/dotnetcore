@@ -42,6 +42,9 @@ namespace CSharpFundamental
 
             var parallel = new ParallelTest();
             parallel.Parallel1();
+
+            var parallelLinq = new ParallelLinq();
+            parallelLinq.DoParallelLinq();
         }
 
         public static void Relection()

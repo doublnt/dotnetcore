@@ -25,7 +25,8 @@ namespace CSharpFundamental
 
             List<string> aList = new List<string> { "Test1", "Test2", "Test3" };
 
-            Parallel.ForEach(aList, item => PrintTheList(item));
+            var parallelLoopResult = Parallel.ForEach(aList, item => PrintTheList(item));
+            Console.WriteLine(parallelLoopResult.IsCompleted);
 
             //Parallel.Invoke,同样是在线程池中执行，没有先后顺序。
 
@@ -33,6 +34,8 @@ namespace CSharpFundamental
                 () => ExecuteMethod1(),
                 () => ExecuteMethod2(),
                 () => ExecuteMethod3());
+
+
         }
 
         private int Sum(Int32 number)
