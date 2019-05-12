@@ -45,6 +45,9 @@ namespace CSharpFundamental
 
             var parallelLinq = new ParallelLinq();
             parallelLinq.DoParallelLinq();
+
+            var timerTest = new TimerTest();
+            timerTest.DoTimerThing();
         }
 
         public static void Relection()
