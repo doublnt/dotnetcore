@@ -19,7 +19,20 @@ namespace CSharpFundamental
             ThreadPool.GetMaxThreads(out workerThreads, out completionPortThreads);
             Console.WriteLine("The max threads={0}\t the completion port threads={1}", workerThreads, completionPortThreads);
 
-            Parallel.For(0, 10000, index => Sum(index));
+            //            Parallel.For(0, 10000, index => Sum(index));
+
+            //Parallel.ForEach use for collections situation
+
+            List<string> aList = new List<string> { "Test1", "Test2", "Test3" };
+
+            Parallel.ForEach(aList, item => PrintTheList(item));
+
+            //Parallel.Invoke,同样是在线程池中执行，没有先后顺序。
+
+            Parallel.Invoke(
+                () => ExecuteMethod1(),
+                () => ExecuteMethod2(),
+                () => ExecuteMethod3());
         }
 
         private int Sum(Int32 number)
@@ -33,6 +46,27 @@ namespace CSharpFundamental
             }
 
             return sum;
+        }
+
+        private void PrintTheList(String item)
+        {
+            Console.WriteLine(item);
+        }
+
+        private void ExecuteMethod1()
+        {
+            Console.WriteLine("First Print.");
+        }
+
+        private void ExecuteMethod2()
+        {
+
+            Console.WriteLine("Second Print!");
+        }
+
+        private void ExecuteMethod3()
+        {
+            Console.WriteLine("Thrid Print!");
         }
     }
 }
