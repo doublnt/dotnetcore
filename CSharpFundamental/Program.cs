@@ -40,14 +40,17 @@ namespace CSharpFundamental
             //var threadPool = new ThreadPoolClass();
             //threadPool.MonitorTheThreadPool();
 
-            var parallel = new ParallelTest();
-            parallel.Parallel1();
+            //            var parallel = new ParallelTest();
+            //            parallel.Parallel1();
+            //
+            //            var parallelLinq = new ParallelLinq();
+            //            parallelLinq.DoParallelLinq();
+            //
+            //            var timerTest = new TimerTest();
+            //            timerTest.DoTimerThing();
 
-            var parallelLinq = new ParallelLinq();
-            parallelLinq.DoParallelLinq();
-
-            var timerTest = new TimerTest();
-            timerTest.DoTimerThing();
+            var fileStreamTest = new FileStreamTest();
+            fileStreamTest.GetFileBytes();
         }
 
         public static void Relection()
