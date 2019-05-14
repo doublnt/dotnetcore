@@ -32,6 +32,12 @@ namespace CSharpFundamental
             }
         }
 
+        /// <summary>
+        /// async  会将代码转变成 状态机 的一个类型
+        /// </summary>
+        /// <param name="serverName"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
         private async Task<String> IssueClientRequestAsync(String serverName, String message)
         {
             using (var pipe = new NamedPipeClientStream(
