@@ -4,6 +4,7 @@ using System.Net;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
+using CSharpFundamental.AsyncCoordinator;
 
 namespace CSharpFundamental
 {
@@ -65,9 +66,13 @@ namespace CSharpFundamental
             //            primitiveDemo.DoWorkerThing();
 
 
-            var threadSharingData = new ThreadSharingData();
-//            threadSharingData.DoThreadThing1();
-            threadSharingData.DoThreadThing2();
+            //            var threadSharingData = new ThreadSharingData();
+            //            threadSharingData.DoThreadThing1();
+            //            threadSharingData.DoThreadThing2();
+
+            var multipleWebRequest = new MultipleWebRequest();
+
+            Console.ReadLine();
         }
 
         public static void Relection()
