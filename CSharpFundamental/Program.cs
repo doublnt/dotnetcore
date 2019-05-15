@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CSharpFundamental
@@ -53,9 +54,20 @@ namespace CSharpFundamental
             //            var fileStreamTest = new FileStreamTest();
             //            fileStreamTest.GetFileBytes();
 
-            var parallelHttp = new ParallelHttpClientFactory();
+            //var parallelHttp = new ParallelHttpClientFactory();
 
-            await parallelHttp.DoParallelThing();
+            //await parallelHttp.DoParallelThing();
+
+            Console.WriteLine("Current Managed Thread Id = {0}", Thread.CurrentThread.ManagedThreadId);
+
+            //            var primitiveDemo = new PrimitiveConstruct();
+            //
+            //            primitiveDemo.DoWorkerThing();
+
+
+            var threadSharingData = new ThreadSharingData();
+//            threadSharingData.DoThreadThing1();
+            threadSharingData.DoThreadThing2();
         }
 
         public static void Relection()
