@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Net;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace CSharpFundamental
 {
@@ -10,7 +11,7 @@ namespace CSharpFundamental
         //        public static int x;
         //        public static int y;
 
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             //            Console.WriteLine(x + " | " + y);
             //
@@ -49,8 +50,12 @@ namespace CSharpFundamental
             //            var timerTest = new TimerTest();
             //            timerTest.DoTimerThing();
 
-            var fileStreamTest = new FileStreamTest();
-            fileStreamTest.GetFileBytes();
+            //            var fileStreamTest = new FileStreamTest();
+            //            fileStreamTest.GetFileBytes();
+
+            var parallelHttp = new ParallelHttpClientFactory();
+
+            await parallelHttp.DoParallelThing();
         }
 
         public static void Relection()
