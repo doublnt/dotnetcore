@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28803.352
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.645
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiddlewareDemo", "Middleware\MiddlewareDemo\MiddlewareDemo.csproj", "{6710EE95-B96C-430B-902B-95D9ADE00327}"
 EndProject
@@ -71,11 +71,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "email-event-sample", "Event
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "regex-unescape-json-demo", "regex-unescape-json-demo\regex-unescape-json-demo.csproj", "{0C82D80F-3F89-4036-9D31-9DDB8342AFF3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dotnet-core-mvc-sample", "dotnet-core-mvc-sample\dotnet-core-mvc-sample.csproj", "{EEDDBFD2-74F3-4482-B08E-38E11183C525}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "dotnet-core-mvc-sample", "dotnet-core-mvc-sample\dotnet-core-mvc-sample.csproj", "{EEDDBFD2-74F3-4482-B08E-38E11183C525}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TaskAsynchronousPattern", "TaskAsynchronousPattern", "{162D5174-6275-40F9-B34F-6981D072A0BF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AsyncAndSyncTest", "AsyncAndSyncTest\AsyncAndSyncTest.csproj", "{294E4CA6-6E18-4757-9CFB-12BCB4EED2E1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AsyncAndSyncTest", "AsyncAndSyncTest\AsyncAndSyncTest.csproj", "{294E4CA6-6E18-4757-9CFB-12BCB4EED2E1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aliyun-sms-winform", "aliyun-sms-winform\aliyun-sms-winform.csproj", "{083B9998-373D-4784-A8FA-54DF9E7C479C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -435,6 +437,18 @@ Global
 		{294E4CA6-6E18-4757-9CFB-12BCB4EED2E1}.Release|x64.Build.0 = Release|Any CPU
 		{294E4CA6-6E18-4757-9CFB-12BCB4EED2E1}.Release|x86.ActiveCfg = Release|Any CPU
 		{294E4CA6-6E18-4757-9CFB-12BCB4EED2E1}.Release|x86.Build.0 = Release|Any CPU
+		{083B9998-373D-4784-A8FA-54DF9E7C479C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{083B9998-373D-4784-A8FA-54DF9E7C479C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{083B9998-373D-4784-A8FA-54DF9E7C479C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{083B9998-373D-4784-A8FA-54DF9E7C479C}.Debug|x64.Build.0 = Debug|Any CPU
+		{083B9998-373D-4784-A8FA-54DF9E7C479C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{083B9998-373D-4784-A8FA-54DF9E7C479C}.Debug|x86.Build.0 = Debug|Any CPU
+		{083B9998-373D-4784-A8FA-54DF9E7C479C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{083B9998-373D-4784-A8FA-54DF9E7C479C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{083B9998-373D-4784-A8FA-54DF9E7C479C}.Release|x64.ActiveCfg = Release|Any CPU
+		{083B9998-373D-4784-A8FA-54DF9E7C479C}.Release|x64.Build.0 = Release|Any CPU
+		{083B9998-373D-4784-A8FA-54DF9E7C479C}.Release|x86.ActiveCfg = Release|Any CPU
+		{083B9998-373D-4784-A8FA-54DF9E7C479C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
