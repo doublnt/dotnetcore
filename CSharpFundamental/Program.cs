@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using CSharpFundamental.AsyncCoordinator;
+using CSharpFundamental.keywork;
 
 namespace CSharpFundamental
 {
@@ -73,6 +74,8 @@ namespace CSharpFundamental
             var multipleWebRequest = new MultipleWebRequest();
 
             Console.ReadLine();
+
+            var testClass = new TestClass();
         }
 
         public static void Relection()

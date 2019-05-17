@@ -1,7 +1,15 @@
 ﻿using System;
+using System.Runtime.CompilerServices;
 
 namespace CSharpFundamental.keywork
 {
+    //默认为  internal 类型，当前 程序集可见
+    class TestClass
+    {
+        //默认为 private 类型，只允许该类和嵌套类访问
+        Int32 age;
+    }
+
     internal class AbstractAndVirtualKeywords
     {
         /// <summary>
@@ -88,4 +96,22 @@ namespace CSharpFundamental.keywork
 
     //Can not inherited sealed type class
     //internal class InheritedSealedClass :SealedClass 
+
+    internal class Employee
+    {
+        public Int32 GetYearsEmployed()
+        {
+            return 11;
+        }
+
+        public virtual String GetProgessReporrt()
+        {
+            return "Progress";
+        }
+
+        public static Employee Lookup(String name)
+        {
+            return new Employee();
+        }
+    }
 }
