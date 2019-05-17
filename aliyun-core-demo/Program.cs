@@ -1,12 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net.Http.Headers;
+
 using Aliyun.Acs.Core;
 using Aliyun.Acs.Core.Exceptions;
-using Aliyun.Acs.Core.Http;
 using Aliyun.Acs.Core.Profile;
-using Aliyun.Acs.Cdn.Model.V20180510;
-
+using Aliyun.Acs.Mts.Model.V20140618;
 namespace Aliyun.Core.Demo
 {
     class Program
@@ -97,7 +94,7 @@ namespace Aliyun.Core.Demo
 
             //            var request = new QueryMetricDataRequest();
 
-            var request = new DescribeCdnCertificateDetailRequest();
+            var request = new ListAllCategoryRequest();
 
             try
             {
