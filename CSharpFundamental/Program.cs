@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Net;
 using System.Reflection;
 using System.Threading;
@@ -71,11 +72,14 @@ namespace CSharpFundamental
             //            threadSharingData.DoThreadThing1();
             //            threadSharingData.DoThreadThing2();
 
-            var multipleWebRequest = new MultipleWebRequest();
+            //var multipleWebRequest = new MultipleWebRequest();
 
-            Console.ReadLine();
+            //Console.ReadLine();
 
-            var testClass = new TestClass();
+            Console.WriteLine("Item\tData");
+            char split = '-';
+
+            Console.WriteLine(String.Concat(Enumerable.Repeat(split, "item".Length)));
         }
 
         public static void Relection()
