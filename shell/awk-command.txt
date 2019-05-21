@@ -1,0 +1,48 @@
+   70  man awk
+   78  awk '{ print }' /etc/passwd
+   79  awk '{ print $0}' /etc/passwd
+   80  awk '{ print $0 }' /etc/passwd
+  108  awk { print $0} go.txt 
+  109  awk { print $0 } go.txt 
+  110  awk '{ print $0 }' go.txt 
+  112  awk -F ':' '{ print $0 }' go.txt 
+  113  awk -F ':' '{ print $1 }' go.txt 
+  114  awk -F ':' '{ print $1 }' /etc/passwd
+  115  awk -F ':' '{ print $0 }' /etc/passwd
+  116  awk -F ':' '{ print $2 }' /etc/passwd
+  117  awk -F ':' '{ print $3 }' /etc/passwd
+  118  awk -F ':' '{ print $0 }' /etc/passwd
+  120  awk -F ':' '{ print $0 }' /etc/passwd | sort
+  121  awk -F ':' '{ print $0 }' /etc/passwd | sort | wc -l
+  122  awk -F ':' '{ print $0 }' /etc/passwd | sort | wc
+  123  awk -F ':' '{ print $0 }' /etc/passwd | uniq | sort
+  124  awk -F ':' '{ print $0 }' /etc/passwd | uniq | sort |wc-l
+  125  awk -F ':' '{ print $0 }' /etc/passwd | uniq | sort |wc -l
+  128  awk -F ':' '{ print $0 }' /etc/passwd
+  129  awk '$1 == root { print $0 }' /etc/passwd
+  130  awk '$2 == root { print $0 }' /etc/passwd
+  131  awk '$1 == root { print $0 }' /etc/passwd
+  132  awk '$1 == 'root' { print $0 }' /etc/passwd
+  133  awk '$1 == "root" { print $0 }' /etc/passwd
+  134  awk '{ print $0 }' /etc/passwd
+  135  awk '{ print $0,$1 }' /etc/passwd
+  136  awk '{ print $1 }' /etc/passwd
+  137  awk '{ print $9 }' /etc/passwd
+  138  awk '{ print $2 }' /etc/passwd
+  139  awk '{ print $3 }' /etc/passwd
+  140  awk '{ print $0 }' /etc/passwd
+  141  awk -F ':' '$1 == root { print $0 }' /etc/passwd
+  142  awk -F ':' '$1 == root' /etc/passwd
+  143  awk -F ':' '$1 == root { print $0 }' /etc/passwd
+  144  awk -F ':' '{ print $0 }' /etc/passwd
+  145  awk '/tom|jerry|mike/' /etc/passwd
+  146  awk '/tom|jerry|mike|root/' /etc/passwd
+  147  awk '/tom|jerry|mike|root|yinxi/' /etc/passwd
+  148  awk "NR==1{print;exit}" go.txt 
+  149  awk "NR==$line{print;exit}" go.txt 
+  150  awk "NR==2{print;exit}" go.txt 
+  157  awk '{total += $1} END {print total}' go.txt 
+  158  awk 'BEGIN {printf ".3f\n",5005.50 / 3}'
+  159  awk 'BEGIN {printf "%.3f\n",5005.50 / 3}'
+  160  history | grep "awk"
+  161  history | grep "awk" > awk-command.txt
