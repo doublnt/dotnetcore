@@ -39,14 +39,13 @@ namespace aliyun_sms_winform
                 Action = "SendSms",
             };
 
-            request.AddQueryParameters("PhoneNumbers", "XXX");
+            request.AddQueryParameters("PhoneNumbers", "123456789");
             request.AddQueryParameters("SignName", "晚归提醒");
-            request.AddQueryParameters("TemplateCode", "XXX");
+            request.AddQueryParameters("TemplateCode", "SMS_164590230");
             request.AddQueryParameters("TemplateParam", "{code:200}");
 
             try
             {
-                label1.Text = "Start get the sms response";
                 CommonResponse response = client.GetCommonResponse(request);
 
                 label1.Text = Encoding.UTF8.GetString(response.HttpResponse.Content);
