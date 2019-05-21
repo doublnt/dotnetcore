@@ -1,0 +1,131 @@
+   72  2019-05-21 	 echo /etc/passwd
+  103  2019-05-21 	 for i in range(1,2,3);do echo $i >> go.txt;done
+  104  2019-05-21 	 for i in {1..1000};do echo $i >> go.txt;done
+  361  2019-05-21 	 echo https://ws2.sinaimg.cn/large/006tNc79gy1flwlwbwdqaj30r607kdhm.jpg cut -d "/" -f 3
+  362  2019-05-21 	 echo https://ws2.sinaimg.cn/large/006tNc79gy1flwlwbwdqaj30r607kdhm.jpg | cut -d "/" -f 3
+  363  2019-05-21 	 echo https://ws2.sinaimg.cn/large/006tNc79gy1flwlwbwdqaj30r607kdhm.jpg | cut -d "/" -f 4
+  364  2019-05-21 	 echo https://ws2.sinaimg.cn/large/006tNc79gy1flwlwbwdqaj30r607kdhm.jpg | cut -d "/" -f 5
+  405  2019-05-21 	 folder_name=`echo "sss"`
+  407  2019-05-21 	 echo $folder_name
+  439  2019-05-21 	 curl -s https://www.cnblogs.com/xiyin/p/7476403.html | awk '/postTitle2/ {print $0}' | cut -d "<" -f 2 | cut -d ">" -f 2 | sed 's/ //g
+  440  2019-05-21 	 curl -s https://www.cnblogs.com/xiyin/p/7476403.html | awk '/postTitle2/ {print $0}' | cut -d "<" -f 2 | cut -d ">" -f 2 | sed 's/ //g‘
+  441  2019-05-21 	 curl -s https://www.cnblogs.com/xiyin/p/7476403.html | awk '/postTitle2/ {print $0}' | cut -d "<" -f 2 | cut -d ">" -f 2 | sed 's/ //g'
+  445  2019-05-21 	 curl -s https://www.cnblogs.com/xiyin/p/7476403.html | awk '/postTitle2/ {print $0}' | sed 's/ //g'
+  446  2019-05-21 	 curl -s https://www.cnblogs.com/xiyin/p/7476403.html | awk '/postTitle2|postTitle/ {print $0}' | sed 's/ //g'
+  447  2019-05-21 	 curl -s https://www.cnblogs.com/xiyin/p/7476403.html | awk '/postTitle2|postTitle/ {print $0}' | sed 's/ //g' |cut -d "<" -f 1
+  448  2019-05-21 	 curl -s https://www.cnblogs.com/xiyin/p/7476403.html | awk '/postTitle2|postTitle/ {print $0}' | sed 's/ //g' |cut -d "<" -f 2
+  449  2019-05-21 	 curl -s https://www.cnblogs.com/xiyin/p/7476403.html | awk '/postTitle2|postTitle/ {print $0}' | sed 's/ //g' |cut -d "<" -f 3
+  450  2019-05-21 	 curl -s https://www.cnblogs.com/xiyin/p/7476403.html | awk '/postTitle2|postTitle/ {print $0}' | sed 's/ //g' |cut -d "<" -f 4
+  451  2019-05-21 	 curl -s https://www.cnblogs.com/xiyin/p/7476403.html | awk '/postTitle2|postTitle/ {print $0}' | sed 's/ //g' |cut -d "<" -f 3
+  452  2019-05-21 	 curl -s https://www.cnblogs.com/xiyin/p/7476403.html | awk '/postTitle2|postTitle/ {print $0}' | sed 's/ //g' |cut -d "<" -f 3 | cut -d ">" -f 3
+  453  2019-05-21 	 curl -s https://www.cnblogs.com/xiyin/p/7476403.html | awk '/postTitle2|postTitle/ {print $0}' | sed 's/ //g' |cut -d "<" -f 3 | cut -d ">" -f 2
+  535  2019-05-21 	 sed
+  604  2019-05-21 	 sed s/day/night/ 
+  606  2019-05-21 	 echo "Hello,World" | sed s/World/Yinxi
+  607  2019-05-21 	 echo "Hello,World" | sed s/World/Yinxi/
+  608  2019-05-21 	 echo "Hello Robert!" | sed s/Hello/You are the sunshine/
+  609  2019-05-21 	 echo "Hello Robert!" | sed /s/Hello/You are the sunshine/
+  610  2019-05-21 	 echo "Hello Robert!" | sed s/Hello/You are the sunshine/
+  611  2019-05-21 	 echo "Hello Robert!" | sed s/Hello/'You are the sunshine'/
+  612  2019-05-21 	 echo "Sunday" | sed 's/day/night'
+  613  2019-05-21 	 echo "Sunday" | sed 's/day/night/'
+  614  2019-05-21 	 echo "Sunday" | sed s/day/night/
+  615  2019-05-21 	 echo cnblogs | sed 's/cnblogs/alibabacloud' | head -100
+  616  2019-05-21 	 echo cnblogs | sed 's/cnblogs/alibabacloud/' | head -10
+  617  2019-05-21 	 echo cnblogs | sed 's/cnblogs/alibabacloud/' | head -100
+  618  2019-05-21 	 echo cnblogs | sed 's/cnblogs/alibabacloud/'
+  619  2019-05-21 	 echo $cnblogs
+  621  2019-05-21 	 echo cnblogs
+  622  2019-05-21 	 cat cnblogs | sed 's/cnblogsc/alibabacloud/' | head -100
+  623  2019-05-21 	 cat cnblogs | sed 's/cnblogs/alibabacloud/' | head -100
+  625  2019-05-21 	 sed 's/cnblogs/CNBLOGS/' < cnblogs
+  626  2019-05-21 	 echo "/user/bin" | sed 's/\/user\/local'
+  627  2019-05-21 	 echo "/user/bin" | sed 's/\/user\/local/'
+  628  2019-05-21 	 echo "/user/bin" | sed 's/\/use/r\/local/'
+  629  2019-05-21 	 echo "/user/bin" | sed 's/\user/\/local/'
+  630  2019-05-21 	 echo "/user/bin" | sed 's/\user/\local/'
+  631  2019-05-21 	 echo "/user/bin" | sed 's/\user/local/'
+  634  2019-05-21 	 sed 's/<a>.*<\/a>/10086' < cnblogs  | head -100
+  635  2019-05-21 	 sed 's/<a>.*<\/a>/10086/' < cnblogs  | head -100
+  636  2019-05-21 	 sed 's/<a>.*<\/a>/10086/' < cnblogs  | head -100 | grep "10086" | wc-l
+  637  2019-05-21 	 sed 's/<a>.*<\/a>/10086/' < cnblogs  | head -100 | grep "10086" | wc -l
+  638  2019-05-21 	 sed 's/\<a\>.*\<\/a\>/10086/' < cnblogs  | head -100
+  639  2019-05-21 	 sed 's/\<a\>.*\<\/a\>/10086/' < cnblogs  | head -100 | grep "10086"
+  640  2019-05-21 	 sed 's/\<a\>.*\<\/a\>/10086/' < cnblogs  | head -1000
+  641  2019-05-21 	 sed 's/\<a\>.*\<\/a\>/10086/' < cnblogs  | head -1000 | grep "10086"
+  642  2019-05-21 	 sed 's/[0-9]/10086/' < cnblogs  | grep "10086" |wc -l
+  643  2019-05-21 	 echo "1232" | sed 's/[0-9]/$ $/'
+  644  2019-05-21 	 echo "1232" | sed 's/[0-9]*/& &/'
+  645  2019-05-21 	 echo "1232" | sed 's/[0-9]/& &/'
+  646  2019-05-21 	 echo "123" | sed 's/[0-9]/&/'
+  647  2019-05-21 	 echo "123" | sed 's/[0-9]*/&/'
+  648  2019-05-21 	 echo "123" | sed 's/[0-9]*/& &/'
+  649  2019-05-21 	 echo "123" | sed 's/[0-9]/& &/'
+  650  2019-05-21 	 echo "123" | sed 's/[0-9].*/& &/'
+  651  2019-05-21 	 echo "123" | sed 's/[0-9]*/& &/'
+  652  2019-05-21 	 echo "123" | sed 's/[0-9]/& &/'
+  653  2019-05-21 	 echo "123" | sed 's/[0-9]/& & &/'
+  654  2019-05-21 	 echo "123 abc" | sed 's/[0-9]+/& &/'
+  655  2019-05-21 	 echo "123 abc" | sed -r 's/[0-9]+/& &/'
+  656  2019-05-21 	 sed -r 's/[0-9]*/& &/' < echo "234 rwr"
+  657  2019-05-21 	 echo "123 abd" | sed -r 's/[0-9]*/& &/'
+  658  2019-05-21 	 sed -r 's/\([a-z]*\).*/\1/' < cnblogs 
+  659  2019-05-21 	 sed 's/\([a-z]*\).*/\1/' < cnblogs 
+  660  2019-05-21 	 sed 's/\<href.*\>.*/\1/' < cnblogs 
+  661  2019-05-21 	 sed 's/\<href(.*)\>\>.*/\1/' < cnblogs 
+  662  2019-05-21 	 sed -r 's/\<href(.*)\>\>.*/\1/' < cnblogs 
+  663  2019-05-21 	 echo "123456" | sed 's/([0-9])/\1/'
+  664  2019-05-21 	 echo "123456" | sed 's/\([0-9]\)/\1/'
+  665  2019-05-21 	 echo "123456" | sed 's/\([a-z]\)/\1/'
+  666  2019-05-21 	 echo "123456" | sed 's/\([a-z]\)/\0/'
+  667  2019-05-21 	 echo "123456" | sed 's/\([a-z]\)/\1/'
+  668  2019-05-21 	 echo "123456" | sed 's/([a-z])/\1/'
+  669  2019-05-21 	 echo "abcd123" | sed 's/\(a-z\).*/\1/'
+  670  2019-05-21 	 echo "abcd123" | sed 's/\([a-z]\).*/\1/'
+  671  2019-05-21 	 echo "abcd123" | sed 's/\([a-z]\).*/\2/'
+  672  2019-05-21 	 echo "abcd123" | sed 's/\([a-z]\).*/\0/'
+  673  2019-05-21 	 echo "abcd123" | sed 's/\([a-z]\).*/\1/'
+  674  2019-05-21 	 echo "abcd123" | sed 's/([a-z]).*/\1/'
+  675  2019-05-21 	 echo "abcd123" | sed 's/\([a-z]\).*/\1/'
+  676  2019-05-21 	 echo "abcd123" | sed 's/\(\[a-z\]\).*/\1/'
+  677  2019-05-21 	 echo "abcd123" | sed 's/\([a-z]\)/\1/'
+  678  2019-05-21 	 echo "abcd123" | sed 's/\([a-z]\)/\0/'
+  679  2019-05-21 	 echo "abcd123" | sed 's/\([a-z]\)/\1/'
+  680  2019-05-21 	 echo "abcd123" | sed 's/\([a-z]\)/111/'
+  681  2019-05-21 	 echo "abcd123" | sed 's/\([a-z]\)/\1/'
+  682  2019-05-21 	 echo "abcd123" | sed -r 's/\([a-z]\)/\1/'
+  683  2019-05-21 	 echo "abcd123" | sed -r 's/([a-z])/\1/'
+  684  2019-05-21 	 echo "abcd123" | sed -r 's/([a-z])/\0/'
+  685  2019-05-21 	 echo "abcd123" | sed -r 's/([a-z])/\2/'
+  686  2019-05-21 	 echo "abcd123" | sed -r 's/([a-z])/\1/'
+  687  2019-05-21 	 echo "abcd123" | sed -r 's/([a-z]).*/\1/'
+  688  2019-05-21 	 echo "abcd123" | sed -r 's/[0-9]/\1/'
+  689  2019-05-21 	 echo "abcd123" | sed -r 's/([0-9])/\1/'
+  690  2019-05-21 	 echo "abcd123" | sed -r 's/([0-9])/\0/'
+  691  2019-05-21 	 echo "abcd123" | sed -r 's/([0-9])/\1/'
+  692  2019-05-21 	 echo "abcd123" | sed -r 's/([0-9])/\2/'
+  693  2019-05-21 	 echo "abcd123" | sed -r 's/([0-9])/\1/'
+  694  2019-05-21 	 echo "abcd123" | sed -r 's/([0-9]).*/\1/'
+  695  2019-05-21 	 echo "abcd123" | sed -rn 's/([0-9]).*/\1/'
+  696  2019-05-21 	 echo "abcd123abc123" | sed -rn 's/([0-9]).*/\1/'
+  697  2019-05-21 	 echo "abcd123abc123123" | sed -rn 's/([0-9]).*/\1/'
+  698  2019-05-21 	 echo "abcd123abc123123" | sed -rn 's/([0-9]).*/\0/'
+  699  2019-05-21 	 echo "abcd123abc123123" | sed -n 's/([0-9]).*/\0/'
+  700  2019-05-21 	 echo "abcd123abc123123" | sed -n 's/([0-9]).*/\1/'
+  701  2019-05-21 	 echo "abcd123abc123123" | sed -n 's/([a-z])/+([0-9]+)\1/'
+  702  2019-05-21 	 echo "abcd123abc123123" | sed -n 's/([a-z])/+([0-9]+)\1111/'
+  703  2019-05-21 	 echo "abcd123abc123123" | sed -rn 's/([a-z])/+([0-9]+)\/'
+  704  2019-05-21 	 echo "abcd123abc123123" | sed -rn 's/([a-z])/+([0-9]+)\1/'
+  705  2019-05-21 	 echo "abcd123abc123123" | sed -rn 's/([a-z])/+([0-9]+)\0/'
+  706  2019-05-21 	 echo "abcd123abc123123" | sed -rn 's/([a-z])/+([0-9]+)\0/p'
+  707  2019-05-21 	 echo "abcd123abc123123" | sed -rn 's/([a-z])+([0-9]+)\/p'
+  708  2019-05-21 	 echo "abcd123abc123123" | sed -rn 's/([a-z])+([0-9]+)\/p/'
+  709  2019-05-21 	 echo "abcd123abc123123" | sed -rn 's/([a-z])+([0-9]+)/\1/p'
+  710  2019-05-21 	 echo "abcd123abc123123" | sed -rn 's/([a-z])+([0-9]+)/\0/p'
+  711  2019-05-21 	 echo "abcd123abc123123" | sed -rn 's/([a-z])+([0-9]+)/\1/p'
+  712  2019-05-21 	 histoty | grep "sed"
+  713  2019-05-21 	 history | grep "sed"
+  732  2019-05-21 	 history | grep "echo|sed"
+  733  2019-05-21 	 history | awk '/echo|sed'
+  734  2019-05-21 	 history | awk '/echo|sed/'
+  735  2019-05-21 	 history | awk '/echo|sed/' > command_history_20190521
