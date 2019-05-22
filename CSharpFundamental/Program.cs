@@ -83,10 +83,13 @@ namespace CSharpFundamental
             //var actionSample = new ActionSampleWithClosure();
             //actionSample.TimeCallbackFunc();
 
-            var captureClass = new CaptureVariableSample();
-            captureClass.DoCaptureThing();
+            //var captureClass = new CaptureVariableSample();
+            //captureClass.DoCaptureThing();
 
-            captureClass.SomeActionList();
+            //captureClass.SomeActionList();
+
+            var multipleThread = new MultipleThreadCompete();
+            multipleThread.DoTheCompeteSecond();
         }
 
         public static void Relection()
