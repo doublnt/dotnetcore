@@ -3,6 +3,7 @@ using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using CSharpFundamental.CaptureVariables;
 
 namespace CSharpFundamental
 {
@@ -11,8 +12,9 @@ namespace CSharpFundamental
         //        public static int x;
         //        public static int y;
 
-        static async Task Main(string[] args)
+        static void Main(string[] args)
         {
+            #region comment code
             //            Console.WriteLine(x + " | " + y);
             //
             //            x = 20;
@@ -72,10 +74,19 @@ namespace CSharpFundamental
 
             //Console.ReadLine();
 
-            Console.WriteLine("Item\tData");
-            char split = '-';
+            //Console.WriteLine("Item\tData");
+            //char split = '-';
 
-            Console.WriteLine(String.Concat(Enumerable.Repeat(split, "item".Length)));
+            //Console.WriteLine(String.Concat(Enumerable.Repeat(split, "item".Length)));
+            #endregion
+
+            //var actionSample = new ActionSampleWithClosure();
+            //actionSample.TimeCallbackFunc();
+
+            var captureClass = new CaptureVariableSample();
+            captureClass.DoCaptureThing();
+
+            captureClass.SomeActionList();
         }
 
         public static void Relection()

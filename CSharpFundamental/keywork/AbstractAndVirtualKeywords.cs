@@ -5,8 +5,15 @@ namespace CSharpFundamental.keywork
     //默认为  internal 类型，当前 程序集可见
     class TestClass
     {
-        //默认为 private 类型，只允许该类和嵌套类访问
+        //字段默认为 private 类型，只允许该类和嵌套类访问
         Int32 age;
+
+
+        //方法未申明任何 关键字 默认为 private  当前类访问级别
+        void DoActionWithThing1()
+        {
+
+        }
     }
 
     internal class AbstractAndVirtualKeywords
