@@ -18,7 +18,7 @@ namespace CSharpFundamental
 
             Console.WriteLine("Checking Status every 2 seconds");
 
-            //_sTimer = new Timer(Status, null, Timeout.Infinite, Timeout.Infinite);
+            _sTimer = new Timer(Status, null, Timeout.Infinite, Timeout.Infinite);
 
             ////相当于启动计时器。
             //_sTimer.Change(0, Timeout.Infinite);

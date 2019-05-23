@@ -16,13 +16,13 @@ namespace CSharpFundamental
         Random random = new Random();
         CancellationTokenSource cts = new CancellationTokenSource();
         private const int TOTAL_NUM = 10000000;
-        private const int CURRENT_THREAD_COUNT = 10;
+        private const int CURRENT_THREAD_COUNT = 35;
 
         ReaderWriterLockSlim rwls = new ReaderWriterLockSlim();
 
         int[] bitMap = new int[TOTAL_NUM];
 
-        internal void DoTheCompeteSecond()
+        internal void DoTheCompete()
         {
             //ThreadPool.SetMinThreads(CURRENT_THREAD_COUNT, CURRENT_THREAD_COUNT);
             Stopwatch sw = new Stopwatch();
@@ -80,17 +80,15 @@ namespace CSharpFundamental
                     rwls.ExitReadLock();
                 }
 
-                var insertNum = GenerateInt32Num();
+                var currentNum = GenerateInt32Num();
 
-                rwls.EnterReadLock();
-                if (NumContains(insertNum))
+                while (ContainsNum(currentNum))
                 {
-                    insertNum = GenerateInt32Num();
+                    currentNum = GenerateInt32Num();
                 }
-                rwls.ExitReadLock();
 
                 rwls.EnterWriteLock();
-                AddToList(insertNum);
+                AddToList(currentNum);
                 rwls.ExitWriteLock();
             }
         }
@@ -98,13 +96,18 @@ namespace CSharpFundamental
         private int GenerateInt32Num()
         {
             var num = random.Next(0, TOTAL_NUM);
-            //Console.WriteLine(num);
+            Console.WriteLine(num);
+
             return num;
         }
 
-        private bool NumContains(int num)
+        private bool ContainsNum(int num)
         {
-            return bitMap[num] == 1;
+            rwls.EnterReadLock();
+            var contains = bitMap[num] == 1;
+            rwls.ExitReadLock();
+
+            return contains;
         }
     }
 }

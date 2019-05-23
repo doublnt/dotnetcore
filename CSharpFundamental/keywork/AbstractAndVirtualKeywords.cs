@@ -6,7 +6,9 @@ namespace CSharpFundamental.keywork
     class TestClass
     {
         //字段默认为 private 类型，只允许该类和嵌套类访问
+#pragma warning disable 169
         Int32 age;
+#pragma warning restore 169
 
 
         //方法未申明任何 关键字 默认为 private  当前类访问级别
@@ -59,7 +61,7 @@ namespace CSharpFundamental.keywork
         /// <param name="x1"></param>
         /// <param name="x2"></param>
         /// <returns></returns>
-        public new Int32 CalculateValue2(Int32 x1, Int32 x2)
+        public Int32 CalculateValue2(Int32 x1, Int32 x2)
         {
             return x1 + 10086;
         }

@@ -89,7 +89,7 @@ namespace CSharpFundamental
             //captureClass.SomeActionList();
 
             var multipleThread = new MultipleThreadCompete();
-            multipleThread.DoTheCompeteSecond();
+            multipleThread.DoTheCompete();
         }
 
         public static void Relection()

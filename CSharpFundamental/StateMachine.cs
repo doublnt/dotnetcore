@@ -13,12 +13,16 @@ namespace CSharpFundamental
 
     class StateMachine
     {
+#pragma warning disable 1998
         private async Task<Type1> Method1Async()
+#pragma warning restore 1998
         {
             return new Type1();
         }
 
+#pragma warning disable 1998
         private async Task<Type2> Method2Async()
+#pragma warning restore 1998
         {
             return new Type2();
         }
