@@ -88,8 +88,19 @@ namespace CSharpFundamental
 
             //captureClass.SomeActionList();
 
-            var multipleThread = new MultipleThreadCompete();
-            multipleThread.DoTheCompete();
+            //var multipleThread = new MultipleThreadCompete();
+            //multipleThread.DoTheCompete();
+
+
+            var linqClass = new LinqTest();
+            linqClass.ExecuteLinqFunc();
+
+            Func<string, string, string> returnMyName = (str1, str2) => str1 + str2;
+
+            Action<string, string> printMyAge = (str1, str2) => Console.WriteLine(str1 + str2 + "is 50 years old");
+
+            Console.WriteLine(returnMyName("Hello", "World!"));
+            printMyAge("Robert", "Mike ");
         }
 
         public static void Relection()
