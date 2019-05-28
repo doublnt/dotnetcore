@@ -3,7 +3,9 @@
 using Aliyun.Acs.Core;
 using Aliyun.Acs.Core.Exceptions;
 using Aliyun.Acs.Core.Profile;
-using Aliyun.Acs.Mts.Model.V20140618;
+
+using Aliyun.Acs.Ecs.Model.V20140526;
+
 namespace Aliyun.Core.Demo
 {
     class Program
@@ -94,7 +96,7 @@ namespace Aliyun.Core.Demo
 
             //            var request = new QueryMetricDataRequest();
 
-            var request = new ListAllCategoryRequest();
+            var request = new DescribeAccessPointsRequest();
 
             try
             {
