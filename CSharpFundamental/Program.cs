@@ -107,8 +107,20 @@ namespace CSharpFundamental
             Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
             Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
 
-            var nullReference = new HandleNullReference();
-            nullReference.DoTheNullConditions();
+            //var nullReference = new HandleNullReference();
+            //nullReference.DoTheNullConditions();
+
+            //var instance = new FailingClass();
+
+            try
+            {
+                var instance = new FailingClass();
+            }
+            catch (TypeInitializationException)
+            {
+                ClassInitialization.ThrowException = false;
+                var instance = new FailingClass();
+            }
         }
 
         public static void Relection()
