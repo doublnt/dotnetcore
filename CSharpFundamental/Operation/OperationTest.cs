@@ -28,8 +28,8 @@ namespace CSharpFundamental.Operation
 
             Console.WriteLine(1 & 2);
 
-            var value = EnumTest.Value2 | EnumTest.Value3;
-            //Console.WriteLine(Enum.Parse(value));
+            var value = EnumTest.Value3 & EnumTest.Value2;
+            Console.WriteLine(value);
         }
     }
 
@@ -37,7 +37,7 @@ namespace CSharpFundamental.Operation
     internal enum EnumTest
     {
         Value1 = 0,
-        Value2 = 0x0001,
-        Value3 = 0x0002
+        Value2 = 1,
+        Value3 = 2
     }
 }
