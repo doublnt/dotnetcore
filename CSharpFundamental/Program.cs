@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CSharpFundamental.CaptureVariables;
 using CSharpFundamental.NullReference;
+using CSharpFundamental.Operation;
 
 namespace CSharpFundamental
 {
@@ -112,15 +113,18 @@ namespace CSharpFundamental
 
             //var instance = new FailingClass();
 
-            try
-            {
-                var instance = new FailingClass();
-            }
-            catch (TypeInitializationException)
-            {
-                ClassInitialization.ThrowException = false;
-                var instance = new FailingClass();
-            }
+            //try
+            //{
+            //    var instance = new FailingClass();
+            //}
+            //catch (TypeInitializationException)
+            //{
+            //    ClassInitialization.ThrowException = false;
+            //    var instance = new FailingClass();
+            //}
+
+            var operators = new OperationTest();
+            operators.ComputeShiftOperators();
         }
 
         public static void Relection()
