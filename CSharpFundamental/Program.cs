@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 using CSharpFundamental.CaptureVariables;
+using CSharpFundamental.NullReference;
+using CSharpFundamental.Operation;
 
 namespace CSharpFundamental
 {
@@ -88,8 +91,40 @@ namespace CSharpFundamental
 
             //captureClass.SomeActionList();
 
-            var multipleThread = new MultipleThreadCompete();
-            multipleThread.DoTheCompete();
+            //var multipleThread = new MultipleThreadCompete();
+            //multipleThread.DoTheCompete();
+
+
+            //var linqClass = new LinqTest();
+            //linqClass.ExecuteLinqFunc();
+
+            //Func<string, string, string> returnMyName = (str1, str2) => str1 + str2;
+
+            //Action<string, string> printMyAge = (str1, str2) => Console.WriteLine(str1 + str2 + "is 50 years old");
+
+            //Console.WriteLine(returnMyName("Hello", "World!"));
+            //printMyAge("Robert", "Mike ");
+
+            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
+            Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
+
+            //var nullReference = new HandleNullReference();
+            //nullReference.DoTheNullConditions();
+
+            //var instance = new FailingClass();
+
+            //try
+            //{
+            //    var instance = new FailingClass();
+            //}
+            //catch (TypeInitializationException)
+            //{
+            //    ClassInitialization.ThrowException = false;
+            //    var instance = new FailingClass();
+            //}
+
+            var operators = new OperationTest();
+            operators.ComputeShiftOperators();
         }
 
         public static void Relection()
