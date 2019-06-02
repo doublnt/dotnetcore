@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
+using CSharpFundamental.BitwiseOperation;
 using CSharpFundamental.CaptureVariables;
 using CSharpFundamental.NullReference;
 using CSharpFundamental.Operation;
@@ -123,8 +124,12 @@ namespace CSharpFundamental
             //    var instance = new FailingClass();
             //}
 
-            var operators = new OperationTest();
-            operators.ComputeShiftOperators();
+            //var operators = new OperationTest();
+            //operators.ComputeShiftOperators();
+
+            var bitwiseOperation = new BitwiseOperationSample();
+
+            bitwiseOperation.DoBitwiseOperation();
         }
 
         public static void Relection()
