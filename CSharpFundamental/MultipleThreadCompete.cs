@@ -1,10 +1,6 @@
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -15,7 +11,7 @@ namespace CSharpFundamental
         List<int> numList = new List<int>();
         Random random = new Random();
         CancellationTokenSource cts = new CancellationTokenSource();
-        private const int TOTAL_NUM = 10000000;
+        private const int TOTAL_NUM = 1000000;
         private const int CURRENT_THREAD_COUNT = 35;
 
         ReaderWriterLockSlim rwls = new ReaderWriterLockSlim();
@@ -57,9 +53,9 @@ namespace CSharpFundamental
 
         private void ExecuteTheTask(object state, CancellationTokenSource cts)
         {
-            //Console.WriteLine("This is the {0} thread,Current ThreadId={1}",
-            //    state,
-            //    Thread.CurrentThread.ManagedThreadId);
+            Console.WriteLine("This is the {0} thread,Current ThreadId={1}",
+                state,
+                Thread.CurrentThread.ManagedThreadId);
 
             while (!cts.Token.IsCancellationRequested)
             {
@@ -96,7 +92,7 @@ namespace CSharpFundamental
         private int GenerateInt32Num()
         {
             var num = random.Next(0, TOTAL_NUM);
-            Console.WriteLine(num);
+            //Console.WriteLine(num);
 
             return num;
         }
