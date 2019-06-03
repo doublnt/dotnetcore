@@ -6,6 +6,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using CSharpFundamental.BitwiseOperation;
 using CSharpFundamental.CaptureVariables;
+using CSharpFundamental.Delegate;
 using CSharpFundamental.NullReference;
 using CSharpFundamental.Operation;
 
@@ -131,8 +132,11 @@ namespace CSharpFundamental
 
             //bitwiseOperation.DoBitwiseOperation();
 
-            var staticConstructor = new StaticConstructorSample();
-            staticConstructor.PrintTheStaticValue();
+            //var staticConstructor = new StaticConstructorSample();
+            //staticConstructor.PrintTheStaticValue();
+
+            var delegateDemo = new DelegateDemo();
+            delegateDemo.DoDelegateThing();
         }
 
         public static void Relection()
