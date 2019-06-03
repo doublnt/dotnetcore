@@ -127,9 +127,12 @@ namespace CSharpFundamental
             //var operators = new OperationTest();
             //operators.ComputeShiftOperators();
 
-            var bitwiseOperation = new BitwiseOperationSample();
+            //var bitwiseOperation = new BitwiseOperationSample();
 
-            bitwiseOperation.DoBitwiseOperation();
+            //bitwiseOperation.DoBitwiseOperation();
+
+            var staticConstructor = new StaticConstructorSample();
+            staticConstructor.PrintTheStaticValue();
         }
 
         public static void Relection()
