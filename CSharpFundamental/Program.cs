@@ -1,26 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
 using System.Net;
 using System.Threading;
-using System.Threading.Tasks;
-using CSharpFundamental.BitwiseOperation;
-using CSharpFundamental.CaptureVariables;
 using CSharpFundamental.CSharpVersion1;
-using CSharpFundamental.Delegate;
-using CSharpFundamental.NullReference;
-using CSharpFundamental.Operation;
 
 namespace CSharpFundamental
 {
-    class Program
+    internal class Program
     {
         //        public static int x;
         //        public static int y;
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             #region comment code
+
             //            Console.WriteLine(x + " | " + y);
             //
             //            x = 20;
@@ -84,6 +79,7 @@ namespace CSharpFundamental
             //char split = '-';
 
             //Console.WriteLine(String.Concat(Enumerable.Repeat(split, "item".Length)));
+
             #endregion
 
             //var actionSample = new ActionSampleWithClosure();
@@ -151,14 +147,14 @@ namespace CSharpFundamental
 
         public static void CLRDemo()
         {
-            CLRStackDemo demo = new CLRStackDemo();
+            var demo = new CLRStackDemo();
             demo.M1();
         }
 
         public static void DynamicDemo()
         {
-            RefTestDemo refTestDemo = new RefTestDemo();
-            int[] array = new int[5];
+            var refTestDemo = new RefTestDemo();
+            var array = new int[5];
             refTestDemo.RefMethodTest(ref array);
 
             foreach (var item in array)
@@ -166,7 +162,8 @@ namespace CSharpFundamental
                 Console.WriteLine(item);
             }
 
-            dynamic array2 = new System.Collections.Generic.List<int>() { 1, 2, 3 };
+            dynamic array2 = new List<int>
+                {1, 2, 3};
 
             dynamic addtoInt = 111;
 
@@ -185,7 +182,7 @@ namespace CSharpFundamental
         public void DoSomething()
         {
             //Public get and set method
-            PrivateClass pClass = new PrivateClass();
+            var pClass = new PrivateClass();
             pClass.Name = "Robert";
             Console.WriteLine(pClass.Name);
 
@@ -198,27 +195,32 @@ namespace CSharpFundamental
 
             new AnonymousType().CreateAnonymousAndExecute();
 
-            TestConstrcutor tc = new TestConstrcutor("222");
+            var tc = new TestConstrcutor("222");
 
             tc.SetNamespaceParams(y: 1, x: 2);
             tc.SetNamespaceParams(1, 2);
 
-            HttpWebRequest request = (HttpWebRequest)WebRequest.Create("https://www.alibabacloud.com");
+            var request = (HttpWebRequest)WebRequest.Create("https://www.alibabacloud.com");
             request.Timeout = 1000;
-            HttpWebResponse response = (HttpWebResponse)request.GetResponse();
+            var response = (HttpWebResponse)request.GetResponse();
 
             request = (HttpWebRequest)WebRequest.Create("https://www.cnblogs.com");
             response = (HttpWebResponse)request.GetResponse();
 
-            AnonymousType.DoTheFollowing doTheFollowing = new AnonymousType.DoTheFollowing(DoFollowing);
+            var doTheFollowing = new AnonymousType.DoTheFollowing(DoFollowing);
             doTheFollowing("Hello");
         }
     }
 
-    class TestConstrcutor : ConstructorClass
+    internal class TestConstrcutor : ConstructorClass
     {
-        public TestConstrcutor() : base() { }
-        public TestConstrcutor(string param1) : base(param1) { }
+        public TestConstrcutor()
+        {
+        }
+
+        public TestConstrcutor(string param1) : base(param1)
+        {
+        }
 
         public void SetNamespaceParams(int x, int y)
         {
