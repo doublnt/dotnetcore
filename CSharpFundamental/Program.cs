@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Net;
 using System.Threading;
 using CSharpFundamental.CSharpVersion1;
+using CSharpFundamental.Reflect;
 
 namespace CSharpFundamental
 {
@@ -104,9 +105,6 @@ namespace CSharpFundamental
             //Console.WriteLine(returnMyName("Hello", "World!"));
             //printMyAge("Robert", "Mike ");
 
-            Thread.CurrentThread.CurrentCulture = CultureInfo.InvariantCulture;
-            Thread.CurrentThread.CurrentUICulture = CultureInfo.InvariantCulture;
-
             //var nullReference = new HandleNullReference();
             //nullReference.DoTheNullConditions();
 
@@ -135,8 +133,12 @@ namespace CSharpFundamental
             //var delegateDemo = new DelegateDemo();
             //delegateDemo.DoDelegateThing();
 
-            var staticType = new StaticTypeDemo();
-            staticType.DoStaticTypeThing();
+            //var staticType = new StaticTypeDemo();
+            //staticType.DoStaticTypeThing();
+
+            var reflectDemo = new ReflectSample();
+
+            reflectDemo.DoRelectThing();
         }
 
         public static void Relection()
