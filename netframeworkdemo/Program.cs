@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Aliyun.Acs.Core;
 using Aliyun.Acs.Core.Exceptions;
 using Aliyun.Acs.Core.Profile;
-using Aliyun.Acs.NAS.Model.V20170626;
+using Aliyun.Acs.Ecs.Model.V20140526;
 
 namespace netframeworkdemo
 {
@@ -27,7 +27,7 @@ namespace netframeworkdemo
             IClientProfile profile = DefaultProfile.GetProfile(regionId, accessKeyId, accessKeySecret);
             var client = new DefaultAcsClient(profile);
 
-            var request = new DescribeAccessGroupsRequest();
+            var request = new DescribeRegionsRequest();
 
             try
             {

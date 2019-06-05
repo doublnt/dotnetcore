@@ -36,6 +36,9 @@
     <Reference Include="aliyun-net-sdk-core, Version=1.3.5.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\aliyun-net-sdk-core.1.3.5\lib\net45\aliyun-net-sdk-core.dll</HintPath>
     </Reference>
+    <Reference Include="aliyun-net-sdk-ecs-yinxi-test, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\aliyun-net-sdk-ecs-yinxi-test.1.0.0\lib\net45\aliyun-net-sdk-ecs-yinxi-test.dll</HintPath>
+    </Reference>
     <Reference Include="aliyun-net-sdk-nas, Version=3.2.1.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\aliyun-net-sdk-nas.3.2.1\lib\net45\aliyun-net-sdk-nas.dll</HintPath>
     </Reference>
