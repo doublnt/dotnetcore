@@ -85,6 +85,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "aws-ec2-demo", "aws-ec2-dem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "netframeworkdemo", "netframeworkdemo\netframeworkdemo.csproj", "{DD4F6EC3-C8A8-4DF3-B411-03E2E272C30F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ServerUnreadableSample", "ServerUnreadableSample\ServerUnreadableSample.csproj", "{D1046F08-AE4D-449D-AB54-392C675AAFE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -491,6 +493,18 @@ Global
 		{DD4F6EC3-C8A8-4DF3-B411-03E2E272C30F}.Release|x64.Build.0 = Release|Any CPU
 		{DD4F6EC3-C8A8-4DF3-B411-03E2E272C30F}.Release|x86.ActiveCfg = Release|Any CPU
 		{DD4F6EC3-C8A8-4DF3-B411-03E2E272C30F}.Release|x86.Build.0 = Release|Any CPU
+		{D1046F08-AE4D-449D-AB54-392C675AAFE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D1046F08-AE4D-449D-AB54-392C675AAFE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D1046F08-AE4D-449D-AB54-392C675AAFE3}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{D1046F08-AE4D-449D-AB54-392C675AAFE3}.Debug|x64.Build.0 = Debug|Any CPU
+		{D1046F08-AE4D-449D-AB54-392C675AAFE3}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{D1046F08-AE4D-449D-AB54-392C675AAFE3}.Debug|x86.Build.0 = Debug|Any CPU
+		{D1046F08-AE4D-449D-AB54-392C675AAFE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D1046F08-AE4D-449D-AB54-392C675AAFE3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D1046F08-AE4D-449D-AB54-392C675AAFE3}.Release|x64.ActiveCfg = Release|Any CPU
+		{D1046F08-AE4D-449D-AB54-392C675AAFE3}.Release|x64.Build.0 = Release|Any CPU
+		{D1046F08-AE4D-449D-AB54-392C675AAFE3}.Release|x86.ActiveCfg = Release|Any CPU
+		{D1046F08-AE4D-449D-AB54-392C675AAFE3}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -520,6 +534,7 @@ Global
 		{294E4CA6-6E18-4757-9CFB-12BCB4EED2E1} = {162D5174-6275-40F9-B34F-6981D072A0BF}
 		{089AEEC5-DE80-4A0E-AC0F-CDC7986BDE79} = {BD78A49F-0DCD-486D-A312-88ECB193465E}
 		{6A4DF40F-F5D9-49C4-A1CF-44575652D86B} = {BD78A49F-0DCD-486D-A312-88ECB193465E}
+		{D1046F08-AE4D-449D-AB54-392C675AAFE3} = {BF9E1011-C3BF-4A89-9E17-5A280AC889C5}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3EEFBAE4-764A-4969-BB8A-973F95DF5F16}
