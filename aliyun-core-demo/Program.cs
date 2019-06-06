@@ -3,8 +3,8 @@
 using Aliyun.Acs.Core;
 using Aliyun.Acs.Core.Exceptions;
 using Aliyun.Acs.Core.Profile;
+using Aliyun.Acs.vod.Model.V20170321;
 
-using Aliyun.Acs.Ecs.Model.V20140526;
 
 namespace Aliyun.Core.Demo
 {
@@ -96,7 +96,8 @@ namespace Aliyun.Core.Demo
 
             //            var request = new QueryMetricDataRequest();
 
-            var request = new DescribeAccessPointsRequest();
+            var request = new GetPlayInfoRequest();
+            request.VideoId = "your video id";
 
             try
             {

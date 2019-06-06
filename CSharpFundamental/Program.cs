@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Net;
 using System.Threading;
 using CSharpFundamental.CSharpVersion1;
@@ -136,9 +137,15 @@ namespace CSharpFundamental
             //var staticType = new StaticTypeDemo();
             //staticType.DoStaticTypeThing();
 
-            var reflectDemo = new ReflectSample();
+            //var reflectDemo = new ReflectSample();
 
-            reflectDemo.DoRelectThing();
+            //reflectDemo.DoRelectThing();
+
+
+            string test = null;
+            string test1 = "";
+            Console.WriteLine(test.Length);
+            Console.WriteLine(test1.Length);
         }
 
         public static void Relection()
