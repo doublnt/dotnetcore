@@ -11,7 +11,7 @@ namespace CSharpFundamental.FluentApi
         public static string Append(this IMarket market)
         {
             var appendValue = "AppendYourself";
-
+    
             Console.WriteLine(market + appendValue);
 
             return appendValue;

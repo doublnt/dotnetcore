@@ -141,11 +141,9 @@ namespace CSharpFundamental
 
             //reflectDemo.DoRelectThing();
 
+            //new UriSample().PrintTheSegmentOfUri();
 
-            string test = null;
-            string test1 = "";
-            Console.WriteLine(test.Length);
-            Console.WriteLine(test1.Length);
+            new PoseSample().PoseMethod();
         }
 
         public static void Relection()
