@@ -10,7 +10,7 @@ namespace CSharpFundamental.Equality
     {
         private int value1 = 1;
         private int value2 = 2;
-
+    
         public void DoCompareThing()
         {
 
