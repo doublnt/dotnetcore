@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using Aliyun.Acs.Core;
 using Aliyun.Acs.Core.Exceptions;
 using Aliyun.Acs.Core.Profile;
-using Aliyun.Acs.Ecs.Model.V20140526;
+using Aliyun.Acs.NAS.Model.V20170626;
 
 namespace netframeworkdemo
 {
