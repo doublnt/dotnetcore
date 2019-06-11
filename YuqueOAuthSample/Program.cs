@@ -1,21 +1,21 @@
 ﻿using System;
-using System.Buffers.Text;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net;
 using System.Security.Cryptography;
 using System.Text;
+using System.Web;
 
 namespace YuqueOAuthSample
 {
-    class Program
+    internal class Program
     {
-        private static Random random = new Random();
-        private static string urlAuthorize = "https://www.yuque.com/oauth2/authorize";
-        private static string urlToken = "https://www.yuque.com/oauth2/token";
+        private static readonly Random random = new Random();
+        private static readonly string urlAuthorize = "https://www.yuque.com/oauth2/authorize";
+        private static readonly string urlToken = "https://www.yuque.com/oauth2/token";
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             var clientId = "Td8Sk8TtJw2ahfakTKjw";
             var responseType = "code";
@@ -23,10 +23,13 @@ namespace YuqueOAuthSample
 
             Console.WriteLine("Hello World!");
 
-            GetResponseFromAuthorizeWithWebApplication(clientId, responseType, scope);
+            //GetResponseFromAuthorizeWithWebApplication(clientId, responseType, scope);
+
+            GetRespnseFromYuqueWithConsoleApplication(clientId, responseType, scope);
         }
 
-        private static void GetRespnseFromYuqueWithConsoleApplication(string clientId, string responseType, string scope)
+        private static void GetRespnseFromYuqueWithConsoleApplication(string clientId, string responseType,
+            string scope)
         {
             var code = GenerateString(40, false);
 
@@ -39,7 +42,7 @@ namespace YuqueOAuthSample
             var queryDic = new Dictionary<string, string>
             {
                 {"client_id", clientId},
-                {"code",code },
+                {"code", code},
                 {"response_type", responseType},
                 {"scope", scope},
                 {"timestamp", timeStamp},
@@ -65,14 +68,15 @@ namespace YuqueOAuthSample
 
             using (var stream = response2.GetResponseStream())
             {
-                StreamReader streamReader = new StreamReader(stream);
+                var streamReader = new StreamReader(stream);
                 var value = streamReader.ReadToEnd();
 
                 Console.WriteLine(value);
             }
         }
 
-        private static void GetResponseFromAuthorizeWithWebApplication(string clientId, string responseType, string scope)
+        private static void GetResponseFromAuthorizeWithWebApplication(string clientId, string responseType,
+            string scope)
         {
             var state = "running";
             var redirectUrl = "http://localhost:5001/yuque";
@@ -93,7 +97,7 @@ namespace YuqueOAuthSample
 
             using (var stream = response.GetResponseStream())
             {
-                StreamReader streamReader = new StreamReader(stream);
+                var streamReader = new StreamReader(stream);
                 var value = streamReader.ReadToEnd();
 
                 Console.WriteLine(value);
@@ -115,11 +119,12 @@ namespace YuqueOAuthSample
 
         private static byte[] ComputeSecret(string signString)
         {
+            var secret = "VYve9TblFT4mDy9J1uwOs5Hqg5uHWcwb6Qs1XNC8";
             var secretByteArray = Encoding.ASCII.GetBytes(secret);
 
-            using (SHA1Managed sha1 = new SHA1Managed())
+            using (var sha1 = new SHA1Managed())
             {
-                byte[] byteSignString = Encoding.ASCII.GetBytes(signString);
+                var byteSignString = Encoding.ASCII.GetBytes(signString);
 
                 var key1 = sha1.ComputeHash(byteSignString);
                 var key2 = key1.Concat(secretByteArray).ToArray();
@@ -127,7 +132,6 @@ namespace YuqueOAuthSample
 
                 return key3;
             }
-
         }
 
         private static string GenerateString(int size, bool lowercase)
@@ -136,7 +140,7 @@ namespace YuqueOAuthSample
 
             char ch;
 
-            for (int i = 0; i < size / 2; ++i)
+            for (var i = 0; i < size / 2; ++i)
             {
                 ch = Convert.ToChar(Convert.ToInt32(Math.Floor(26 * random.NextDouble() + 65)));
                 stringBuilder.Append(ch);
@@ -146,7 +150,8 @@ namespace YuqueOAuthSample
             return lowercase ? stringBuilder.ToString().ToLower() : stringBuilder.ToString();
         }
 
-        private static string ComputeSign(string clientId, string code, string responseType, string scope, string timestamp)
+        private static string ComputeSign(string clientId, string code, string responseType, string scope,
+            string timestamp)
         {
             return
                 $"client_id={StringUrlEncode(clientId)}&code={StringUrlEncode(code)}&response_type={StringUrlEncode(responseType)}" +
@@ -155,7 +160,7 @@ namespace YuqueOAuthSample
 
         private static string StringUrlEncode(string args)
         {
-            return System.Web.HttpUtility.UrlEncode(args);
+            return HttpUtility.UrlEncode(args);
         }
     }
 }
