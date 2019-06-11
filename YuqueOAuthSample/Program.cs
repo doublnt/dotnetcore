@@ -26,22 +26,27 @@ namespace YuqueOAuthSample
         {
             var clientId = "Td8Sk8TtJw2ahfakTKjw";
             var code = GenerateString(40, false);
+
             var responseType = "code";
             var scope = "doc";
+            var state = "running";
+            var redirectUrl = "http://localhost:5001/yuque";
+
             var timeStamp = DateTime.Now.ToString("yyyyMMddHHmmssffff");
 
             var computeSign = ComputeSign(clientId, code, responseType, scope, timeStamp);
-            var computeSecret = ComputeSecret(computeSign);
 
-            var sign = Convert.ToBase64String(computeSecret);
+            var sign = Convert.ToBase64String(ComputeSecret(computeSign));
 
             var queryDic = new Dictionary<string, string>();
             queryDic.Add("client_id", clientId);
-            queryDic.Add("code", code);
+            //queryDic.Add("code", code);
             queryDic.Add("response_type", responseType);
             queryDic.Add("scope", scope);
-            queryDic.Add("timestamp", timeStamp);
-            queryDic.Add("sign", sign);
+            queryDic.Add("redirect_uri", redirectUrl);
+            queryDic.Add("state", state);
+            //queryDic.Add("timestamp", timeStamp);
+            //queryDic.Add("sign", sign);
 
             var fullAuthorizeUrl = GetFullUrl(urlAuthorize, queryDic);
 
@@ -64,18 +69,30 @@ namespace YuqueOAuthSample
                 Console.WriteLine(value);
             }
 
-            httpRequest = WebRequest.Create(new Uri(fullTokenUrl)) as HttpWebRequest;
-            httpRequest.Method = "POST";
+            //var httpRequest2 = WebRequest.Create(new Uri(fullTokenUrl)) as HttpWebRequest;
+            //httpRequest2.Method = "Post";
 
-            response = httpRequest.GetResponse() as HttpWebResponse;
+            //var response2 = httpRequest2.GetResponse() as HttpWebResponse;
 
-            using (var stream = response.GetResponseStream())
-            {
-                StreamReader streamReader = new StreamReader(stream);
-                var value = streamReader.ReadToEnd();
+            //using (var stream = response2.GetResponseStream())
+            //{
+            //    StreamReader streamReader = new StreamReader(stream);
+            //    var value = streamReader.ReadToEnd();
 
-                Console.WriteLine(value);
-            }
+            //    Console.WriteLine(value);
+            //}
+
+            //var httpRequest3 = WebRequest.Create(new Uri("http://localhost:5001/yuque?state=111&code=222"));
+
+            //var response3 = httpRequest3.GetResponse();
+
+            //using (var stream = response3.GetResponseStream())
+            //{
+            //    StreamReader streamReader = new StreamReader(stream);
+            //    var value = streamReader.ReadToEnd();
+
+            //    Console.WriteLine(value);
+            //}
         }
 
         private static string GetFullUrl(string url, Dictionary<string, string> queryDictionary)
@@ -93,7 +110,6 @@ namespace YuqueOAuthSample
 
         private static byte[] ComputeSecret(string signString)
         {
-            string secret = "VYve9TblFT4mDy9J1uwOs5Hqg5uHWcwb6Qs1XNC8";
             var secretByteArray = Encoding.ASCII.GetBytes(secret);
 
             using (SHA1Managed sha1 = new SHA1Managed())
@@ -128,8 +144,8 @@ namespace YuqueOAuthSample
         private static string ComputeSign(string clientId, string code, string responseType, string scope, string timestamp)
         {
             return
-                $"{StringUrlEncode(clientId)}&{StringUrlEncode(code)}&{StringUrlEncode(responseType)}" +
-                $"&{StringUrlEncode(scope)}&{StringUrlEncode(timestamp)}";
+                $"client_id={StringUrlEncode(clientId)}&code={StringUrlEncode(code)}&response_type={StringUrlEncode(responseType)}" +
+                $"&scope={StringUrlEncode(scope)}&timestamp={StringUrlEncode(timestamp)}";
         }
 
         private static string StringUrlEncode(string args)
