@@ -5,6 +5,7 @@ using System.Linq;
 using System.Net;
 using System.Threading;
 using CSharpFundamental.CSharpVersion1;
+using CSharpFundamental.ExpressionTree;
 using CSharpFundamental.Reflect;
 
 namespace CSharpFundamental
@@ -143,7 +144,9 @@ namespace CSharpFundamental
 
             //new UriSample().PrintTheSegmentOfUri();
 
-            new PoseSample().PoseMethod();
+            //new PoseSample().PoseMethod();
+
+            new ExpressionTreeSample().DoExpressionThing();
         }
 
         public static void Relection()
