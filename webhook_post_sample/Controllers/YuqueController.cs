@@ -13,7 +13,7 @@ namespace webhook_post_sample.Controllers
         public JsonResult Index([FromBody]string state, [FromBody] string code)
         {
             string clientId = "E95mSq5K6VjchHyxUpO0";
-            string code = 
+            code = "tests";
 
             return Json($"State is {state}, Code is {code}");
         }

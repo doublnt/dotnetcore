@@ -2,6 +2,7 @@
 
 using Aliyun.Acs.Core;
 using Aliyun.Acs.Core.Exceptions;
+using Aliyun.Acs.Core.Http;
 using Aliyun.Acs.Core.Profile;
 using Aliyun.Acs.vod.Model.V20170321;
 
@@ -96,12 +97,22 @@ namespace Aliyun.Core.Demo
 
             //            var request = new QueryMetricDataRequest();
 
-            var request = new GetPlayInfoRequest();
-            request.VideoId = "your video id";
+            //var request = new GetPlayInfoRequest();
+            //request.VideoId = "your video id";
+
+            CommonRequest request = new CommonRequest
+            {
+                Method = MethodType.POST,
+                Domain = "dypnsapi.aliyuncs.com",
+                Version = "2017-05-25",
+                Action = "GetMobile",
+                Protocol = ProtocolType.HTTPS
+            };
+            //request.UriPattern = "/GetMobile";
 
             try
             {
-                var response = client.GetAcsResponse(request);
+                var response = client.GetCommonResponse(request);
                 // Console.WriteLine(response.UploadAddress);
                 // Console.WriteLine(response.UploadAddress);
                 // Console.WriteLine(response.RequestId);
@@ -120,7 +131,7 @@ namespace Aliyun.Core.Demo
 
         public static DefaultAcsClient InitVodClient(string accessKeyId, string accessKeySecret)
         {
-            string regionId = "cn-shanghai";
+            string regionId = "default";
             IClientProfile profile = DefaultProfile.GetProfile(regionId, accessKeyId, accessKeySecret);
             return new DefaultAcsClient(profile);
         }
