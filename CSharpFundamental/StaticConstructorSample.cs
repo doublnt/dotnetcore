@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace CSharpFundamental
 {
@@ -28,6 +28,16 @@ namespace CSharpFundamental
             Console.WriteLine(staticVariable);
 
             Console.WriteLine(num);
+        }
+
+        public static void StaticMethod(string args)
+        {
+
+        }
+
+        public static void StaticMethod(string args, int age)
+        {
+
         }
     }
 }
