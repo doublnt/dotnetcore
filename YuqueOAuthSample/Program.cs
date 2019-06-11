@@ -17,20 +17,18 @@ namespace YuqueOAuthSample
 
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
-
-            GetResponseFromAuthorize();
-        }
-
-        private static void GetResponseFromAuthorize()
-        {
             var clientId = "Td8Sk8TtJw2ahfakTKjw";
-            var code = GenerateString(40, false);
-
             var responseType = "code";
             var scope = "doc";
-            var state = "running";
-            var redirectUrl = "http://localhost:5001/yuque";
+
+            Console.WriteLine("Hello World!");
+
+            GetResponseFromAuthorizeWithWebApplication(clientId, responseType, scope);
+        }
+
+        private static void GetRespnseFromYuqueWithConsoleApplication(string clientId, string responseType, string scope)
+        {
+            var code = GenerateString(40, false);
 
             var timeStamp = DateTime.Now.ToString("yyyyMMddHHmmssffff");
 
@@ -38,17 +36,20 @@ namespace YuqueOAuthSample
 
             var sign = Convert.ToBase64String(ComputeSecret(computeSign));
 
-            var queryDic = new Dictionary<string, string>();
-            queryDic.Add("client_id", clientId);
-            //queryDic.Add("code", code);
-            queryDic.Add("response_type", responseType);
-            queryDic.Add("scope", scope);
-            queryDic.Add("redirect_uri", redirectUrl);
-            queryDic.Add("state", state);
-            //queryDic.Add("timestamp", timeStamp);
-            //queryDic.Add("sign", sign);
+            var queryDic = new Dictionary<string, string>
+            {
+                {"client_id", clientId},
+                {"code",code },
+                {"response_type", responseType},
+                {"scope", scope},
+                {"timestamp", timeStamp},
+                {"sign", sign}
+            };
 
             var fullAuthorizeUrl = GetFullUrl(urlAuthorize, queryDic);
+
+            var httpRequest = WebRequest.Create(new Uri(fullAuthorizeUrl)) as HttpWebRequest;
+            var response = httpRequest.GetResponse() as HttpWebResponse;
 
             var queryDicToken = new Dictionary<string, string>();
             queryDicToken.Add("client_id", clientId);
@@ -57,6 +58,35 @@ namespace YuqueOAuthSample
 
             var fullTokenUrl = GetFullUrl(urlToken, queryDicToken);
 
+            var httpRequest2 = WebRequest.Create(new Uri(fullTokenUrl)) as HttpWebRequest;
+            httpRequest2.Method = "Post";
+
+            var response2 = httpRequest2.GetResponse() as HttpWebResponse;
+
+            using (var stream = response2.GetResponseStream())
+            {
+                StreamReader streamReader = new StreamReader(stream);
+                var value = streamReader.ReadToEnd();
+
+                Console.WriteLine(value);
+            }
+        }
+
+        private static void GetResponseFromAuthorizeWithWebApplication(string clientId, string responseType, string scope)
+        {
+            var state = "running";
+            var redirectUrl = "http://localhost:5001/yuque";
+
+            var queryDic = new Dictionary<string, string>
+            {
+                {"client_id", clientId},
+                {"response_type", responseType},
+                {"scope", scope},
+                {"redirect_uri", redirectUrl},
+                {"state", state}
+            };
+
+            var fullAuthorizeUrl = GetFullUrl(urlAuthorize, queryDic);
 
             var httpRequest = WebRequest.Create(new Uri(fullAuthorizeUrl)) as HttpWebRequest;
             var response = httpRequest.GetResponse() as HttpWebResponse;
@@ -68,31 +98,6 @@ namespace YuqueOAuthSample
 
                 Console.WriteLine(value);
             }
-
-            //var httpRequest2 = WebRequest.Create(new Uri(fullTokenUrl)) as HttpWebRequest;
-            //httpRequest2.Method = "Post";
-
-            //var response2 = httpRequest2.GetResponse() as HttpWebResponse;
-
-            //using (var stream = response2.GetResponseStream())
-            //{
-            //    StreamReader streamReader = new StreamReader(stream);
-            //    var value = streamReader.ReadToEnd();
-
-            //    Console.WriteLine(value);
-            //}
-
-            //var httpRequest3 = WebRequest.Create(new Uri("http://localhost:5001/yuque?state=111&code=222"));
-
-            //var response3 = httpRequest3.GetResponse();
-
-            //using (var stream = response3.GetResponseStream())
-            //{
-            //    StreamReader streamReader = new StreamReader(stream);
-            //    var value = streamReader.ReadToEnd();
-
-            //    Console.WriteLine(value);
-            //}
         }
 
         private static string GetFullUrl(string url, Dictionary<string, string> queryDictionary)
