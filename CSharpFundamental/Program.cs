@@ -4,6 +4,9 @@ using System.Globalization;
 using System.Linq;
 using System.Net;
 using System.Threading;
+using System.Threading.Tasks;
+
+using CSharpFundamental.AsyncAndAwait;
 using CSharpFundamental.CSharpVersion1;
 using CSharpFundamental.ExpressionTree;
 using CSharpFundamental.Reflect;
@@ -15,7 +18,7 @@ namespace CSharpFundamental
         //        public static int x;
         //        public static int y;
 
-        private static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             #region comment code
 
@@ -148,7 +151,13 @@ namespace CSharpFundamental
 
             //new ExpressionTreeSample().DoExpressionThing();
 
-            new ExtendsMethodExprssionTree().PrintEnumerable();
+            //new ExtendsMethodExprssionTree().PrintEnumerable();
+
+            var asyncDemo = new AsyncDemo();
+
+            Console.WriteLine(await asyncDemo.GetValue());
+
+            await asyncDemo.ThrowExcpetionMethod();
         }
 
         public static void Relection()

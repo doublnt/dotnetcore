@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 
@@ -10,14 +11,29 @@ namespace aliyun_sms_winform
 {
     public partial class Form1 : Form
     {
+        private delegate void NotifyMe(string args);
+
+        private event NotifyMe notify;
+
         public Form1()
         {
             InitializeComponent();
+            notify += NotifyMeRobert;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            SendMessageToMe();
+            if (DateTime.Now.Second % 2 == 0)
+            {
+                notify(DateTime.Now.Second.ToString());
+            }
+        }
+
+        private void NotifyMeRobert(string args)
+        {
+            Console.WriteLine(args + "1400874454654");
+
+            label1.Text = args + "10086";
         }
 
         private void SendMessageToMe()
