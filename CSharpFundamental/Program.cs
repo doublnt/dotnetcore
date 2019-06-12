@@ -146,7 +146,9 @@ namespace CSharpFundamental
 
             //new PoseSample().PoseMethod();
 
-            new ExpressionTreeSample().DoExpressionThing();
+            //new ExpressionTreeSample().DoExpressionThing();
+
+            new ExtendsMethodExprssionTree().PrintEnumerable();
         }
 
         public static void Relection()
