@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="aliyun-net-sdk-mts" Version="2.6.1" />
+    <PackageReference Include="aliyun-net-sdk-mts" Version="2.6.2" />
     <PackageReference Include="aliyun-net-sdk-ecs" Version="4.16.9" />
     <PackageReference Include="aliyun-net-sdk-vod" Version="2.15.4" />
   </ItemGroup>
