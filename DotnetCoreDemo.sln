@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29001.49
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.705
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MiddlewareDemo", "Middleware\MiddlewareDemo\MiddlewareDemo.csproj", "{6710EE95-B96C-430B-902B-95D9ADE00327}"
 EndProject
@@ -91,7 +91,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NetworkProgramming", "Netwo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebRequestDemo", "WebRequestDemo\WebRequestDemo.csproj", "{37DB6291-2EFB-4151-8369-3182939B1380}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "YuqueOAuthSample", "YuqueOAuthSample\YuqueOAuthSample.csproj", "{74B203BE-1A99-4882-8B78-C6BE41438197}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YuqueOAuthSample", "YuqueOAuthSample\YuqueOAuthSample.csproj", "{74B203BE-1A99-4882-8B78-C6BE41438197}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassicalSort", "ClassicalSort\ClassicalSort.csproj", "{F95C3E8E-8BF5-4325-905F-243A3974801C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -535,6 +537,18 @@ Global
 		{74B203BE-1A99-4882-8B78-C6BE41438197}.Release|x64.Build.0 = Release|Any CPU
 		{74B203BE-1A99-4882-8B78-C6BE41438197}.Release|x86.ActiveCfg = Release|Any CPU
 		{74B203BE-1A99-4882-8B78-C6BE41438197}.Release|x86.Build.0 = Release|Any CPU
+		{F95C3E8E-8BF5-4325-905F-243A3974801C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F95C3E8E-8BF5-4325-905F-243A3974801C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F95C3E8E-8BF5-4325-905F-243A3974801C}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F95C3E8E-8BF5-4325-905F-243A3974801C}.Debug|x64.Build.0 = Debug|Any CPU
+		{F95C3E8E-8BF5-4325-905F-243A3974801C}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F95C3E8E-8BF5-4325-905F-243A3974801C}.Debug|x86.Build.0 = Debug|Any CPU
+		{F95C3E8E-8BF5-4325-905F-243A3974801C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F95C3E8E-8BF5-4325-905F-243A3974801C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F95C3E8E-8BF5-4325-905F-243A3974801C}.Release|x64.ActiveCfg = Release|Any CPU
+		{F95C3E8E-8BF5-4325-905F-243A3974801C}.Release|x64.Build.0 = Release|Any CPU
+		{F95C3E8E-8BF5-4325-905F-243A3974801C}.Release|x86.ActiveCfg = Release|Any CPU
+		{F95C3E8E-8BF5-4325-905F-243A3974801C}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -566,6 +580,7 @@ Global
 		{6A4DF40F-F5D9-49C4-A1CF-44575652D86B} = {BD78A49F-0DCD-486D-A312-88ECB193465E}
 		{D1046F08-AE4D-449D-AB54-392C675AAFE3} = {BF9E1011-C3BF-4A89-9E17-5A280AC889C5}
 		{37DB6291-2EFB-4151-8369-3182939B1380} = {DB86EE1B-7D45-48AA-A590-8A59F2F785EE}
+		{F95C3E8E-8BF5-4325-905F-243A3974801C} = {BD78A49F-0DCD-486D-A312-88ECB193465E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {3EEFBAE4-764A-4969-BB8A-973F95DF5F16}
