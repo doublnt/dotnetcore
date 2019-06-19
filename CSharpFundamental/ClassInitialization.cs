@@ -23,4 +23,16 @@ namespace CSharpFundamental
             }
         }
     }
+
+    public class TestA
+    {
+
+    }
+
+    public class TestB
+    {
+
+    }
+
+    // It can support multiple public class in one file
 }

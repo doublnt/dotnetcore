@@ -153,11 +153,16 @@ namespace CSharpFundamental
 
             //new ExtendsMethodExprssionTree().PrintEnumerable();
 
-            var asyncDemo = new AsyncDemo();
+            //var asyncDemo = new AsyncDemo();
 
-            Console.WriteLine(await asyncDemo.GetValue());
+            //Console.WriteLine(await asyncDemo.GetValue());
 
-            await asyncDemo.ThrowExcpetionMethod();
+            //await asyncDemo.ThrowExcpetionMethod();
+
+            //new ActionSampleWithClosure().TestAction();
+
+
+            new PartialClass.Partial().DisplayPartial();
         }
 
         public static void Relection()
