@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 using CSharpFundamental.AsyncAndAwait;
 using CSharpFundamental.CSharpVersion1;
+using CSharpFundamental.Dynamic;
 using CSharpFundamental.ExpressionTree;
 using CSharpFundamental.Reflect;
 
@@ -162,7 +163,9 @@ namespace CSharpFundamental
             //new ActionSampleWithClosure().TestAction();
 
 
-            new PartialClass.Partial().DisplayPartial();
+            //new PartialClass.Partial().DisplayPartial();
+
+            new DynamicSample().DynamicExecute();
         }
 
         public static void Relection()
