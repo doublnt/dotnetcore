@@ -93,7 +93,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebRequestDemo", "WebReques
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "YuqueOAuthSample", "YuqueOAuthSample\YuqueOAuthSample.csproj", "{74B203BE-1A99-4882-8B78-C6BE41438197}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassicalSort", "ClassicalSort\ClassicalSort.csproj", "{F95C3E8E-8BF5-4325-905F-243A3974801C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassicalSort", "ClassicalSort\ClassicalSort.csproj", "{F95C3E8E-8BF5-4325-905F-243A3974801C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "gRpc", "gRpc", "{EAC793FD-06E7-46E1-8267-37F51227EE8C}"
+	ProjectSection(SolutionItems) = preProject
+		.proto = .proto
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

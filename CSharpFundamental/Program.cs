@@ -1,16 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
 using System.Net;
+using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
-using CSharpFundamental.AsyncAndAwait;
-using CSharpFundamental.CSharpVersion1;
 using CSharpFundamental.Dynamic;
-using CSharpFundamental.ExpressionTree;
-using CSharpFundamental.Reflect;
 
 namespace CSharpFundamental
 {
@@ -19,7 +14,7 @@ namespace CSharpFundamental
         //        public static int x;
         //        public static int y;
 
-        static async Task Main(string[] args)
+        private static async Task Main(string[] args)
         {
             #region comment code
 
@@ -166,6 +161,14 @@ namespace CSharpFundamental
             //new PartialClass.Partial().DisplayPartial();
 
             new DynamicSample().DynamicExecute();
+
+            //String s = new String("10086");
+
+            var s = "str";
+
+            var size = sizeof(int);
+
+            Console.WriteLine(size);
         }
 
         public static void Relection()
@@ -191,8 +194,7 @@ namespace CSharpFundamental
                 Console.WriteLine(item);
             }
 
-            dynamic array2 = new List<int>
-                {1, 2, 3};
+            dynamic array2 = new List<int> { 1, 2, 3 };
 
             dynamic addtoInt = 111;
 
@@ -247,6 +249,16 @@ namespace CSharpFundamental
         {
         }
 
+        public TestConstrcutor(int a)
+        {
+
+        }
+
+        public TestConstrcutor(string str, int a) : this(a)
+        {
+            System.GC.Collect(0);
+        }
+
         public TestConstrcutor(string param1) : base(param1)
         {
         }
@@ -254,6 +266,11 @@ namespace CSharpFundamental
         public void SetNamespaceParams(int x, int y)
         {
             Console.WriteLine("X: {0} Y: {1}", x, y);
+        }
+
+        protected void Finalize()
+        {
+            Finalize();
         }
     }
 }
