@@ -6,5 +6,6 @@ namespace LibLogSample
 {
     public interface ILogger
     {
+
     }   
 }

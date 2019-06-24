@@ -9,7 +9,7 @@ namespace LibLogSample
         private static readonly IDictionary<string, Logger> loggers = new ConcurrentDictionary<string, Logger>();
         private static Func<string, Action<DateTime, int, string, Exception>> loggerHandlerProvider;
 
-        private Logger(string name)
+        public Logger(string name)
         {
             Name = name ?? throw new ArgumentNullException(nameof(name));
         }

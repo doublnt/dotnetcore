@@ -12,7 +12,7 @@ namespace CSharpFundamental.LibLog
     {
         public void DoCommonLog()
         {
-            var log = new CommonLog();
+            CommonLog.ExecuteTheLogger();
         }
     }
 }
