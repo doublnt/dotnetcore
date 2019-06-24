@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 
 namespace CSharpFundamental
 {
@@ -24,6 +24,37 @@ namespace CSharpFundamental
             //     x = 5;
             //     y = 5;
             // }
+        }
+    }
+
+    internal class TestConstrcutor : ConstructorClass
+    {
+        public TestConstrcutor()
+        {
+        }
+
+        public TestConstrcutor(int a)
+        {
+
+        }
+
+        public TestConstrcutor(string str, int a) : this(a)
+        {
+            System.GC.Collect(0);
+        }
+
+        public TestConstrcutor(string param1) : base(param1)
+        {
+        }
+
+        public void SetNamespaceParams(int x, int y)
+        {
+            Console.WriteLine("X: {0} Y: {1}", x, y);
+        }
+
+        protected void Finalize()
+        {
+            Finalize();
         }
     }
 }
