@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Reflection;
 
 namespace CSharpFundamental
@@ -12,7 +12,7 @@ namespace CSharpFundamental
 
             foreach (var item in types)
             {
-                System.Console.WriteLine(item.FullName + "\n" + item.Assembly);
+                Console.WriteLine(item.FullName + "\n" + item.Assembly);
             }
         }
 
@@ -26,6 +26,12 @@ namespace CSharpFundamental
             {
                 Console.WriteLine(t.FullName);
             }
+        }
+
+        public static void Relection()
+        {
+            var demo = new ReflectionDemo();
+            demo.RelectionResovle();
         }
     }
 }

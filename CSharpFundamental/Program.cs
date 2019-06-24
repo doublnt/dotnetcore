@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Net;
 using System.Runtime.CompilerServices;
@@ -6,6 +7,7 @@ using System.Threading;
 using System.Threading.Tasks;
 
 using CSharpFundamental.Dynamic;
+using CSharpFundamental.LibLog;
 
 namespace CSharpFundamental
 {
@@ -160,117 +162,10 @@ namespace CSharpFundamental
 
             //new PartialClass.Partial().DisplayPartial();
 
-            new DynamicSample().DynamicExecute();
+            //new DynamicSample().DynamicExecute();
 
-            //String s = new String("10086");
 
-            var s = "str";
-
-            var size = sizeof(int);
-
-            Console.WriteLine(size);
-        }
-
-        public static void Relection()
-        {
-            var demo = new ReflectionDemo();
-            demo.RelectionResovle();
-        }
-
-        public static void CLRDemo()
-        {
-            var demo = new CLRStackDemo();
-            demo.M1();
-        }
-
-        public static void DynamicDemo()
-        {
-            var refTestDemo = new RefTestDemo();
-            var array = new int[5];
-            refTestDemo.RefMethodTest(ref array);
-
-            foreach (var item in array)
-            {
-                Console.WriteLine(item);
-            }
-
-            dynamic array2 = new List<int> { 1, 2, 3 };
-
-            dynamic addtoInt = 111;
-
-            //            foreach (var item in array2)
-            //            {
-            //                dynamic value = item + addtoInt;
-            //                Console.WriteLine(value);
-            //            }
-        }
-
-        public static void DoFollowing(string msg)
-        {
-            Console.WriteLine("I will do the following!");
-        }
-
-        public void DoSomething()
-        {
-            //Public get and set method
-            var pClass = new PrivateClass();
-            pClass.Name = "Robert";
-            Console.WriteLine(pClass.Name);
-
-            pClass.Version = "1.0";
-            Console.WriteLine(pClass.Version);
-
-            pClass = new PrivateClass("Robert", "2.0", "fakeHashcode");
-
-            Console.WriteLine(pClass.Name + "|" + pClass.Version + "|" + pClass.HashCode);
-
-            new AnonymousType().CreateAnonymousAndExecute();
-
-            var tc = new TestConstrcutor("222");
-
-            tc.SetNamespaceParams(y: 1, x: 2);
-            tc.SetNamespaceParams(1, 2);
-
-            var request = (HttpWebRequest)WebRequest.Create("https://www.alibabacloud.com");
-            request.Timeout = 1000;
-            var response = (HttpWebResponse)request.GetResponse();
-
-            request = (HttpWebRequest)WebRequest.Create("https://www.cnblogs.com");
-            response = (HttpWebResponse)request.GetResponse();
-
-            var doTheFollowing = new AnonymousType.DoTheFollowing(DoFollowing);
-            doTheFollowing("Hello");
-        }
-    }
-
-    internal class TestConstrcutor : ConstructorClass
-    {
-        public TestConstrcutor()
-        {
-        }
-
-        public TestConstrcutor(int a)
-        {
-
-        }
-
-        public TestConstrcutor(string str, int a) : this(a)
-        {
-            System.GC.Collect(0);
-        }
-
-        public TestConstrcutor(string param1) : base(param1)
-        {
-        }
-
-        public void SetNamespaceParams(int x, int y)
-        {
-            Console.WriteLine("X: {0} Y: {1}", x, y);
-        }
-
-        protected void Finalize()
-        {
-            Finalize();
+            new LibLogTest().DoCommonLog();
         }
     }
 }
