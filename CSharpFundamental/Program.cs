@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using CSharpFundamental.Dynamic;
 using CSharpFundamental.LibLog;
 
+using LibLogSample;
+
 namespace CSharpFundamental
 {
     internal class Program
@@ -165,7 +167,11 @@ namespace CSharpFundamental
             //new DynamicSample().DynamicExecute();
 
 
-            new LibLogTest().DoCommonLog();
+            //new LibLogTest().DoCommonLog();
+
+            //LibLogger.WriteLog();
+
+            new ConsumerLibLog().BeginToLogTheLibraryEvent();
         }
     }
 }
