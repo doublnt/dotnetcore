@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.Net;
-using System.Runtime.CompilerServices;
 using System.Threading;
 using System.Threading.Tasks;
 
-using CSharpFundamental.Dynamic;
 using CSharpFundamental.LibLog;
-
-using LibLogSample;
 
 namespace CSharpFundamental
 {
@@ -171,7 +164,15 @@ namespace CSharpFundamental
 
             //LibLogger.WriteLog();
 
-            new ConsumerLibLog().BeginToLogTheLibraryEvent();
+            //new ConsumerLibLog().BeginToLogTheLibraryEvent();
+
+
+            TestNameof("resresr");
+        }
+
+        private static void TestNameof(string a)
+        {
+            Console.WriteLine(nameof(a));
         }
     }
 }
