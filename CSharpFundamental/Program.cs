@@ -168,6 +168,9 @@ namespace CSharpFundamental
 
 
             TestNameof("resresr");
+
+            string a = "ettst";
+            Console.WriteLine(a);
         }
 
         private static void TestNameof(string a)
