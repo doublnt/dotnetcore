@@ -10,7 +10,7 @@ namespace CSharpFundamental.LibLog
         {
             var log = new LoggerConfiguration()
                 .WriteTo.ColoredConsole(
-                    outputTemplate: "{Timestamp:HH:mm} [{Level}] ({Name:l}) {Message}{NewLine}{Exception}")
+                    outputTemplate: "{Timestamp:yyyy:MM:dd:HH:mm} [{Level}] ({Name:l}) {Message}{NewLine}{Exception}")
                 .CreateLogger();
             Log.Logger = log;
 
