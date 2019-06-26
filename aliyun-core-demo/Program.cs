@@ -6,6 +6,8 @@ using Aliyun.Acs.Core.Http;
 using Aliyun.Acs.Core.Profile;
 using Aliyun.Acs.Core.Utils;
 
+using LibLogSample;
+
 using Serilog;
 using Serilog.Exceptions;
 
@@ -110,9 +112,11 @@ namespace Aliyun.Core.Demo
                 .CreateLogger();
             Log.Logger = log;
 
-            log.Information("yinxi yinxi yinxi","test","test234324");
+            log.Information("From Client Test.");
 
             client.SetLogger();
+
+            var commonLibLog = new CommonLibLog();
 
 
             CommonRequest request = new CommonRequest

@@ -7,6 +7,8 @@ using System.Threading;
 using Microsoft.AspNetCore.Mvc;
 using DoubleClickDemo.Models;
 
+using LibLogSample;
+
 namespace DoubleClickDemo.Controllers
 {
     public class HomeController : Controller
@@ -38,19 +40,21 @@ namespace DoubleClickDemo.Controllers
         [HttpPost]
         public IActionResult AddData(int qid)
         {
-            if(qid==1)
+            if (qid == 1)
             {
-            try
-            {
-                Thread.Sleep(10000);
-                Console.WriteLine("Insert Data");
-                return Content("OK");
+                try
+                {
+                    Thread.Sleep(10000);
+                    Console.WriteLine("Insert Data");
+                    return Content("OK");
+                }
+                catch (System.Exception)
+                {
+                    throw;
+                }
             }
-            catch (System.Exception)
+            else
             {
-                throw;
-            }
-            }else{
                 Console.WriteLine(qid);
                 return Content("添加失败");
             }
