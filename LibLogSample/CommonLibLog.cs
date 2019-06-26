@@ -13,8 +13,7 @@ namespace LibLogSample
 
         public CommonLibLog()
         {
-            logger.Info("TEST,HAHAHAHAHA.");
-            logger.Error("This is error.");
+            logger.Error("This is class library test Error.");
         }
     }
 

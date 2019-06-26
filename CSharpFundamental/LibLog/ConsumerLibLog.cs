@@ -15,6 +15,8 @@ namespace CSharpFundamental.LibLog
             Log.Logger = log;
 
             var commonLibLog = new CommonLibLog();
+
+            Log.Information("This is client logger info.");
         }
     }
 }

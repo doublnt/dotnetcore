@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
+using CSharpFundamental.LazyInitialization;
 using CSharpFundamental.LibLog;
 
 namespace CSharpFundamental
@@ -164,18 +165,14 @@ namespace CSharpFundamental
 
             //LibLogger.WriteLog();
 
-            //new ConsumerLibLog().BeginToLogTheLibraryEvent();
+            new ConsumerLibLog().BeginToLogTheLibraryEvent();
 
+            //var item2 = TupleSample.GetStructureTuple();
+            //Console.WriteLine(item2.name + "\t" + item2.address + "\t" + item2.age);
 
-            TestNameof("resresr");
+            //new LazyInitializationSample().LazyDemo();
 
-            string a = "ettst";
-            Console.WriteLine(a);
-        }
-
-        private static void TestNameof(string a)
-        {
-            Console.WriteLine(nameof(a));
+            //Console.WriteLine(sizeof(char) + "|" + sizeof(byte) + sizeof(int));
         }
     }
 }
