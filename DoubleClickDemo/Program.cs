@@ -12,18 +12,26 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
+using Serilog;
+using Serilog.Events;
+
 namespace DoubleClickDemo
 {
     public class Program
     {
         public static void Main(string[] args)
         {
-            var host = BuildWebHost(args);
-            var logger = host.Services.GetRequiredService<ILogger<Program>>();
+            Log.Logger = new LoggerConfiguration()
+                .Enrich.FromLogContext()
+                .MinimumLevel.Debug()
+                .WriteTo.ColoredConsole(
+                    LogEventLevel.Verbose,
+                    "{NewLine}{Timestamp:HH:mm:ss} [{Level}] ({CorrelationToken}) {Message}{NewLine}{Exception}")
+                .CreateLogger();
+
             var commonLibLog = new CommonLibLog();
 
-            logger.LogError("This is client logger.");
-
+            Log.Information("Test This is Client Exception.");
 
             BuildWebHost(args).Run();
         }

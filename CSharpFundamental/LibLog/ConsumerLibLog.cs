@@ -11,6 +11,7 @@ namespace CSharpFundamental.LibLog
             var log = new LoggerConfiguration()
                 .WriteTo.ColoredConsole(
                     outputTemplate: "{Timestamp:yyyy:MM:dd:HH:mm} [{Level}] ({Name:l}) {Message}{NewLine}{Exception}")
+                .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
             Log.Logger = log;
 
