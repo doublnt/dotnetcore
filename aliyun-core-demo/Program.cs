@@ -114,7 +114,7 @@ namespace Aliyun.Core.Demo
 
             log.Information("From Client Test.");
 
-            client.SetLogger();
+            //client.SetLogger();
 
             var commonLibLog = new CommonLibLog();
 
