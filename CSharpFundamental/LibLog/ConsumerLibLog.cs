@@ -15,11 +15,10 @@ namespace CSharpFundamental.LibLog
         {
             var log = new LoggerConfiguration()
                 .WriteTo.ColoredConsole(
-                    outputTemplate: "{Timestamp:yyyy:MM:dd:HH:mm} [{Level}] {Message}{NewLine}{Exception}")
+                    outputTemplate: "{Timestamp:yyyy:MM:dd:HH:mm} [{Level}] {Message}{NewLine}{Exception}{NewLine}{NewLine}")
                 .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
                 .CreateLogger();
             Log.Logger = log;
-
             var commonLibLog = new CommonLibLog();
 
             Log.Information($"This is client logger info, ID:{Thread.CurrentThread.ManagedThreadId} State:{state}");
@@ -66,6 +65,7 @@ namespace CSharpFundamental.LibLog
             //{
             //    Console.WriteLine(tasks[i].Id + " | " + tasks[i].Status);
             //}
+
         }
     }
 }
