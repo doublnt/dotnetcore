@@ -166,7 +166,7 @@ namespace CSharpFundamental
 
             //LibLogger.WriteLog();
 
-            //new ConsumerLibLog().BeginToLogTheLibraryEvent();
+            new ConsumerLibLog().OpenNewTaskToHandleThisAsync();
 
             //var item2 = TupleSample.GetStructureTuple();
             //Console.WriteLine(item2.name + "\t" + item2.address + "\t" + item2.age);
@@ -175,7 +175,7 @@ namespace CSharpFundamental
 
             //Console.WriteLine(sizeof(char) + "|" + sizeof(byte) + sizeof(int));
 
-            AddRandomNumToArray.ExecuteTheCode();
+            //AddRandomNumToArray.ExecuteTheCode();
         }
     }
 }

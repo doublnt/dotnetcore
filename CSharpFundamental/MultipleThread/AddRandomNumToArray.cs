@@ -67,7 +67,7 @@ namespace CSharpFundamental.MultipleThread
                 tasks[i] = Task.Run(() => InsertToFinalArray(beginIndex, endIndex));
             }
 
-            Task.WhenAll(tasks);
+            Task.WaitAll(tasks);
         }
 
         private static void InsertToFinalArray(int beginIndex, int endIndex)
