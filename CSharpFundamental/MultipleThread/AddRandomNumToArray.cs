@@ -1,37 +1,47 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
+using System.Runtime.CompilerServices;
+using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace CSharpFundamental.MultipleThread
 {
     internal class AddRandomNumToArray
     {
-        private const int CurrentArraySize = 10000000;
-        private const int ThreadCount = 10;
         private static readonly Random random = new Random(DateTime.Now.Millisecond);
+        private const int CurrentArraySize = 10000000;
+        private const int ThreadCount = 20;
         private static volatile int[] randomArray = new int[CurrentArraySize];
         private static volatile int[] finalArray = new int[CurrentArraySize];
 
         public static void ExecuteTheCode()
         {
-            var sw = new Stopwatch();
+            Stopwatch sw = new Stopwatch();
             sw.Start();
 
             GenerateRandomIntNumAddToArray();
             OpenMultipleThread();
 
             Console.WriteLine(sw.ElapsedMilliseconds + "ms");
+
+            for (int i = 0; i < 100; i++)
+            {
+                Console.Write(finalArray[i] + "\t");
+            }
         }
 
         private static void GenerateRandomIntNumAddToArray()
         {
-            var i = 0;
-            var bitArray = new BitArray(CurrentArraySize * 10);
+            int i = 0;
+            var bitArray = new BitArray(CurrentArraySize);
 
             while (i < CurrentArraySize)
             {
-                var num = random.Next(CurrentArraySize * 10);
+                var num = random.Next(CurrentArraySize);
 
                 if (bitArray.Get(num))
                 {
@@ -45,24 +55,28 @@ namespace CSharpFundamental.MultipleThread
 
         private static void OpenMultipleThread()
         {
-            var tasks = new Task[ThreadCount];
-            var splitNum = CurrentArraySize / ThreadCount;
+            Task[] tasks = new Task[ThreadCount];
+            Action[] actions = new Action[ThreadCount];
 
-            for (var i = 0; i < ThreadCount; ++i)
+            int splitNum = CurrentArraySize / ThreadCount;
+
+            for (int i = 0; i < ThreadCount; ++i)
             {
-                var beginIndex = i * splitNum;
-                var endIndex = (i + 1) * splitNum - 1;
+                int beginIndex = i * splitNum;
+                int endIndex = (i + 1) * splitNum - 1;
 
                 Console.WriteLine(beginIndex + " " + endIndex);
                 tasks[i] = Task.Run(() => InsertToFinalArray(beginIndex, endIndex));
+                actions[i] = () => InsertToFinalArray(beginIndex, endIndex);
             }
 
-            Task.WhenAll(tasks);
+            //Task.WaitAll(tasks);
+            Parallel.Invoke(actions);
         }
 
         private static void InsertToFinalArray(int beginIndex, int endIndex)
         {
-            for (var i = beginIndex; i < endIndex; ++i)
+            for (int i = beginIndex; i < endIndex; ++i)
             {
                 finalArray[i] = randomArray[i];
             }

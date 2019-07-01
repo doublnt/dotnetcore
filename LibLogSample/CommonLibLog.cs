@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Threading;
 
 using LibLogSample.Logging;
 using LibLogSample.Logging.LogProviders;
@@ -13,7 +14,7 @@ namespace LibLogSample
 
         public CommonLibLog()
         {
-            logger.Error("This is class library test Error.");
+            logger.Error("This is class library test Error." + Thread.CurrentThread.ManagedThreadId);
         }
     }
 
