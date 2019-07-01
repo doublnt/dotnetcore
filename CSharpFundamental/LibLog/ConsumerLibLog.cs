@@ -47,15 +47,25 @@ namespace CSharpFundamental.LibLog
             }
 
             // Task.WhenAll();
-            var index = Task.WaitAny(tasks);
+            //var index = Task.WaitAny(tasks);
 
-            Console.WriteLine($"The first completed id is{tasks[index].Id}");
+            // Parallel.Invoke
 
-            // Output the tasks id and status
+            Action[] actions = new Action[taskCount];
+
             for (int i = 0; i < taskCount; ++i)
             {
-                Console.WriteLine(tasks[i].Id + " | " + tasks[i].Status);
+                int temp = i;
+                actions[i] = () => BeginToLogTheLibraryEvent(temp);
             }
+
+            Parallel.Invoke(actions);
+
+            // Output the tasks id and status
+            //for (int i = 0; i < taskCount; ++i)
+            //{
+            //    Console.WriteLine(tasks[i].Id + " | " + tasks[i].Status);
+            //}
         }
     }
 }

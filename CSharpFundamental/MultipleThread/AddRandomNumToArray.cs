@@ -56,6 +56,8 @@ namespace CSharpFundamental.MultipleThread
         private static void OpenMultipleThread()
         {
             Task[] tasks = new Task[ThreadCount];
+            Action[] actions = new Action[ThreadCount];
+
             int splitNum = CurrentArraySize / ThreadCount;
 
             for (int i = 0; i < ThreadCount; ++i)
@@ -65,9 +67,11 @@ namespace CSharpFundamental.MultipleThread
 
                 Console.WriteLine(beginIndex + " " + endIndex);
                 tasks[i] = Task.Run(() => InsertToFinalArray(beginIndex, endIndex));
+                actions[i] = () => InsertToFinalArray(beginIndex, endIndex);
             }
 
-            Task.WaitAll(tasks);
+            //Task.WaitAll(tasks);
+            Parallel.Invoke(actions);
         }
 
         private static void InsertToFinalArray(int beginIndex, int endIndex)
