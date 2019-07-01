@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -35,9 +36,9 @@ namespace CSharpFundamental.MultipleThread
             Parallel.Invoke(actions);
         }
 
-        private void RunTheTaskRun()
+        private async void RunTheTaskRunWithWhenAll()
         {
-            Console.WriteLine("-----Task Run-----");
+            Console.WriteLine("-----Task Run-----When ALL");
 
             Task[] tasks = new Task[CurrentThreadNumber];
 
@@ -46,7 +47,21 @@ namespace CSharpFundamental.MultipleThread
                 tasks[i] = Task.Run(PrintTheCurrentTaskId);
             }
 
-            Task.WhenAll(tasks);
+            await Task.WhenAll(tasks);
+        }
+
+        private void RunTheTaskRunWithWaitAll()
+        {
+            Console.WriteLine("-----Task Run-----Wait ALL");
+
+            Task[] tasks = new Task[CurrentThreadNumber];
+
+            for (int i = 0; i < CurrentThreadNumber; ++i)
+            {
+                tasks[i] = Task.Run(PrintTheCurrentTaskId);
+            }
+
+            Task.WaitAll(tasks);
         }
 
         private void ContinueTaskDemo()
@@ -59,13 +74,12 @@ namespace CSharpFundamental.MultipleThread
 
         public void RunTheThread()
         {
-            //RunTheParallelInvoke();
+            Stopwatch sw = new Stopwatch();
+            sw.Start();
+            RunTheTaskRunWithWhenAll();
+            sw.Stop();
 
-            //RunTheTaskRun();
-
-            ContinueTaskDemo();
-
-            Console.ReadKey();
+            Console.WriteLine(sw.ElapsedMilliseconds);
         }
     }
 }
