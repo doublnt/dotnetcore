@@ -81,5 +81,12 @@ namespace CSharpFundamental.MultipleThread
 
             Console.WriteLine(sw.ElapsedMilliseconds);
         }
+
+        private async Task<int> ReturnAsyncValue()
+        {
+            await Task.Delay(1000);
+
+            return 1;
+        }
     }
 }

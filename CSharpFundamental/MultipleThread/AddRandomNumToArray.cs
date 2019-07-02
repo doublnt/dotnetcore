@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -36,21 +37,28 @@ namespace CSharpFundamental.MultipleThread
 
         private static void GenerateRandomIntNumAddToArray()
         {
-            int i = 0;
-            var bitArray = new BitArray(CurrentArraySize);
+            //int i = 0;
+            //var bitArray = new BitArray(CurrentArraySize);
 
-            while (i < CurrentArraySize)
+            //while (i < CurrentArraySize)
+            //{
+            //    var num = random.Next(CurrentArraySize);
+
+            //    if (bitArray.Get(num))
+            //    {
+            //        continue;
+            //    }
+
+            //    bitArray.Set(num, true);
+            //    randomArray[i++] = num;
+            //}
+
+            for (int i = 0; i < CurrentArraySize; ++i)
             {
-                var num = random.Next(CurrentArraySize);
-
-                if (bitArray.Get(num))
-                {
-                    continue;
-                }
-
-                bitArray.Set(num, true);
-                randomArray[i++] = num;
+                randomArray[i] = i;
             }
+
+            OpenMultipleThreadToShuffle();
         }
 
         private static void OpenMultipleThread()
@@ -80,6 +88,33 @@ namespace CSharpFundamental.MultipleThread
             {
                 finalArray[i] = randomArray[i];
             }
+        }
+
+        public static void Shuffle<T>(Random rng, T[] array, int beginIndex, int endIndex)
+        {
+            int n = beginIndex;
+            for (int i = n; i < endIndex; ++i)
+            {
+                int k = rng.Next(CurrentArraySize);
+
+                T temp = array[n];
+                array[n] = array[k];
+                array[k] = temp;
+            }
+        }
+
+        private static void OpenMultipleThreadToShuffle()
+        {
+            Task[] tasks = new Task[ThreadCount];
+            int gap = CurrentArraySize / ThreadCount;
+
+            for (int i = 0; i < ThreadCount; ++i)
+            {
+                int temp = i;
+                tasks[i] = Task.Run(() => Shuffle(random, randomArray, temp * gap, (temp + 1) * gap - 1));
+            }
+
+            Task.WaitAll(tasks);
         }
     }
 }

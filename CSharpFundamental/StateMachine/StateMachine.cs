@@ -27,9 +27,9 @@ namespace CSharpFundamental
             return new Type2();
         }
 
-        private async Task<String> MeMthodAsync(Int32 argument)
+        private async Task<string> MyMthodAsync(int argument)
         {
-            Int32 local = argument;
+            int local = argument;
 
             try
             {

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -175,9 +176,11 @@ namespace CSharpFundamental
 
             //Console.WriteLine(sizeof(char) + "|" + sizeof(byte) + sizeof(int));
 
-            //AddRandomNumToArray.ExecuteTheCode();
+            AddRandomNumToArray.ExecuteTheCode();
 
-            new ParallelInvoke().RunTheThread();
+            //new ParallelInvoke().RunTheThread();
         }
+
+        
     }
 }
