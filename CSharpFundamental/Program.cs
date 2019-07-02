@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml;
 
 using CSharpFundamental.LazyInitialization;
 using CSharpFundamental.LibLog;
@@ -167,8 +170,6 @@ namespace CSharpFundamental
 
             //LibLogger.WriteLog();
 
-            //new ConsumerLibLog().OpenNewTaskToHandleThisAsync();
-
             //var item2 = TupleSample.GetStructureTuple();
             //Console.WriteLine(item2.name + "\t" + item2.address + "\t" + item2.age);
 
@@ -176,11 +177,11 @@ namespace CSharpFundamental
 
             //Console.WriteLine(sizeof(char) + "|" + sizeof(byte) + sizeof(int));
 
-            AddRandomNumToArray.ExecuteTheCode();
+            //AddRandomNumToArray.ExecuteTheCode();
 
             //new ParallelInvoke().RunTheThread();
-        }
 
-        
+            new ConsumerLibLog().BeginToLogTheLibraryEvent(100);
+        }
     }
 }

@@ -1,27 +1,63 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 
 using LibLogSample;
 
-using Serilog;
-using System;
-using System.Diagnostics;
-using System.Threading;
+using NLog;
+using NLog.Config;
+using NLog.Targets;
 
 namespace CSharpFundamental.LibLog
 {
     internal class ConsumerLibLog
     {
-        private void BeginToLogTheLibraryEvent(object state)
+        public void BeginToLogTheLibraryEvent(object state)
         {
-            var log = new LoggerConfiguration()
-                .WriteTo.ColoredConsole(
-                    outputTemplate: "{Timestamp:yyyy:MM:dd:HH:mm} [{Level}] {Message}{NewLine}{Exception}{NewLine}{NewLine}")
-                .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
-                .CreateLogger();
-            Log.Logger = log;
-            var commonLibLog = new CommonLibLog();
+            #region serilog demo
 
-            Log.Information($"This is client logger info, ID:{Thread.CurrentThread.ManagedThreadId} State:{state}");
+            //var log = new LoggerConfiguration()
+            //    .WriteTo.ColoredConsole(
+            //        outputTemplate: "{Timestamp:yyyy:MM:dd:HH:mm} [{Level}] {Message}{NewLine}{Exception}{NewLine}{NewLine}")
+            //    .WriteTo.File("log.txt", rollingInterval: RollingInterval.Day)
+            //    .CreateLogger();
+            //Log.Logger = log;
+            //Log.Information($"This is client logger info, ID:{Thread.CurrentThread.ManagedThreadId} State:{state}");
+
+            #endregion
+
+            #region log4Net demo
+
+            //XmlDocument log4netConfig = new XmlDocument();
+            //log4netConfig.Load(File.OpenRead("log4net.config"));
+
+            //var repo = log4net.LogManager.CreateRepository(Assembly.GetEntryAssembly(),
+            //    typeof(log4net.Repository.Hierarchy.Hierarchy));
+            //XmlConfigurator.Configure(repo, log4netConfig["log4net"]);
+            //ILog log = LogManager.GetLogger(typeof(ConsumerLibLog));
+            //log.Error("Cleint Error.");
+
+            #endregion
+
+            #region NLog demo
+
+            var config = new LoggingConfiguration();
+
+            // Targets where to log to: File and Console
+            var logfile = new FileTarget("logfile") {FileName = "file.txt"};
+            var logconsole = new ConsoleTarget("logconsole");
+
+            // Rules for mapping loggers to targets            
+            config.AddRule(LogLevel.Info, LogLevel.Fatal, logconsole);
+            config.AddRule(LogLevel.Debug, LogLevel.Fatal, logfile);
+
+            // Apply config           
+            LogManager.Configuration = config;
+            var Logger = LogManager.GetCurrentClassLogger();
+            Logger.Info("Test this is from client logger.");
+
+            #endregion
+
+            var commonLibLog = new CommonLibLog();
         }
 
         public void OpenNewTaskToHandleThisAsync()
@@ -35,13 +71,13 @@ namespace CSharpFundamental.LibLog
 
         private void MultipleThreadToLogger()
         {
-            int taskCount = 10;
+            var taskCount = 10;
 
-            Task[] tasks = new Task[taskCount];
+            var tasks = new Task[taskCount];
 
-            for (int i = 0; i < taskCount; ++i)
+            for (var i = 0; i < taskCount; ++i)
             {
-                int temp = i;
+                var temp = i;
                 tasks[i] = Task.Run(() => BeginToLogTheLibraryEvent(temp));
             }
 
@@ -50,11 +86,11 @@ namespace CSharpFundamental.LibLog
 
             // Parallel.Invoke
 
-            Action[] actions = new Action[taskCount];
+            var actions = new Action[taskCount];
 
-            for (int i = 0; i < taskCount; ++i)
+            for (var i = 0; i < taskCount; ++i)
             {
-                int temp = i;
+                var temp = i;
                 actions[i] = () => BeginToLogTheLibraryEvent(temp);
             }
 
@@ -65,7 +101,6 @@ namespace CSharpFundamental.LibLog
             //{
             //    Console.WriteLine(tasks[i].Id + " | " + tasks[i].Status);
             //}
-
         }
     }
 }

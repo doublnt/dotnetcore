@@ -21,13 +21,13 @@ namespace CSharpFundamental.Dynamic
             Console.WriteLine(privateClass.GetType());
 
             dynamic test = "10086";
-            Console.WriteLine(test);
-            test = 11;
-            Console.WriteLine(test);
+            //Console.WriteLine(test);
+            //test = 11;
+            //Console.WriteLine(test);
 
-            dynamic tempValue = new PrivateClass("Robert.M.XiYin", "10086", "121312231");
+            //dynamic tempValue = new PrivateClass("Robert.M.XiYin", "10086", "121312231");
 
-            Console.WriteLine(tempValue.Version);
+            //Console.WriteLine(tempValue.Version);
         }
     }
 }
