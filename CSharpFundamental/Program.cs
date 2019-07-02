@@ -1,15 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Net;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Xml;
 
-using CSharpFundamental.AsyncAndAwait;
-using CSharpFundamental.CSharpVersion1;
-using CSharpFundamental.ExpressionTree;
-using CSharpFundamental.Reflect;
+using CSharpFundamental.LazyInitialization;
+using CSharpFundamental.LibLog;
+using CSharpFundamental.MultipleThread;
 
 namespace CSharpFundamental
 {
@@ -18,7 +17,7 @@ namespace CSharpFundamental
         //        public static int x;
         //        public static int y;
 
-        static async Task Main(string[] args)
+        private static async Task Main(string[] args)
         {
             #region comment code
 
@@ -153,99 +152,36 @@ namespace CSharpFundamental
 
             //new ExtendsMethodExprssionTree().PrintEnumerable();
 
-            var asyncDemo = new AsyncDemo();
+            //var asyncDemo = new AsyncDemo();
 
-            Console.WriteLine(await asyncDemo.GetValue());
+            //Console.WriteLine(await asyncDemo.GetValue());
 
-            await asyncDemo.ThrowExcpetionMethod();
-        }
+            //await asyncDemo.ThrowExcpetionMethod();
 
-        public static void Relection()
-        {
-            var demo = new ReflectionDemo();
-            demo.RelectionResovle();
-        }
+            //new ActionSampleWithClosure().TestAction();
 
-        public static void CLRDemo()
-        {
-            var demo = new CLRStackDemo();
-            demo.M1();
-        }
 
-        public static void DynamicDemo()
-        {
-            var refTestDemo = new RefTestDemo();
-            var array = new int[5];
-            refTestDemo.RefMethodTest(ref array);
+            //new PartialClass.Partial().DisplayPartial();
 
-            foreach (var item in array)
-            {
-                Console.WriteLine(item);
-            }
+            //new DynamicSample().DynamicExecute();
 
-            dynamic array2 = new List<int>
-                {1, 2, 3};
 
-            dynamic addtoInt = 111;
+            //new LibLogTest().DoCommonLog();
 
-            //            foreach (var item in array2)
-            //            {
-            //                dynamic value = item + addtoInt;
-            //                Console.WriteLine(value);
-            //            }
-        }
+            //LibLogger.WriteLog();
 
-        public static void DoFollowing(string msg)
-        {
-            Console.WriteLine("I will do the following!");
-        }
+            //var item2 = TupleSample.GetStructureTuple();
+            //Console.WriteLine(item2.name + "\t" + item2.address + "\t" + item2.age);
 
-        public void DoSomething()
-        {
-            //Public get and set method
-            var pClass = new PrivateClass();
-            pClass.Name = "Robert";
-            Console.WriteLine(pClass.Name);
+            //new LazyInitializationSample().LazyDemo();
 
-            pClass.Version = "1.0";
-            Console.WriteLine(pClass.Version);
+            //Console.WriteLine(sizeof(char) + "|" + sizeof(byte) + sizeof(int));
 
-            pClass = new PrivateClass("Robert", "2.0", "fakeHashcode");
+            //AddRandomNumToArray.ExecuteTheCode();
 
-            Console.WriteLine(pClass.Name + "|" + pClass.Version + "|" + pClass.HashCode);
+            //new ParallelInvoke().RunTheThread();
 
-            new AnonymousType().CreateAnonymousAndExecute();
-
-            var tc = new TestConstrcutor("222");
-
-            tc.SetNamespaceParams(y: 1, x: 2);
-            tc.SetNamespaceParams(1, 2);
-
-            var request = (HttpWebRequest)WebRequest.Create("https://www.alibabacloud.com");
-            request.Timeout = 1000;
-            var response = (HttpWebResponse)request.GetResponse();
-
-            request = (HttpWebRequest)WebRequest.Create("https://www.cnblogs.com");
-            response = (HttpWebResponse)request.GetResponse();
-
-            var doTheFollowing = new AnonymousType.DoTheFollowing(DoFollowing);
-            doTheFollowing("Hello");
-        }
-    }
-
-    internal class TestConstrcutor : ConstructorClass
-    {
-        public TestConstrcutor()
-        {
-        }
-
-        public TestConstrcutor(string param1) : base(param1)
-        {
-        }
-
-        public void SetNamespaceParams(int x, int y)
-        {
-            Console.WriteLine("X: {0} Y: {1}", x, y);
+            new ConsumerLibLog().BeginToLogTheLibraryEvent(100);
         }
     }
 }

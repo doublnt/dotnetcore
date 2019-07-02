@@ -7,9 +7,18 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="aliyun-net-sdk-mts" Version="2.6.1" />
-    <PackageReference Include="aliyun-net-sdk-ecs" Version="4.16.9" />
-    <PackageReference Include="aliyun-net-sdk-vod" Version="2.15.4" />
+    <PackageReference Include="Serilog.Exceptions" Version="5.2.0" />
+    <PackageReference Include="Serilog.Sinks.ColoredConsole" Version="3.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LibLogSample\LibLogSample.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="aliyun-net-sdk-core">
+      <HintPath>..\..\aliyun-openapi-net-sdk\aliyun-net-sdk-core\bin\Debug\netstandard2.0\aliyun-net-sdk-core.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

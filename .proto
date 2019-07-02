@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package yinxi.test;
+
+service TestName{
+    rpc Lookup(LookupRequest) returns (Coordinate) {}
+}
+
+message LookupRequest{
+    string name = 1;
+}
+
+message Coordinate{
+    double latitude = 1;
+    double altitude = 3;
+}

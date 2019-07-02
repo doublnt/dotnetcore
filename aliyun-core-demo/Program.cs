@@ -4,7 +4,12 @@ using Aliyun.Acs.Core;
 using Aliyun.Acs.Core.Exceptions;
 using Aliyun.Acs.Core.Http;
 using Aliyun.Acs.Core.Profile;
-using Aliyun.Acs.vod.Model.V20170321;
+using Aliyun.Acs.Core.Utils;
+
+using LibLogSample;
+
+using Serilog;
+using Serilog.Exceptions;
 
 
 namespace Aliyun.Core.Demo
@@ -100,6 +105,20 @@ namespace Aliyun.Core.Demo
             //var request = new GetPlayInfoRequest();
             //request.VideoId = "your video id";
 
+            var log = new LoggerConfiguration()
+                .Enrich.WithExceptionDetails()
+                .WriteTo.ColoredConsole(
+                    outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss}] [{Level}] {Message}{NewLine}{Exception}")
+                .CreateLogger();
+            Log.Logger = log;
+
+            log.Information("From Client Test.");
+
+            //client.SetLogger();
+
+            var commonLibLog = new CommonLibLog();
+
+
             CommonRequest request = new CommonRequest
             {
                 Method = MethodType.POST,
@@ -108,7 +127,7 @@ namespace Aliyun.Core.Demo
                 Action = "GetMobile",
                 Protocol = ProtocolType.HTTPS
             };
-            //request.UriPattern = "/GetMobile";
+            request.UriPattern = "/GetMobile";
 
             try
             {
@@ -117,7 +136,7 @@ namespace Aliyun.Core.Demo
                 // Console.WriteLine(response.UploadAddress);
                 // Console.WriteLine(response.RequestId);
                 // Console.WriteLine(response.VideoId);
-                Console.WriteLine(System.Text.Encoding.Default.GetString(response.HttpResponse.Content));
+                //Console.WriteLine(System.Text.Encoding.Default.GetString(response.HttpResponse.Content));
             }
             catch (ServerException e)
             {
