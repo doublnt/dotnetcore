@@ -1,15 +1,10 @@
 ﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
-using System.Xml;
+
 using CSharpFundamental.LazyInitialization;
 using CSharpFundamental.LibLog;
-using CSharpFundamental.Lock;
 using CSharpFundamental.MultipleThread;
-using CSharpFundamental.Operation;
 
 namespace CSharpFundamental
 {
@@ -17,6 +12,7 @@ namespace CSharpFundamental
     {
         //        public static int x;
         //        public static int y;
+
         private static async Task Main(string[] args)
         {
             #region comment code
@@ -65,9 +61,12 @@ namespace CSharpFundamental
 
             //await parallelHttp.DoParallelThing();
 
-            Console.WriteLine("Current Managed Thread Id is {0}", Thread.CurrentThread.ManagedThreadId);
+            Console.WriteLine("Current Managed Thread Id = {0}", Thread.CurrentThread.ManagedThreadId);
 
-            //new PrimitiveConstruct().DoWorkerThing();
+            //            var primitiveDemo = new PrimitiveConstruct();
+            //
+            //            primitiveDemo.DoWorkerThing();
+
 
             //            var threadSharingData = new ThreadSharingData();
             //            threadSharingData.DoThreadThing1();
@@ -121,7 +120,8 @@ namespace CSharpFundamental
             //    var instance = new FailingClass();
             //}
 
-            //new OperationTest().ExecuteMultiple();
+            //var operators = new OperationTest();
+            //operators.ComputeShiftOperators();
 
             //var bitwiseOperation = new BitwiseOperationSample();
 
@@ -166,6 +166,8 @@ namespace CSharpFundamental
 
             //LibLogger.WriteLog();
 
+            //new ConsumerLibLog().OpenNewTaskToHandleThisAsync();
+
             //var item2 = TupleSample.GetStructureTuple();
             //Console.WriteLine(item2.name + "\t" + item2.address + "\t" + item2.age);
 
@@ -175,13 +177,7 @@ namespace CSharpFundamental
 
             //AddRandomNumToArray.ExecuteTheCode();
 
-            //new ParallelInvoke().RunTheThread();
-
-            //new ConsumerLibLog().BeginToLogTheLibraryEvent(100);
-
-            //new DeadLock().ExecuteTheDeadLockDemo();
-
-            new LockBenchmark().RunBenchmark();
+            new ParallelInvoke().RunTheThread();
         }
     }
 }
