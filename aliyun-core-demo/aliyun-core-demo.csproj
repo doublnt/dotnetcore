@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Serilog.Exceptions" Version="5.2.0" />
-    <PackageReference Include="Serilog.Sinks.ColoredConsole" Version="3.0.1" />
+    <PackageReference Include="NLog" Version="4.6.5" />
   </ItemGroup>
 
   <ItemGroup>
@@ -19,6 +18,21 @@
     <Reference Include="aliyun-net-sdk-core">
       <HintPath>..\..\aliyun-openapi-net-sdk\aliyun-net-sdk-core\bin\Debug\netstandard2.0\aliyun-net-sdk-core.dll</HintPath>
     </Reference>
+    <Reference Include="aliyun-net-sdk-iot">
+      <HintPath>..\..\aliyun-openapi-net-sdk\aliyun-net-sdk-iot\bin\Debug\net45\aliyun-net-sdk-iot.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\aliyun-openapi-net-sdk\aliyun-net-sdk-core\bin\Debug\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="NLog.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

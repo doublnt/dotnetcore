@@ -184,7 +184,9 @@ namespace CSharpFundamental
 
             //new ConsumerLibLog().BeginToLogTheLibraryEvent(100);
 
-            new DeadLock().ExecuteTheDeadLockDemo();
+            //new DeadLock().ExecuteTheDeadLockDemo();
+
+            new LockBenchmark().RunBenchmark();
         }
     }
 }

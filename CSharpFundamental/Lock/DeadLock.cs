@@ -1,12 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Deployment.Internal;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
 namespace CSharpFundamental.Lock
 {
+    internal class Account
+    {
+        internal uint Id { get; set; }
+    }
+
     internal class DeadLock
     {
         // DeadLockDemo
@@ -21,6 +28,19 @@ namespace CSharpFundamental.Lock
         public void ExecuteTheDeadLockDemo()
         {
             DeadLockDemo2();
+        }
+
+        private void TransferDemo(Account a1, Account a2)
+        {
+
+        }
+
+        private Task ExecuteTransfer(Account a1, Account a2, int sum)
+        {
+            return Task.Run(() =>
+            {
+
+            });
         }
 
         private void DeadLockDemo2()

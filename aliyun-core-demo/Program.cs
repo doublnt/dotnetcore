@@ -1,22 +1,24 @@
 ﻿using System;
+using System.IO;
+using System.Reflection;
+using System.Xml;
 
 using Aliyun.Acs.Core;
 using Aliyun.Acs.Core.Exceptions;
 using Aliyun.Acs.Core.Http;
 using Aliyun.Acs.Core.Profile;
-using Aliyun.Acs.Core.Utils;
+using Aliyun.Acs.Iot.Model.V20180120;
 
-using LibLogSample;
-
-using Serilog;
-using Serilog.Exceptions;
+using NLog;
+using NLog.Config;
+using NLog.Targets;
 
 
 namespace Aliyun.Core.Demo
 {
-    class Program
+    internal class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             var accessKey = Environment.GetEnvironmentVariable("ACCESS_KEY_ID") ?? "AccessKeyId";
             var accessKeySecret = Environment.GetEnvironmentVariable("ACCESS_KEY_SECRET") ?? "AccessKeySecret";
@@ -28,6 +30,7 @@ namespace Aliyun.Core.Demo
             var client = InitVodClient(accessKey, accessKeySecret);
 
             #region commend code
+
             // var request = new SubmitJobsRequest();
             // request.Input="{\"Bucket\":\"sgfa-sdf\",\"Location\":\"oss-cn-hangzhou\",\"Object\":\"test.flv\"}";
             // request.OutputBucket = "bucket-output-template";
@@ -72,6 +75,7 @@ namespace Aliyun.Core.Demo
             // var request = new CreateUploadVideoRequest();
             // request.FileName = "03552d1d9235583a5e20ce3b677ea176.mp4";
             // request.Title = null;
+
             #endregion
 
             //            var request = new FindSimilarFacesRequest();
@@ -105,33 +109,48 @@ namespace Aliyun.Core.Demo
             //var request = new GetPlayInfoRequest();
             //request.VideoId = "your video id";
 
-            var log = new LoggerConfiguration()
-                .Enrich.WithExceptionDetails()
-                .WriteTo.ColoredConsole(
-                    outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss}] [{Level}] {Message}{NewLine}{Exception}")
-                .CreateLogger();
-            Log.Logger = log;
+            //var log = new LoggerConfiguration()
+            //    .Enrich.WithExceptionDetails()
+            //    .WriteTo.ColoredConsole(
+            //        outputTemplate: "[{Timestamp:yyyy-MM-dd HH:mm:ss}] [{Level}] {Message}{NewLine}{Exception}")
+            //    .CreateLogger();
+            //Log.Logger = log;
 
-            log.Information("From Client Test.");
-
-            //client.SetLogger();
-
-            var commonLibLog = new CommonLibLog();
+            //log.Information("From Client Test.");
 
 
-            CommonRequest request = new CommonRequest
-            {
-                Method = MethodType.POST,
-                Domain = "dypnsapi.aliyuncs.com",
-                Version = "2017-05-25",
-                Action = "GetMobile",
-                Protocol = ProtocolType.HTTPS
-            };
-            request.UriPattern = "/GetMobile";
+            //XmlDocument log4netConfig = new XmlDocument();
+            //log4netConfig.Load(File.OpenRead("log4net.config"));
+
+            //var repo = log4net.LogManager.CreateRepository(Assembly.GetEntryAssembly(),
+            //    typeof(log4net.Repository.Hierarchy.Hierarchy));
+            //XmlConfigurator.Configure(repo, log4netConfig["log4net"]);
+            //ILog log = LogManager.GetLogger(typeof(Program));
+            //log.Error("Cleint Error.");
+
+
+            var config = new LoggingConfiguration();
+
+            // Targets where to log to: File and Console
+            var logfile = new FileTarget("logfile") { FileName = "file.txt" };
+            var logconsole = new ConsoleTarget("logconsole");
+
+            // Rules for mapping loggers to targets            
+            config.AddRule(LogLevel.Info, LogLevel.Fatal, logconsole);
+            config.AddRule(LogLevel.Debug, LogLevel.Fatal, logfile);
+
+            // Apply config           
+            LogManager.Configuration = config;
+            var Logger = LogManager.GetCurrentClassLogger();
+            Logger.Info("Test this is from client logger.");
+
+            DefaultAcsClient.EnableLogger();
+
+            var request = new ListRuleRequest();
 
             try
             {
-                var response = client.GetCommonResponse(request);
+                var response = client.GetAcsResponse(request);
                 // Console.WriteLine(response.UploadAddress);
                 // Console.WriteLine(response.UploadAddress);
                 // Console.WriteLine(response.RequestId);
@@ -150,7 +169,7 @@ namespace Aliyun.Core.Demo
 
         public static DefaultAcsClient InitVodClient(string accessKeyId, string accessKeySecret)
         {
-            string regionId = "default";
+            var regionId = "cn-shanghai";
             IClientProfile profile = DefaultProfile.GetProfile(regionId, accessKeyId, accessKeySecret);
             return new DefaultAcsClient(profile);
         }
