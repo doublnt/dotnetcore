@@ -25,7 +25,7 @@ namespace CSharpFundamental
             t.Join();
         }
 
-        public void Worker(Object o)
+        private void Worker(Object o)
         {
             Console.WriteLine("Current Managed Id = {0}", Thread.CurrentThread.ManagedThreadId);
 

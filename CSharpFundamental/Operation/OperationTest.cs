@@ -31,6 +31,15 @@ namespace CSharpFundamental.Operation
             var value = EnumTest.Value3 & EnumTest.Value2;
             Console.WriteLine(value);
         }
+
+        public void ExecuteMultiple()
+        {
+            int a = 12;
+
+            int b = a >> 1;
+
+            Console.WriteLine(b);
+        }
     }
 
     [Flags]

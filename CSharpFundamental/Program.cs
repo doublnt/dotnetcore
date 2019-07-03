@@ -5,11 +5,11 @@ using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Xml;
-
 using CSharpFundamental.LazyInitialization;
 using CSharpFundamental.LibLog;
 using CSharpFundamental.Lock;
 using CSharpFundamental.MultipleThread;
+using CSharpFundamental.Operation;
 
 namespace CSharpFundamental
 {
@@ -17,7 +17,6 @@ namespace CSharpFundamental
     {
         //        public static int x;
         //        public static int y;
-
         private static async Task Main(string[] args)
         {
             #region comment code
@@ -68,10 +67,7 @@ namespace CSharpFundamental
 
             Console.WriteLine("Current Managed Thread Id is {0}", Thread.CurrentThread.ManagedThreadId);
 
-            //            var primitiveDemo = new PrimitiveConstruct();
-            //
-            //            primitiveDemo.DoWorkerThing();
-
+            //new PrimitiveConstruct().DoWorkerThing();
 
             //            var threadSharingData = new ThreadSharingData();
             //            threadSharingData.DoThreadThing1();
@@ -125,8 +121,7 @@ namespace CSharpFundamental
             //    var instance = new FailingClass();
             //}
 
-            //var operators = new OperationTest();
-            //operators.ComputeShiftOperators();
+            new OperationTest().ExecuteMultiple();
 
             //var bitwiseOperation = new BitwiseOperationSample();
 
@@ -186,7 +181,7 @@ namespace CSharpFundamental
 
             //new DeadLock().ExecuteTheDeadLockDemo();
 
-            new LockBenchmark().RunBenchmark();
+            //new LockBenchmark().RunBenchmark();
         }
     }
 }
