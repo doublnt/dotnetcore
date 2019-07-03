@@ -121,7 +121,7 @@ namespace CSharpFundamental
             //    var instance = new FailingClass();
             //}
 
-            new OperationTest().ExecuteMultiple();
+            //new OperationTest().ExecuteMultiple();
 
             //var bitwiseOperation = new BitwiseOperationSample();
 
@@ -181,7 +181,7 @@ namespace CSharpFundamental
 
             //new DeadLock().ExecuteTheDeadLockDemo();
 
-            //new LockBenchmark().RunBenchmark();
+            new LockBenchmark().RunBenchmark();
         }
     }
 }
