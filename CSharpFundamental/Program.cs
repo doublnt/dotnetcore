@@ -65,7 +65,7 @@ namespace CSharpFundamental
 
             //await parallelHttp.DoParallelThing();
 
-            Console.WriteLine("Current Managed Thread Id = {0}", Thread.CurrentThread.ManagedThreadId);
+            Console.WriteLine("Current Managed Thread Id is {0}", Thread.CurrentThread.ManagedThreadId);
 
             //            var primitiveDemo = new PrimitiveConstruct();
             //
@@ -181,7 +181,7 @@ namespace CSharpFundamental
 
             //new ParallelInvoke().RunTheThread();
 
-            new ConsumerLibLog().BeginToLogTheLibraryEvent(100);
+            //new ConsumerLibLog().BeginToLogTheLibraryEvent(100);
         }
     }
 }

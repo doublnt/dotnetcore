@@ -1,13 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Net;
 using System.Threading;
-using Microsoft.AspNetCore.Mvc;
+
 using DoubleClickDemo.Models;
 
-using LibLogSample;
+using Microsoft.AspNetCore.Mvc;
 
 namespace DoubleClickDemo.Controllers
 {
@@ -15,7 +13,34 @@ namespace DoubleClickDemo.Controllers
     {
         public IActionResult Index()
         {
+            CreateHttpListener();
             return View();
+        }
+
+        private void CreateHttpListener()
+        {
+            if (!HttpListener.IsSupported)
+            {
+                return;
+            }
+
+            Console.WriteLine("Begin to listening.");
+
+            HttpListener httpListener = new HttpListener();
+
+            httpListener.Prefixes.Add("http://localhost:52642/Index/");
+
+            httpListener.Start();
+
+            HttpListenerContext httpListenerContext = httpListener.GetContext();
+            HttpListenerRequest httpListenerRequest = httpListenerContext.Request;
+
+
+            var referer = httpListenerRequest.UrlReferrer.OriginalString;
+
+            Console.WriteLine("333333333333333333333" + referer);
+
+            httpListener.Stop();
         }
 
         public IActionResult About()
@@ -42,22 +67,13 @@ namespace DoubleClickDemo.Controllers
         {
             if (qid == 1)
             {
-                try
-                {
-                    Thread.Sleep(10000);
-                    Console.WriteLine("Insert Data");
-                    return Content("OK");
-                }
-                catch (System.Exception)
-                {
-                    throw;
-                }
+                Thread.Sleep(10000);
+                Console.WriteLine("Insert Data");
+                return Content("OK");
             }
-            else
-            {
-                Console.WriteLine(qid);
-                return Content("添加失败");
-            }
+
+            Console.WriteLine(qid);
+            return Content("添加失败");
         }
     }
 }
