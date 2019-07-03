@@ -8,6 +8,7 @@ using System.Xml;
 
 using CSharpFundamental.LazyInitialization;
 using CSharpFundamental.LibLog;
+using CSharpFundamental.Lock;
 using CSharpFundamental.MultipleThread;
 
 namespace CSharpFundamental
@@ -182,6 +183,8 @@ namespace CSharpFundamental
             //new ParallelInvoke().RunTheThread();
 
             //new ConsumerLibLog().BeginToLogTheLibraryEvent(100);
+
+            new DeadLock().ExecuteTheDeadLockDemo();
         }
     }
 }
