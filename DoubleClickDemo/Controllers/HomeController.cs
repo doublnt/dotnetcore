@@ -5,6 +5,8 @@ using System.Threading;
 
 using DoubleClickDemo.Models;
 
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.Headers;
 using Microsoft.AspNetCore.Mvc;
 
 namespace DoubleClickDemo.Controllers
@@ -13,7 +15,11 @@ namespace DoubleClickDemo.Controllers
     {
         public IActionResult Index()
         {
-            CreateHttpListener();
+            //RequestHeaders requestHeaders = Request.GetTypedHeaders();
+            //Uri uriReferer = requestHeaders.Headers;
+
+            var value = Request.Headers["referer"];
+            Console.WriteLine($"--------{value}-------");
             return View();
         }
 

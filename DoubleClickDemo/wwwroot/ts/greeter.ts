@@ -1,4 +1,4 @@
-﻿function greeter(person) {
+﻿export function greeter(person) {
     return "Hello" + person;
 }
 
