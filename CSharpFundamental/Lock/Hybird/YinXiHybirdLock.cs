@@ -31,7 +31,7 @@ namespace CSharpFundamental.Lock.Hybird
             {
                 return;
             }
-            
+
             // 有其他线程正在阻塞，唤醒其中一个
             m_waiterLock.Set();
         }

@@ -20,6 +20,8 @@ namespace CSharpFundamental.Lock
                 {
                     return;
                 }
+
+                // 若遇锁没释放，则会一直在 “自旋”，也就是一直在循环里。
             }
         }
 

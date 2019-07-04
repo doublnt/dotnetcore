@@ -13,6 +13,7 @@ namespace CSharpFundamental.Lock.Kernel
     internal class YinXiRecursiveAutoResetEvent : IDisposable
     {
         private AutoResetEvent m_lock = new AutoResetEvent(true);
+
         private int m_owningThreadId = 0;
         private int m_recursionCount = 0;
 

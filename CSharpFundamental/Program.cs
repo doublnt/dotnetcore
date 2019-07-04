@@ -177,7 +177,7 @@ namespace CSharpFundamental
 
             //AddRandomNumToArray.ExecuteTheCode();
 
-            new ParallelInvoke().RunTheThread();
+            //new ParallelInvoke().RunTheThread();
         }
     }
 }
