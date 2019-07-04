@@ -12,7 +12,7 @@ namespace CSharpFundamental.Dynamic
     {
         public void DynamicExecute()
         {
-            var type1 = typeof(PrivateClass);
+            var type1 = typeof(DynamicSample);
 
             Console.WriteLine(type1.FullName);
 
