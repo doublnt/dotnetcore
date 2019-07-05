@@ -1,22 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace CSharpFundamental.AsyncCoordinator
 {
     internal sealed class AsyncCoordinator
     {
-        private Int32 m_opCount = 1;
-        private Int32 m_statusReported = 0; //0 代表 false， 1 代表 true
         private Action<CoordinationStatus> m_callback;
-        private System.Threading.Timer m_timer;
+        private int m_opCount = 1;
+        private int m_statusReported; //0 代表 false， 1 代表 true
+        private Timer m_timer;
 
-        public void AboutToBegin(Int32 opsToAdd = 1)
+        public void AboutToBegin(int opsToAdd = 1)
         {
             Interlocked.Add(ref m_opCount, opsToAdd);
+            // Interlocked.Increment(ref m_opCount);
         }
 
         public void JustEnded()
@@ -28,19 +25,19 @@ namespace CSharpFundamental.AsyncCoordinator
             }
         }
 
-        public void AllBegun(Action<CoordinationStatus> callback, Int32 timeout = Timeout.Infinite)
+        public void AllBegun(Action<CoordinationStatus> callback, int timeout = Timeout.Infinite)
         {
             m_callback = callback;
 
             if (timeout != Timeout.Infinite)
             {
-                m_timer = new System.Threading.Timer(TimeExpired, null, timeout, Timeout.Infinite);
+                m_timer = new Timer(TimeExpired, null, timeout, Timeout.Infinite);
             }
 
             JustEnded();
         }
 
-        private void TimeExpired(Object o)
+        private void TimeExpired(object o)
         {
             ReportStatus(CoordinationStatus.Timeout);
         }
@@ -51,7 +48,7 @@ namespace CSharpFundamental.AsyncCoordinator
         }
 
         /// <summary>
-        /// 对全部操作结束，发生超时，调用Cancel 时可能发生的竞态条件进行仲裁。
+        ///     对全部操作结束，发生超时，调用Cancel 时可能发生的竞态条件进行仲裁。
         /// </summary>
         /// <param name="status"></param>
         private void ReportStatus(CoordinationStatus status)

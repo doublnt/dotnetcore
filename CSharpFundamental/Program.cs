@@ -178,6 +178,8 @@ namespace CSharpFundamental
             //AddRandomNumToArray.ExecuteTheCode();
 
             //new ParallelInvoke().RunTheThread();
+
+            new MultipleThreadAddDemo().RunTheLogic();
         }
     }
 }

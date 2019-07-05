@@ -129,22 +129,22 @@ namespace Aliyun.Core.Demo
             //log.Error("Cleint Error.");
 
 
-            var config = new LoggingConfiguration();
+            //var config = new LoggingConfiguration();
 
-            // Targets where to log to: File and Console
-            var logfile = new FileTarget("logfile") { FileName = "file.txt" };
-            var logconsole = new ConsoleTarget("logconsole");
+            //// Targets where to log to: File and Console
+            //var logfile = new FileTarget("logfile") { FileName = "file.txt" };
+            //var logconsole = new ConsoleTarget("logconsole");
 
-            // Rules for mapping loggers to targets            
-            config.AddRule(LogLevel.Info, LogLevel.Fatal, logconsole);
-            config.AddRule(LogLevel.Debug, LogLevel.Fatal, logfile);
+            //// Rules for mapping loggers to targets            
+            //config.AddRule(LogLevel.Info, LogLevel.Fatal, logconsole);
+            //config.AddRule(LogLevel.Debug, LogLevel.Fatal, logfile);
 
-            // Apply config           
-            LogManager.Configuration = config;
-            var Logger = LogManager.GetCurrentClassLogger();
-            Logger.Info("Test this is from client logger.");
+            //// Apply config           
+            //LogManager.Configuration = config;
+            //var Logger = LogManager.GetCurrentClassLogger();
+            //Logger.Info("Test this is from client logger.");
 
-            DefaultAcsClient.EnableLogger();
+            //DefaultAcsClient.EnableLogger();
 
             var request = new ListRuleRequest();
 
