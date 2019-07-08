@@ -1,10 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
 using CSharpFundamental.LazyInitialization;
 using CSharpFundamental.LibLog;
 using CSharpFundamental.MultipleThread;
+using CSharpFundamental.MultipleThread.Book;
 
 namespace CSharpFundamental
 {
@@ -179,7 +181,9 @@ namespace CSharpFundamental
 
             //new ParallelInvoke().RunTheThread();
 
-            new MultipleThreadAddDemo().RunTheLogic();
+            //new MultipleThreadAddDemo().RunTheLogic
+
+            await new TaskDelayDemo().DoSomethingAsync();
         }
     }
 }
