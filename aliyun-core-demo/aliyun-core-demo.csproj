@@ -16,10 +16,10 @@
 
   <ItemGroup>
     <Reference Include="aliyun-net-sdk-core">
-      <HintPath>..\..\aliyun-openapi-net-sdk\aliyun-net-sdk-core\bin\Debug\netstandard2.0\aliyun-net-sdk-core.dll</HintPath>
+      <HintPath>..\..\aliyun-openapi-net-sdk\aliyun-net-sdk-iot\bin\Debug\netstandard2.0\aliyun-net-sdk-core.dll</HintPath>
     </Reference>
     <Reference Include="aliyun-net-sdk-iot">
-      <HintPath>..\..\aliyun-openapi-net-sdk\aliyun-net-sdk-iot\bin\Debug\net45\aliyun-net-sdk-iot.dll</HintPath>
+      <HintPath>..\..\aliyun-openapi-net-sdk\aliyun-net-sdk-iot\bin\Debug\netstandard2.0\aliyun-net-sdk-iot.dll</HintPath>
     </Reference>
     <Reference Include="Newtonsoft.Json">
       <HintPath>..\..\aliyun-openapi-net-sdk\aliyun-net-sdk-core\bin\Debug\net45\Newtonsoft.Json.dll</HintPath>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+
+    <div id="app-2">
+        <span v-bind:title="message"></span>
+        鼠标悬停几秒钟查看此处动态绑定的提示信息！
+    </div>
+
+    <div></div>
+
+    <script src="js/index.js"></script>
+</body>
+
+</html>

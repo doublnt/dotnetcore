@@ -137,7 +137,7 @@ namespace Aliyun.Core.Demo
 
             //// Rules for mapping loggers to targets            
             //config.AddRule(LogLevel.Info, LogLevel.Fatal, logconsole);
-            //config.AddRule(LogLevel.Debug, LogLevel.Fatal, logfile);
+            //config.AddRule(LogLevel.Debug, LogLevel.Fatal, logfile);  
 
             //// Apply config           
             //LogManager.Configuration = config;
@@ -146,16 +146,13 @@ namespace Aliyun.Core.Demo
 
             //DefaultAcsClient.EnableLogger();
 
-            var request = new ListRuleRequest();
+            var request = new QueryDeviceGroupListRequest();
 
             try
             {
                 var response = client.GetAcsResponse(request);
-                // Console.WriteLine(response.UploadAddress);
-                // Console.WriteLine(response.UploadAddress);
-                // Console.WriteLine(response.RequestId);
-                // Console.WriteLine(response.VideoId);
-                //Console.WriteLine(System.Text.Encoding.Default.GetString(response.HttpResponse.Content));
+
+                Console.WriteLine(System.Text.Encoding.Default.GetString(response.HttpResponse.Content));
             }
             catch (ServerException e)
             {
