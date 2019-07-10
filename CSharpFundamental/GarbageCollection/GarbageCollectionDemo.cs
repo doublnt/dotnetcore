@@ -12,7 +12,7 @@ namespace CSharpFundamental.GarbageCollection
 
         public void GetTheMemory()
         {
-            GarbageCollectionDemo.MakeSomeGarbages();
+            GarbageCollectionDemo.MakeSomeGarbage();
 
             Console.WriteLine("Memory used before GC.Collect()" + GC.GetTotalMemory(false));
 
@@ -29,7 +29,7 @@ namespace CSharpFundamental.GarbageCollection
             Console.WriteLine(GC.MaxGeneration);
         }
 
-        private static void MakeSomeGarbages()
+        private static void MakeSomeGarbage()
         {
             Dictionary<string, string> dict;
 
