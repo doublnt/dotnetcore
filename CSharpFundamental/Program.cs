@@ -3,10 +3,12 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 
+using CSharpFundamental.GarbageCollection;
 using CSharpFundamental.LazyInitialization;
 using CSharpFundamental.LibLog;
 using CSharpFundamental.MultipleThread;
 using CSharpFundamental.MultipleThread.Book;
+using CSharpFundamental.Operation;
 
 namespace CSharpFundamental
 {
@@ -183,7 +185,9 @@ namespace CSharpFundamental
 
             //new MultipleThreadAddDemo().RunTheLogic
 
-            await new TaskDelayDemo().DoSomethingAsync();
+            //await new TaskDelayDemo().DoSomethingAsync();
+
+            new GarbageCollectionDemo().GetTheMemory();
         }
     }
 }
