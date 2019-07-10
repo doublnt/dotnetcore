@@ -36,5 +36,3 @@ alter table dbo.employees with check add constraint fk_employee_employees foreig
 alter table dbo.employees with nocheck add constraint check_salary check(salary > 0);
 
 alter table dbo.orders add constraint default_orderts_value default(current_timestamp) for orderts;
-
-
