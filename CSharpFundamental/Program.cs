@@ -8,6 +8,7 @@ using CSharpFundamental.LazyInitialization;
 using CSharpFundamental.LibLog;
 using CSharpFundamental.MultipleThread;
 using CSharpFundamental.MultipleThread.Book;
+using CSharpFundamental.NetWorkDemoAnalyse;
 using CSharpFundamental.Operation;
 
 namespace CSharpFundamental
@@ -187,7 +188,11 @@ namespace CSharpFundamental
 
             //await new TaskDelayDemo().DoSomethingAsync();
 
-            new GarbageCollectionDemo().GetTheMemory();
+            //new GarbageCollectionDemo().GetTheMemory();
+
+            //new AnonymousDemo().DoTheAnonymousSample();
+
+            new Final().TestCode();
         }
     }
 }
