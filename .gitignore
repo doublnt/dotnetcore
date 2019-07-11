@@ -21,3 +21,4 @@ log/
 *.DS_Store
 .vscode
 DeserializeJsonDemo/endpoints.json
+target/
