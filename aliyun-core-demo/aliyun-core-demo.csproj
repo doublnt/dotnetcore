@@ -7,12 +7,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="aliyun-net-sdk-ecs" Version="4.16.11" />
     <PackageReference Include="aliyun-net-sdk-iot" Version="6.11.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
     <PackageReference Include="NLog" Version="4.6.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\LibLogSample\LibLogSample.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Microsoft.Extensions.DependencyInjection">
+      <HintPath>C:\Users\wb-yx518000\.nuget\packages\microsoft.extensions.dependencyinjection\2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
   <ItemGroup>

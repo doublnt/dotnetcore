@@ -7,7 +7,10 @@ using Aliyun.Acs.Core;
 using Aliyun.Acs.Core.Exceptions;
 using Aliyun.Acs.Core.Http;
 using Aliyun.Acs.Core.Profile;
+using Aliyun.Acs.Ecs.Model.V20140526;
 using Aliyun.Acs.Iot.Model.V20180120;
+
+using Microsoft.Extensions.DependencyInjection;
 
 using NLog;
 using NLog.Config;
@@ -146,7 +149,7 @@ namespace Aliyun.Core.Demo
 
             //DefaultAcsClient.EnableLogger();
 
-            var request = new QueryDeviceGroupListRequest();
+            var request = new StartInstanceRequest();
 
             try
             {
