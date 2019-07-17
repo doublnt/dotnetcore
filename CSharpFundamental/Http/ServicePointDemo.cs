@@ -13,13 +13,24 @@ namespace CSharpFundamental.Http
         public static void Execute()
         {
             var hashCode = "YinXi".GetHashCode();
-            string uri = "https://www.aliyun.com";
+            var uri = new Uri("https://www.baidu.com");
+
+            makeWebRequest(hashCode, uri);
 
             makeWebRequest(hashCode, uri);
         }
 
+        private static void RunServicePoint(Uri uri)
+        {
+            Thread.Sleep(4000);
+            Console.WriteLine("---------------");
 
-        private static void makeWebRequest(int hashCode, string Uri)
+            ServicePoint servicePoint = ServicePointManager.FindServicePoint(uri);
+            ShowProperties(servicePoint);
+        }
+
+
+        private static void makeWebRequest(int hashCode, Uri uri)
         {
             HttpWebResponse res = null;
 
@@ -30,9 +41,9 @@ namespace CSharpFundamental.Http
             try
             {
                 // Create a request to the passed URI.
-                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(Uri);
+                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri);
 
-                Console.WriteLine("\nConnecting to " + Uri + " ............");
+                Console.WriteLine("\nConnecting to " + uri + " ............");
 
                 // Get the response object.
                 res = (HttpWebResponse)req.GetResponse();
@@ -69,6 +80,8 @@ namespace CSharpFundamental.Http
 
         private static void ShowProperties(ServicePoint sp)
         {
+            Thread.Sleep(2000);
+
             Console.WriteLine("Done calling FindServicePoint()...");
 
             // Display the ServicePoint Internet resource address.
