@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
 using CSharpFundamental.GarbageCollection;
+using CSharpFundamental.Http;
 using CSharpFundamental.LazyInitialization;
 using CSharpFundamental.LibLog;
 using CSharpFundamental.MultipleThread;
@@ -192,7 +194,9 @@ namespace CSharpFundamental
 
             //new AnonymousDemo().DoTheAnonymousSample();
 
-            new Final().TestCode();
+            //new Final().TestCode();
+
+            ServicePointDemo.Execute();
         }
     }
 }

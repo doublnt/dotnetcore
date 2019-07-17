@@ -149,13 +149,16 @@ namespace Aliyun.Core.Demo
 
             //DefaultAcsClient.EnableLogger();
 
-            var request = new StartInstanceRequest();
+            var request = new DescribeInstanceStatusRequest();
 
             try
             {
-                var response = client.GetAcsResponse(request);
+                for (int i = 0; i < 10; ++i)
+                {
+                    var response = client.GetAcsResponse(request);
 
-                Console.WriteLine(System.Text.Encoding.Default.GetString(response.HttpResponse.Content));
+                    Console.WriteLine(System.Text.Encoding.Default.GetString(response.HttpResponse.Content));
+                }
             }
             catch (ServerException e)
             {
