@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Management.Instrumentation;
 using System.Net;
 using System.Threading;
 
@@ -8,14 +9,15 @@ namespace CSharpFundamental.Http
     {
         public static void Execute()
         {
-            var hashCode = "YinXi".GetHashCode();
             var uri = new Uri("http://www.baidu.com");
 
-            makeWebRequest(hashCode, uri);
+            makeWebRequest(uri.GetHashCode(), uri);
 
             Thread.Sleep(5000);
 
-            makeWebRequest(hashCode, uri);
+            var uri2 = new Uri("http://news.baidu.com/");
+
+            makeWebRequest(uri2.GetHashCode(), uri2);
         }
 
         private static void RunServicePoint(Uri uri)
@@ -36,13 +38,13 @@ namespace CSharpFundamental.Http
             {
                 // Create a request to the passed URI.
                 var req = (HttpWebRequest)WebRequest.Create(uri);
-                req.KeepAlive = false;
 
                 Console.WriteLine("\nConnecting to " + uri + " ............");
 
                 // Get the response object.
                 res = (HttpWebResponse)req.GetResponse();
-                Console.WriteLine("Connected.\n");
+
+                Console.WriteLine("Connected. \n");
 
                 var currentServicePoint = req.ServicePoint;
 
@@ -128,6 +130,14 @@ namespace CSharpFundamental.Http
 
             Console.WriteLine("UseNagleAlgorithm = " + sp.UseNagleAlgorithm);
             Console.WriteLine("Expect 100-continue = " + sp.Expect100Continue);
+        }
+
+        public static IPEndPoint BindIPEndPoint1(ServicePoint servicePoint, IPEndPoint remoteEndPoint, int retryCount)
+        {
+            string IP = remoteEndPoint.ToString();
+
+            Console.WriteLine("IP:" + IP);
+            return remoteEndPoint;
         }
     }
 }
