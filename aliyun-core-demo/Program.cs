@@ -1,21 +1,10 @@
 ﻿using System;
-using System.IO;
-using System.Reflection;
-using System.Xml;
+using System.Text;
 
 using Aliyun.Acs.Core;
 using Aliyun.Acs.Core.Exceptions;
-using Aliyun.Acs.Core.Http;
 using Aliyun.Acs.Core.Profile;
-using Aliyun.Acs.Ecs.Model.V20140526;
-using Aliyun.Acs.Iot.Model.V20180120;
-
-using Microsoft.Extensions.DependencyInjection;
-
-using NLog;
-using NLog.Config;
-using NLog.Targets;
-
+using Aliyun.Acs.CS.Model.V20151215;
 
 namespace Aliyun.Core.Demo
 {
@@ -149,16 +138,12 @@ namespace Aliyun.Core.Demo
 
             //DefaultAcsClient.EnableLogger();
 
-            var request = new DescribeInstanceStatusRequest();
+            var request = new DescribeApiVersionRequest();
 
             try
             {
-                for (int i = 0; i < 10; ++i)
-                {
-                    var response = client.GetAcsResponse(request);
-
-                    Console.WriteLine(System.Text.Encoding.Default.GetString(response.HttpResponse.Content));
-                }
+                var response = client.GetAcsResponse(request);
+                Console.WriteLine(Encoding.Default.GetString(response.HttpResponse.Content));
             }
             catch (ServerException e)
             {
