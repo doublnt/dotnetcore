@@ -1,21 +1,19 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Net;
-using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 namespace CSharpFundamental.Http
 {
-    class ServicePointDemo
+    internal class ServicePointDemo
     {
         public static void Execute()
         {
             var hashCode = "YinXi".GetHashCode();
-            var uri = new Uri("https://www.baidu.com");
+            var uri = new Uri("http://www.baidu.com");
 
             makeWebRequest(hashCode, uri);
+
+            Thread.Sleep(5000);
 
             makeWebRequest(hashCode, uri);
         }
@@ -25,7 +23,7 @@ namespace CSharpFundamental.Http
             Thread.Sleep(4000);
             Console.WriteLine("---------------");
 
-            ServicePoint servicePoint = ServicePointManager.FindServicePoint(uri);
+            var servicePoint = ServicePointManager.FindServicePoint(uri);
             ShowProperties(servicePoint);
         }
 
@@ -34,14 +32,11 @@ namespace CSharpFundamental.Http
         {
             HttpWebResponse res = null;
 
-            // Make sure that the idle time has elapsed, so that a new 
-            // ServicePoint instance is created.
-            Console.WriteLine("Sleeping for 2 sec.");
-            Thread.Sleep(2000);
             try
             {
                 // Create a request to the passed URI.
-                HttpWebRequest req = (HttpWebRequest)WebRequest.Create(uri);
+                var req = (HttpWebRequest)WebRequest.Create(uri);
+                req.KeepAlive = false;
 
                 Console.WriteLine("\nConnecting to " + uri + " ............");
 
@@ -49,10 +44,10 @@ namespace CSharpFundamental.Http
                 res = (HttpWebResponse)req.GetResponse();
                 Console.WriteLine("Connected.\n");
 
-                ServicePoint currentServicePoint = req.ServicePoint;
+                var currentServicePoint = req.ServicePoint;
 
                 // Display new service point properties.
-                int currentHashCode = currentServicePoint.GetHashCode();
+                var currentHashCode = currentServicePoint.GetHashCode();
 
                 Console.WriteLine("New service point hashcode: " + currentHashCode);
                 Console.WriteLine("New service point max idle time: " + currentServicePoint.MaxIdleTime);
@@ -62,9 +57,13 @@ namespace CSharpFundamental.Http
 
                 // Check that a new ServicePoint instance has been created.
                 if (hashCode == currentHashCode)
+                {
                     Console.WriteLine("Service point reused.");
+                }
                 else
+                {
                     Console.WriteLine("A new service point created.");
+                }
             }
             catch (Exception e)
             {
@@ -74,22 +73,22 @@ namespace CSharpFundamental.Http
             finally
             {
                 if (res != null)
+                {
                     res.Close();
+                }
             }
         }
 
         private static void ShowProperties(ServicePoint sp)
         {
-            Thread.Sleep(2000);
-
             Console.WriteLine("Done calling FindServicePoint()...");
 
             // Display the ServicePoint Internet resource address.
-            Console.WriteLine("Address = {0} ", sp.Address.ToString());
+            Console.WriteLine("Address = {0} ", sp.Address);
 
             // Display the date and time that the ServicePoint was last 
             // connected to a host.
-            Console.WriteLine("IdleSince = " + sp.IdleSince.ToString());
+            Console.WriteLine("IdleSince = " + sp.IdleSince);
 
             // Display the maximum length of time that the ServicePoint instance  
             // is allowed to maintain an idle connection to an Internet  
@@ -107,20 +106,28 @@ namespace CSharpFundamental.Http
             Console.WriteLine("CurrentConnections = " + sp.CurrentConnections);
 
             if (sp.Certificate == null)
+            {
                 Console.WriteLine("Certificate = (null)");
+            }
             else
-                Console.WriteLine("Certificate = " + sp.Certificate.ToString());
+            {
+                Console.WriteLine("Certificate = " + sp.Certificate);
+            }
 
             if (sp.ClientCertificate == null)
+            {
                 Console.WriteLine("ClientCertificate = (null)");
+            }
             else
-                Console.WriteLine("ClientCertificate = " + sp.ClientCertificate.ToString());
+            {
+                Console.WriteLine("ClientCertificate = " + sp.ClientCertificate);
+            }
 
-            Console.WriteLine("ProtocolVersion = " + sp.ProtocolVersion.ToString());
+            Console.WriteLine("ProtocolVersion = " + sp.ProtocolVersion);
             Console.WriteLine("SupportsPipelining = " + sp.SupportsPipelining);
 
-            Console.WriteLine("UseNagleAlgorithm = " + sp.UseNagleAlgorithm.ToString());
-            Console.WriteLine("Expect 100-continue = " + sp.Expect100Continue.ToString());
+            Console.WriteLine("UseNagleAlgorithm = " + sp.UseNagleAlgorithm);
+            Console.WriteLine("Expect 100-continue = " + sp.Expect100Continue);
         }
     }
 }
