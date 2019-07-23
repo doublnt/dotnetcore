@@ -19,6 +19,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="aliyun-net-sdk-core">
+      <HintPath>..\..\aliyun-openapi-net-sdk\aliyun-net-sdk-core\bin\Debug\netstandard2.0\aliyun-net-sdk-core.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Extensions.Http">
       <HintPath>C:\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.extensions.http\2.2.0\lib\netstandard2.0\Microsoft.Extensions.Http.dll</HintPath>
     </Reference>

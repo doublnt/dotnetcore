@@ -7,10 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="aliyun-net-sdk-cs" Version="2.9.1" />
-    <PackageReference Include="aliyun-net-sdk-ecs" Version="4.16.11" />
-    <PackageReference Include="aliyun-net-sdk-iot" Version="6.11.0" />
-    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="2.2.0" />
     <PackageReference Include="NLog" Version="4.6.5" />
   </ItemGroup>
 
@@ -19,8 +15,17 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="aliyun-net-sdk-core">
+      <HintPath>..\..\aliyun-openapi-net-sdk\aliyun-net-sdk-ecs\bin\Debug\netstandard2.0\aliyun-net-sdk-core.dll</HintPath>
+    </Reference>
+    <Reference Include="aliyun-net-sdk-ecs">
+      <HintPath>..\..\aliyun-openapi-net-sdk\aliyun-net-sdk-ecs\bin\Debug\netstandard2.0\aliyun-net-sdk-ecs.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Extensions.DependencyInjection">
       <HintPath>C:\Users\wb-yx518000\.nuget\packages\microsoft.extensions.dependencyinjection\2.0.0\lib\netstandard2.0\Microsoft.Extensions.DependencyInjection.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\..\aliyun-openapi-net-sdk\aliyun-net-sdk-core\bin\Debug\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
   </ItemGroup>
 

@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Text;
+using System.Threading.Tasks;
 
 using Aliyun.Acs.Core;
 using Aliyun.Acs.Core.Exceptions;
 using Aliyun.Acs.Core.Profile;
-using Aliyun.Acs.CS.Model.V20151215;
+using Aliyun.Acs.Ecs.Model.V20140526;
 
 namespace Aliyun.Core.Demo
 {
@@ -138,12 +139,35 @@ namespace Aliyun.Core.Demo
 
             //DefaultAcsClient.EnableLogger();
 
-            var request = new DescribeApiVersionRequest();
+
+            int num = 10;
+            var tasks = new Task[num];
+
+            client.SetReadTimeoutInMilliSeconds(50000);
+            client.SetConnectTimeoutInMilliSeconds(50000);
+
+            //DescribeRegionsResponse[] responses = new DescribeRegionsResponse[num];
 
             try
             {
-                var response = client.GetAcsResponse(request);
-                Console.WriteLine(Encoding.Default.GetString(response.HttpResponse.Content));
+                for (int i = 0; i < num; i++)
+                {
+                    int temp = i;
+
+                    tasks[temp] = Task.Run(() =>
+                    {
+                        var request = new DescribeRegionsRequest();
+                        var response = client.GetAcsResponse(request);
+
+                        Console.WriteLine(Encoding.UTF8.GetString(response.HttpResponse.Content));
+                    });
+                }
+
+                Task.WaitAll(tasks);
+
+                //var request = new DescribeRegionsRequest();
+                //var response = client.GetAcsResponse(request);
+                //Console.WriteLine(Encoding.UTF8.GetString(response.HttpResponse.Content));
             }
             catch (ServerException e)
             {

@@ -12,6 +12,7 @@ using CSharpFundamental.MultipleThread;
 using CSharpFundamental.MultipleThread.Book;
 using CSharpFundamental.NetWorkDemoAnalyse;
 using CSharpFundamental.Operation;
+using CSharpFundamental.ThreadSafe;
 
 namespace CSharpFundamental
 {
@@ -196,7 +197,11 @@ namespace CSharpFundamental
 
             //new Final().TestCode();
 
-            ServicePointDemo.Execute();
+            //ServicePointDemo.Execute();
+
+            new HttpWebRequestThreadSafeTest().TestThreadSafe();
+
+            //new DicThreadTest().InsertTest();
         }
     }
 }
