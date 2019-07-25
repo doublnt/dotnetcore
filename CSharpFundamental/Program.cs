@@ -199,7 +199,7 @@ namespace CSharpFundamental
 
             //ServicePointDemo.Execute();
 
-            new HttpWebRequestThreadSafeTest().TestThreadSafe();
+            HttpWebRequestThreadSafeTest.TestThreadSafe();
 
             //new DicThreadTest().InsertTest();
         }
