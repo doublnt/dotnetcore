@@ -22,7 +22,7 @@ namespace CSharpFundamental
                                   + "culture=neutral, PublicKeyToken=b77a5c561934e089";
             Assembly a = Assembly.Load(dataAssembly);
 
-            foreach (Type t in a.ExportedTypes)
+            foreach (System.Type t in a.ExportedTypes)
             {
                 Console.WriteLine(t.FullName);
             }

@@ -14,6 +14,7 @@ using CSharpFundamental.NetWorkDemoAnalyse;
 using CSharpFundamental.Operation;
 using CSharpFundamental.Struct;
 using CSharpFundamental.ThreadSafe;
+using CSharpFundamental.Type;
 
 namespace CSharpFundamental
 {
@@ -204,7 +205,11 @@ namespace CSharpFundamental
 
             //new DicThreadTest().InsertTest();
 
-            new StructDemo().RunTheTest();
+            //new StructDemo().RunTheTest();
+
+            new Coca().TestCoca();
+
+            new Coca().TestVector();
         }
     }
 }

@@ -14,7 +14,6 @@ namespace CSharpFundamental.Struct
         {
             var vectorClass = new VectorClass();
             var tempVector = vectorClass.GetVector();
-            // GetVector 得到的是一个值，而不是一个变量。
             tempVector.x = 1;
         }
 
@@ -22,7 +21,7 @@ namespace CSharpFundamental.Struct
         {
             var matrixClass = new MatrixClass();
             var tempMatrix = matrixClass.GetMatrix();
-            tempMatrix.x = 1;// 为什么会报空指针错误
+            tempMatrix.x = 1;
         }
 
         public void RunTheTest()
