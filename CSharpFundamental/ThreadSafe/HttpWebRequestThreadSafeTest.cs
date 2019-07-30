@@ -12,7 +12,7 @@ namespace CSharpFundamental.ThreadSafe
 {
     public class HttpWebRequestThreadSafeTest
     {
-        private int _threadCount = 100;
+        private int _threadCount = 10;
 
         private HttpWebRequest CreateHttpWebRequest()
         {
