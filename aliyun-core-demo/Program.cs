@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Text;
 using System.Threading.Tasks;
-
 using Aliyun.Acs.Core;
 using Aliyun.Acs.Core.Exceptions;
 using Aliyun.Acs.Core.Profile;
@@ -139,17 +137,20 @@ namespace Aliyun.Core.Demo
 
             //DefaultAcsClient.EnableLogger();
 
+            var uri = new Uri(
+                "http://ecs.aliyuncs.com/?Version=2014-05-26&Action=DescribeRegions&Format=JSON&Timestamp=2019-07-25T09%3a12%3a12Z&SignatureMethod=HMAC-SHA1&SignatureVersion=1.0&SignatureNonce=03e02480-68f2-421f-9f5e-e64971798eb0");
 
-            int num = 10;
+            Console.WriteLine(uri.Host);
+
+            int num = 5;
             var tasks = new Task[num];
-
-            client.SetReadTimeoutInMilliSeconds(50000);
-            client.SetConnectTimeoutInMilliSeconds(50000);
-
             //DescribeRegionsResponse[] responses = new DescribeRegionsResponse[num];
 
             try
             {
+                client.SetConnectTimeoutInMilliSeconds(50000);
+                client.SetReadTimeoutInMilliSeconds(50000);
+
                 for (int i = 0; i < num; i++)
                 {
                     int temp = i;
@@ -159,15 +160,12 @@ namespace Aliyun.Core.Demo
                         var request = new DescribeRegionsRequest();
                         var response = client.GetAcsResponse(request);
 
-                        Console.WriteLine(Encoding.UTF8.GetString(response.HttpResponse.Content));
+                        //Console.WriteLine(Encoding.UTF8.GetString(response.HttpResponse.Content));
                     });
                 }
 
                 Task.WaitAll(tasks);
 
-                //var request = new DescribeRegionsRequest();
-                //var response = client.GetAcsResponse(request);
-                //Console.WriteLine(Encoding.UTF8.GetString(response.HttpResponse.Content));
             }
             catch (ServerException e)
             {

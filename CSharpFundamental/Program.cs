@@ -12,7 +12,9 @@ using CSharpFundamental.MultipleThread;
 using CSharpFundamental.MultipleThread.Book;
 using CSharpFundamental.NetWorkDemoAnalyse;
 using CSharpFundamental.Operation;
+using CSharpFundamental.Struct;
 using CSharpFundamental.ThreadSafe;
+using CSharpFundamental.Type;
 
 namespace CSharpFundamental
 {
@@ -75,7 +77,6 @@ namespace CSharpFundamental
             //
             //            primitiveDemo.DoWorkerThing();
 
-
             //            var threadSharingData = new ThreadSharingData();
             //            threadSharingData.DoThreadThing1();
             //            threadSharingData.DoThreadThing2();
@@ -101,7 +102,6 @@ namespace CSharpFundamental
 
             //var multipleThread = new MultipleThreadCompete();
             //multipleThread.DoTheCompete();
-
 
             //var linqClass = new LinqTest();
             //linqClass.ExecuteLinqFunc();
@@ -164,11 +164,9 @@ namespace CSharpFundamental
 
             //new ActionSampleWithClosure().TestAction();
 
-
             //new PartialClass.Partial().DisplayPartial();
 
             //new DynamicSample().DynamicExecute();
-
 
             //new LibLogTest().DoCommonLog();
 
@@ -199,9 +197,33 @@ namespace CSharpFundamental
 
             //ServicePointDemo.Execute();
 
-            new HttpWebRequestThreadSafeTest().TestThreadSafe();
+            //HttpWebRequestThreadSafeTest.TestThreadSafe();
 
             //new DicThreadTest().InsertTest();
+
+            //new StructDemo().RunTheTest();
+
+            // new Coca().TestCoca();
+
+            // new Coca().TestVector();
+
+            //int x = 10;
+            //int y = 20;
+
+            //Console.WriteLine(x + " | " + y);
+
+            //Swap(ref x, ref y);
+
+            //Console.WriteLine(x + " | " + y);
+
+            new ThreadDemo().StartThreadManually();
         }
+
+        //private static void Swap(ref int x, ref int y)
+        //{
+        //    x = x + y;
+        //    y = x - y;
+        //    x = x - y;
+        //}
     }
 }
