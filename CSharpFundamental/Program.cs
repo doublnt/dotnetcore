@@ -1,20 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Net;
 using System.Threading;
 using System.Threading.Tasks;
 
-using CSharpFundamental.GarbageCollection;
-using CSharpFundamental.Http;
-using CSharpFundamental.LazyInitialization;
-using CSharpFundamental.LibLog;
-using CSharpFundamental.MultipleThread;
-using CSharpFundamental.MultipleThread.Book;
-using CSharpFundamental.NetWorkDemoAnalyse;
-using CSharpFundamental.Operation;
-using CSharpFundamental.Struct;
+using CSharpFundamental.StringMethod;
 using CSharpFundamental.ThreadSafe;
-using CSharpFundamental.Type;
 
 namespace CSharpFundamental
 {
@@ -216,7 +205,9 @@ namespace CSharpFundamental
 
             //Console.WriteLine(x + " | " + y);
 
-            new ThreadDemo().StartThreadManually();
+            //new ThreadDemo().StartThreadManually();
+
+            new StringMethodCompare().TestIndexOfAndContains();
         }
 
         //private static void Swap(ref int x, ref int y)
