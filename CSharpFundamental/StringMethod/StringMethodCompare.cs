@@ -46,6 +46,8 @@ namespace CSharpFundamental.StringMethod
              */
 
             Console.WriteLine(a.Contains("?"));
+
+            int b = 1;
         }
     }
 }
