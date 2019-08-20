@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Threading.Tasks;
 using Aliyun.Acs.Core;
 using Aliyun.Acs.Core.Exceptions;
@@ -137,35 +138,53 @@ namespace Aliyun.Core.Demo
 
             //DefaultAcsClient.EnableLogger();
 
-            var uri = new Uri(
-                "http://ecs.aliyuncs.com/?Version=2014-05-26&Action=DescribeRegions&Format=JSON&Timestamp=2019-07-25T09%3a12%3a12Z&SignatureMethod=HMAC-SHA1&SignatureVersion=1.0&SignatureNonce=03e02480-68f2-421f-9f5e-e64971798eb0");
+            //var uri = new Uri(
+            //    "http://ecs.aliyuncs.com/?Version=2014-05-26&Action=DescribeRegions&Format=JSON&Timestamp=2019-07-25T09%3a12%3a12Z&SignatureMethod=HMAC-SHA1&SignatureVersion=1.0&SignatureNonce=03e02480-68f2-421f-9f5e-e64971798eb0");
 
-            Console.WriteLine(uri.Host);
+            //Console.WriteLine(uri.Host);
 
-            int num = 5;
-            var tasks = new Task[num];
+            //int num = 5;
+            //var tasks = new Task[num];
             //DescribeRegionsResponse[] responses = new DescribeRegionsResponse[num];
+
+
+            var request = new DescribeAvailableResourceRequest();
+
+            request.DestinationResource = "InstanceType";
+            request.RegionId = "cn-hangzhou";
 
             try
             {
-                client.SetConnectTimeoutInMilliSeconds(50000);
-                client.SetReadTimeoutInMilliSeconds(50000);
+                //client.SetConnectTimeoutInMilliSeconds(50000);
+                //client.SetReadTimeoutInMilliSeconds(50000);
 
-                for (int i = 0; i < num; i++)
+                //for (int i = 0; i < num; i++)
+                //{
+                //    int temp = i;
+
+                //    tasks[temp] = Task.Run(() =>
+                //    {
+                //        var request = new DescribeRegionsRequest();
+                //        var response = client.GetAcsResponse(request);
+
+                //        //Console.WriteLine(Encoding.UTF8.GetString(response.HttpResponse.Content));
+                //    });
+                //}
+
+                //Task.WaitAll(tasks);
+
+                DescribeAvailableResourceResponse response = client.GetAcsResponse(request);
+
+                foreach (var item in response.AvailableZones)
                 {
-                    int temp = i;
-
-                    tasks[temp] = Task.Run(() =>
+                    foreach (var item2 in item.AvailableResources)
                     {
-                        var request = new DescribeRegionsRequest();
-                        var response = client.GetAcsResponse(request);
-
-                        //Console.WriteLine(Encoding.UTF8.GetString(response.HttpResponse.Content));
-                    });
+                        foreach (var item3 in item2.SupportedResources)
+                        {
+                            Console.WriteLine(item3._Value);
+                        }
+                    }
                 }
-
-                Task.WaitAll(tasks);
-
             }
             catch (ServerException e)
             {
@@ -179,7 +198,7 @@ namespace Aliyun.Core.Demo
 
         public static DefaultAcsClient InitVodClient(string accessKeyId, string accessKeySecret)
         {
-            var regionId = "cn-shanghai";
+            var regionId = "cn-hangzhou";
             IClientProfile profile = DefaultProfile.GetProfile(regionId, accessKeyId, accessKeySecret);
             return new DefaultAcsClient(profile);
         }
