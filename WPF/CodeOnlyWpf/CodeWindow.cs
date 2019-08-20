@@ -40,6 +40,11 @@ namespace WpfMvvm
 
             dockPanel.MouseLeave += (sender, eventArgs) => { _button.Content = "Mouse has move over here."; };
 
+            _button.MouseEnter += (sender, eventArgs) =>
+            {
+                _button.Content = "Mouse has move in the button areas.";
+            };
+
             #endregion
         }
     }
