@@ -26,7 +26,7 @@ namespace WpfMvvm
 
             var label = new Label();
             label.Content = "Test Panel Target";
-            
+
             var button1 = new Button();
             button1.Content = "button1";
             button1.MinHeight = 100;
@@ -46,6 +46,14 @@ namespace WpfMvvm
             stackPanel.Children.Add(button1);
             stackPanel.Children.Add(buttonBorder);
             stackPanel.Children.Add(button3);
+
+            stackPanel.AddHandler(Button.ClickEvent,
+                new RoutedEventHandler((sender, e) => MessageBox.Show(e + " Hello,World.")));
+            stackPanel.AddHandler(Label.MouseDownEvent, new RoutedEventHandler((sender, e) =>
+            {
+                MessageBox.Show("Label Mouse Down" + e);
+            }));
+
 
             this.Content = border;
         }

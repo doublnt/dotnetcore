@@ -46,8 +46,8 @@ namespace WpfMvvm
             Grid.SetRow(button1, 0);
 
             // 和上面两句一个意思
-            button1.SetValue(Grid.RowProperty, 0);
-            button1.SetValue(Grid.ColumnProperty, 0);
+            //button1.SetValue(Grid.RowProperty, 0);
+            //button1.SetValue(Grid.ColumnProperty, 0);
 
             grid.Children.Add(button1);
 
@@ -65,6 +65,13 @@ namespace WpfMvvm
         private void ButtonClickMethod(object sender, EventArgs e)
         {
             MessageBox.Show("Bubble Routed Event, hello, sender is" + sender);
+
+            // 中止冒泡路由事件。
+
+            if (e is RoutedEventArgs routedEventArgs)
+            {
+                routedEventArgs.Handled = true;
+            }
         }
     }
 }

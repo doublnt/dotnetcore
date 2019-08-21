@@ -10,7 +10,7 @@ namespace WpfMvvm
         public static void Main(string[] args)
         {
             Program app = new Program();
-            app.MainWindow = new GridWindow();
+            app.MainWindow = new StackPanelWindow();
             app.MainWindow.ShowDialog();
         }
     }
