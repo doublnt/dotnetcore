@@ -53,6 +53,8 @@
   <ItemGroup>
     <Compile Include="CodeWindow.cs" />
     <Compile Include="CodeWithXamlWindow.cs" />
+    <Compile Include="DockPanelWindow.cs" />
+    <Compile Include="GridWindow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -67,6 +69,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="StackPanelWindow.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
