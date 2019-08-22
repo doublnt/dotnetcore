@@ -9,8 +9,11 @@ namespace WpfMvvm
         [STAThread]
         public static void Main(string[] args)
         {
+            //SplashScreen splashScreen = new SplashScreen("safe_image.gif");
+            //splashScreen.Show(false);
+
             //Program app = new Program();
-            //app.MainWindow = new DockPanelWindow();
+            //app.MainWind  ow = new DockPanelWindow();
             //app.MainWindow.ShowDialog();
 
             // 和上面结果一样

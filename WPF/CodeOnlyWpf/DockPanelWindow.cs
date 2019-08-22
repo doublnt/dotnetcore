@@ -1,4 +1,9 @@
-﻿using System.Windows;
+﻿using System;
+using System.Net;
+using System.Net.Http;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace WpfMvvm
@@ -54,6 +59,15 @@ namespace WpfMvvm
             dockPanel.Children.Add(buttonBottom);
             dockPanel.Children.Add(textBox);
             dockPanel.Children.Add(textBlock);
+
+            //var httpWebRequest = WebRequest.Create("http://10jqka.com.cn/favicon.ico") as HttpWebRequest;
+            //var httpWebResponse = httpWebRequest.GetResponse() as HttpWebResponse;
+
+            var url = "http://10jqka.com.cn";
+            using (var webClient = new WebClient())
+            {
+                webClient.DownloadFile(string.Format("http://www.google.com/s2/favicons?domain={0}", url), "favicon.ico");
+            }
 
             this.Content = dockPanel;
         }
