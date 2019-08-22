@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="CodeWindow.cs" />
     <Compile Include="CodeWithXamlWindow.cs" />
+    <Compile Include="DataBindWindow.cs" />
     <Compile Include="DockPanelWindow.cs" />
     <Compile Include="GridWindow.cs" />
     <Compile Include="Program.cs" />
