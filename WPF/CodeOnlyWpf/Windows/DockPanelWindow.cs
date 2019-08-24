@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace WpfMvvm
+namespace CodeOnlyWpf.Windows
 {
     public class DockPanelWindow : Window
     {

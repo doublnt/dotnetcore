@@ -51,11 +51,13 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CodeWindow.cs" />
-    <Compile Include="CodeWithXamlWindow.cs" />
-    <Compile Include="DataBindWindow.cs" />
-    <Compile Include="DockPanelWindow.cs" />
-    <Compile Include="GridWindow.cs" />
+    <Compile Include="WebBrowser\WebBrowserSample.cs" />
+    <Compile Include="Windows\CodeWindow.cs" />
+    <Compile Include="Windows\CodeWithXamlWindow.cs" />
+    <Compile Include="Windows\CommandWindow.cs" />
+    <Compile Include="Windows\DataBindWindow.cs" />
+    <Compile Include="Windows\DockPanelWindow.cs" />
+    <Compile Include="Windows\GridWindow.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
@@ -70,7 +72,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Compile Include="StackPanelWindow.cs" />
+    <Compile Include="Windows\StackPanelWindow.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -89,5 +91,6 @@
   <ItemGroup>
     <SplashScreen Include="safe_image.gif" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

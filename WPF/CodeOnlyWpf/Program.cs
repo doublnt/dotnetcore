@@ -2,7 +2,10 @@
 using System.Configuration;
 using System.Windows;
 
-namespace WpfMvvm
+using CodeOnlyWpf.WebBrowser;
+using CodeOnlyWpf.Windows;
+
+namespace CodeOnlyWpf
 {
     public class Program : Application
     {
@@ -18,7 +21,7 @@ namespace WpfMvvm
 
             // 和上面结果一样
             Application app = new Application();
-            var windows = new DataBindWindow();
+            var windows = new WebBrowserSample();
             app.Run(windows);
         }
     }

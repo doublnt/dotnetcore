@@ -3,8 +3,9 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Data;
+using System.Windows.Input;
 
-namespace WpfMvvm
+namespace CodeOnlyWpf.Windows
 {
     public class DataBindWindow : Window
     {
@@ -31,22 +32,25 @@ namespace WpfMvvm
             textBlock.FontSize = sliderBar.Value;
 
             var biggerButton = new Button();
+            biggerButton.Width = biggerButton.Height = 100;
             biggerButton.Content = "Bigger";
 
             var smallerButton = new Button();
+            smallerButton.Width = smallerButton.Height = 100;
             smallerButton.Content = "Smaller";
+
+            var textBlock2 = new TextBlock();
+            textBlock2.Text = "TextBlock2";
 
             DockPanel.SetDock(sliderBar, Dock.Top);
             DockPanel.SetDock(textBlock, Dock.Bottom);
             DockPanel.SetDock(biggerButton, Dock.Left);
             DockPanel.SetDock(smallerButton, Dock.Right);
+            DockPanel.SetDock(textBlock2, Dock.Right);
 
             // 数据双向绑定，双向同时更新。
-            var binding = new Binding();
-            binding.Source = sliderBar;
-            binding.Path = new PropertyPath("Value");
-            binding.Mode = BindingMode.TwoWay;
-            textBlock.SetBinding(TextBlock.FontSizeProperty, binding);
+            BindTwoWayData(sliderBar, textBlock, BindingMode.TwoWay, TextBlock.FontSizeProperty);
+            BindTwoWayData(sliderBar, textBlock2, BindingMode.TwoWay, TextBlock.FontSizeProperty);
             #endregion
 
             #region event
@@ -76,8 +80,24 @@ namespace WpfMvvm
             dockPanel.Children.Add(textBlock);
             dockPanel.Children.Add(biggerButton);
             dockPanel.Children.Add(smallerButton);
+            dockPanel.Children.Add(textBlock2);
 
             this.Content = dockPanel;
+        }
+
+        private void BindTwoWayData(FrameworkElement source, FrameworkElement target, BindingMode bindingMode, DependencyProperty property)
+        {
+            var binding = new Binding();
+            binding.Source = source;
+            binding.Path = new PropertyPath("Value");
+            binding.Mode = bindingMode;
+            binding.Delay = 2000;
+            target.SetBinding(property, binding);
+        }
+
+        private void ClearAllBinding(FrameworkElement targetElement)
+        {
+            BindingOperations.ClearAllBindings(targetElement);
         }
     }
 }

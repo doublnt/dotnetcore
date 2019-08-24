@@ -4,7 +4,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Controls.Primitives;
 
-namespace WpfMvvm
+namespace CodeOnlyWpf.Windows
 {
     public class GridWindow : Window
     {

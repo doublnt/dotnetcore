@@ -3,7 +3,7 @@ using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
-namespace WpfMvvm
+namespace CodeOnlyWpf.Windows
 {
     public class StackPanelWindow : Window
     {
