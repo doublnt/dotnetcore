@@ -207,7 +207,10 @@ namespace CSharpFundamental
 
             //new ThreadDemo().StartThreadManually();
 
-            new StringMethodCompare().TestIndexOfAndContains();
+            //new StringMethodCompare().TestIndexOfAndContains();
+
+            RegexOptimization.Execute();
+            //RegexOptimization.ExecuteWithOwn();
         }
 
         //private static void Swap(ref int x, ref int y)
