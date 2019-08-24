@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="WebBrowser\WebBrowserSample.cs" />
+    <Compile Include="Widgets\ButtonWithStaticStyle.cs" />
     <Compile Include="Windows\CodeWindow.cs" />
     <Compile Include="Windows\CodeWithXamlWindow.cs" />
     <Compile Include="Windows\CommandWindow.cs" />
@@ -83,10 +84,14 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="DockPanelFake.xaml">
+    <Page Include="Resources\DockPanelFake.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Resource Include="Resources\ButtonStyle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Resource>
   </ItemGroup>
   <ItemGroup>
     <SplashScreen Include="safe_image.gif" />

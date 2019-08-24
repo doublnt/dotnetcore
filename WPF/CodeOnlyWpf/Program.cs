@@ -21,7 +21,7 @@ namespace CodeOnlyWpf
 
             // 和上面结果一样
             Application app = new Application();
-            var windows = new WebBrowserSample();
+            var windows = new CodeWindow();
             app.Run(windows);
         }
     }

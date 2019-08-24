@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Security.Policy;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Markup;
+
+using CodeOnlyWpf.Widgets;
 
 namespace CodeOnlyWpf.Windows
 {
@@ -11,7 +14,19 @@ namespace CodeOnlyWpf.Windows
 
         public CodeWindow()
         {
+            LoadResourcesAndRegisterGlobal();
+
             InitializeComponent();
+        }
+
+        private void LoadResourcesAndRegisterGlobal()
+        {
+            var resourceDictionary = new ResourceDictionary()
+            {
+                Source = new Uri("/Resources/ButtonStyle.xaml", UriKind.RelativeOrAbsolute)
+            };
+
+            Application.Current.Resources.MergedDictionaries.Add(resourceDictionary);
         }
 
         private void InitializeComponent()
@@ -32,11 +47,11 @@ namespace CodeOnlyWpf.Windows
                 _button.Content = "Value Changed";
             };
 
-            IAddChild container = dockPanel;
-            container.AddChild(_button);
+            var button2 = ButtonWithStaticStyle.GetCurrentControl();
+            button2.Content = "1111";
 
-            container = this;
-            container.AddChild(dockPanel);
+            dockPanel.Children.Add(_button);
+            dockPanel.Children.Add(button2);
 
             dockPanel.MouseLeave += (sender, eventArgs) => { _button.Content = "Mouse has move over here."; };
 
@@ -45,6 +60,7 @@ namespace CodeOnlyWpf.Windows
                 _button.Content = "Mouse has move in the button areas.";
             };
 
+            this.Content = dockPanel;
             #endregion
         }
     }
