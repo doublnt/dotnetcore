@@ -96,6 +96,22 @@
   <ItemGroup>
     <SplashScreen Include="safe_image.gif" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Templates\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="SHDocVw">
+      <Guid>{EAB22AC0-30C1-11CF-A7EB-0000C05BAE0B}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>1</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ExternalDLL\System.Windows.Forms.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
