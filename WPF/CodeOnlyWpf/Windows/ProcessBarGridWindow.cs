@@ -42,8 +42,9 @@ namespace CodeOnlyWpf.Windows
             processBar1.Visibility = Visibility.Visible;
             processBar1.Maximum = 100;
             processBar1.Value = _processBarValue;
-            processBar1.Foreground = new SolidColorBrush(Color.FromRgb(255,0,0));
+            processBar1.Foreground = new SolidColorBrush(Color.FromRgb(255, 0, 0));
             RotateTransform rotateTransform = new RotateTransform(180);
+            processBar1.Height = 20;
 
             processBar1.LayoutTransform = rotateTransform;
 

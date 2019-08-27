@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
+using CSharpFundamental.InteropServiceCom;
 using CSharpFundamental.StringMethod;
 using CSharpFundamental.ThreadSafe;
 
@@ -209,8 +210,11 @@ namespace CSharpFundamental
 
             //new StringMethodCompare().TestIndexOfAndContains();
 
-            RegexOptimization.Execute();
+            //RegexOptimization.Execute();
             //RegexOptimization.ExecuteWithOwn();
+
+            InteropServicesSample.ShowTheMessageBox();
+            InteropServicesSample.ShowTheOutputWindowResult();
         }
 
         //private static void Swap(ref int x, ref int y)
