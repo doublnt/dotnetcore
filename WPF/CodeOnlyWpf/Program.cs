@@ -21,7 +21,7 @@ namespace CodeOnlyWpf
 
             // 和上面结果一样
             Application app = new Application();
-            var windows = new GridWindow();
+            var windows = new ProcessBarGridWindow();
             app.Run(windows);
         }
     }
