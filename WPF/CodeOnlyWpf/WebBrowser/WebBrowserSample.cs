@@ -14,6 +14,8 @@ namespace CodeOnlyWpf.WebBrowser
         private System.Windows.Controls.WebBrowser _currentWebBrowser = new System.Windows.Controls.WebBrowser();
         private SHDocVw.IWebBrowser2 _iWebBrowser2;
 
+        private Label _currentLabel = new Label() { Height = 20};
+
         public WebBrowserSample()
         {
             InitializeComponent();

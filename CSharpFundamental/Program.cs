@@ -2,6 +2,7 @@
 using System.Threading;
 using System.Threading.Tasks;
 
+using CSharpFundamental.Dictionary;
 using CSharpFundamental.InteropServiceCom;
 using CSharpFundamental.StringMethod;
 using CSharpFundamental.ThreadSafe;
@@ -213,8 +214,10 @@ namespace CSharpFundamental
             //RegexOptimization.Execute();
             //RegexOptimization.ExecuteWithOwn();
 
-            InteropServicesSample.ShowTheMessageBox();
-            InteropServicesSample.ShowTheOutputWindowResult();
+            //InteropServicesSample.ShowTheMessageBox();
+            //InteropServicesSample.ShowTheOutputWindowResult();
+
+            TestNull.RunWillNullDic();
         }
 
         //private static void Swap(ref int x, ref int y)
