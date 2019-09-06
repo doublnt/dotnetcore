@@ -29,7 +29,7 @@ namespace CSharpFundamental.ExpressionTree
             Expression secondArgs = Expression.Constant(3);
 
             Expression add = Expression.Add(firstArgs, secondArgs);
-
+              
             Console.WriteLine(add);
         }
 
@@ -46,7 +46,6 @@ namespace CSharpFundamental.ExpressionTree
             var func = expressionFunc.Compile();
 
             Console.WriteLine(func("Robert", "Ro"));
-
 
             var method = typeof(string).GetMethod("StartsWith", new[] {typeof(string)});
 

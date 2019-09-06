@@ -72,7 +72,7 @@ namespace CodeOnlyWpf.WebBrowser
             if (WebBrowser2 != null)
             {
                 ((SHDocVw.DWebBrowserEvents_Event)_iWebBrowser2).BeforeNavigate += HandleBeforeNavigate;
-                ((SHDocVw.DWebBrowserEvents_Event)_iWebBrowser2).NewWindow += HandleNewWindow;
+                ((SHDocVw.DWebBrowserEvents_Event)_iWebBrowser2).NewWindow += HandleNwWindow;
             }
 
             _currentWebBrowser.Height = 300;
