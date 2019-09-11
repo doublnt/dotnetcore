@@ -19,7 +19,6 @@ namespace CodeOnlyWpf.WebBrowser
         public WebBrowserSample()
         {
             InitializeComponent();
-            _currentWebBrowser.Navigate(new Uri("https://www.baidu.com"));
         }
 
         public SHDocVw.IWebBrowser2 WebBrowser2
@@ -60,19 +59,10 @@ namespace CodeOnlyWpf.WebBrowser
 
             #region Configure WebBrowser
 
-            _currentWebBrowser.Navigating += (sender, e) =>
-            {
-                if (e.Uri.AbsolutePath.EndsWith(".icon") || e.Uri.AbsolutePath.EndsWith(".ico"))
-                {
-                    MessageBox.Show("Icon shows");
-                    e.Cancel = true;
-                }
-            };
-
             if (WebBrowser2 != null)
             {
                 ((SHDocVw.DWebBrowserEvents_Event)_iWebBrowser2).BeforeNavigate += HandleBeforeNavigate;
-                ((SHDocVw.DWebBrowserEvents_Event)_iWebBrowser2).NewWindow += HandleNwWindow;
+                ((SHDocVw.DWebBrowserEvents_Event)_iWebBrowser2).NewWindow += HandleNewWindow;
             }
 
             _currentWebBrowser.Height = 300;
@@ -82,16 +72,14 @@ namespace CodeOnlyWpf.WebBrowser
 
             var button = new Button();
             button.Content = "Icon Navigate";
-            button.Click += (sender, e) =>
-            {
-                _currentWebBrowser.Navigate("https://www.baidu.com/favicon.ico");
-            };
 
             DockPanel.SetDock(_currentWebBrowser, Dock.Top);
             DockPanel.SetDock(button, Dock.Bottom);
 
             dockPanel.Children.Add(_currentWebBrowser);
             dockPanel.Children.Add(button);
+
+            _currentWebBrowser.Navigate(new Uri("http://localhost:5000"));
 
             this.Content = dockPanel;
         }

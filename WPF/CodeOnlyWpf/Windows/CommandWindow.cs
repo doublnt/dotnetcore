@@ -1,5 +1,6 @@
 ﻿using System.Data.Odbc;
 using System.Runtime.Remoting.Channels;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -39,14 +40,21 @@ namespace CodeOnlyWpf.Windows
             };
             this.CommandBindings.Add(commandBinding);
 
-
+            var button3 = new Button();
+            button3.Content = "New Windows";
+            button3.Click += (sender, e) =>
+            {
+                
+            };
             #endregion
 
             DockPanel.SetDock(commandButton, Dock.Top);
             DockPanel.SetDock(commandButton2, Dock.Top);
+            DockPanel.SetDock(button3,Dock.Right);
 
             dockPanel.Children.Add(commandButton);
             dockPanel.Children.Add(commandButton2);
+            dockPanel.Children.Add(button3);
 
             this.Content = dockPanel;
         }
