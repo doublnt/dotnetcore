@@ -11,8 +11,8 @@
     <Window.Resources>
         <viewModel:PersonViewModel x:Key="PersonViewObj"/>
     </Window.Resources>
-    <Canvas HorizontalAlignment="Left" Height="325" Margin="28,31,0,0" VerticalAlignment="Top" Width="748" RenderTransformOrigin="0.027,-0.137">
-        <Rectangle Fill="Gray" Height="95" Canvas.Left="50" Canvas.Top="165" Width="165" HorizontalAlignment="Left" RadiusY="5" RadiusX="5">
+    <Canvas HorizontalAlignment="Left" Margin="28,31,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.027,-0.137">
+        <Rectangle Fill="Gray" Height="55" Canvas.Left="50" Canvas.Top="175" Width="165" HorizontalAlignment="Left" RadiusY="5" RadiusX="5">
         </Rectangle>
         <!-- Draws a horizontal line from (10,60) to (150,60). -->
         <Line
@@ -20,13 +20,26 @@
             X2="70" Y2="60"
             Stroke="Gray"
             StrokeThickness="1
-            " Canvas.Left="204" Canvas.Top="154" Width="76"/>
-        <Path x:Name="VerticalArrowHead" Height="20" Width="20" Fill="Gray"
-              VerticalAlignment="Bottom" Data="M3,1 L3,9 L1,5.5 L3,1" Canvas.Left="272.8" Stretch="Fill" Canvas.Top="154" RenderTransformOrigin="0.5,0.5" >
+            " Canvas.Left="204" Canvas.Top="144" Width="60"/>
+        <Path x:Name="VerticalArrowHead" Height="5" Width="5" Fill="Gray"
+              VerticalAlignment="Bottom" 
+              Data="M3,1 L3,9 L1,5.5 L3,1" 
+              Canvas.Left="273.933" 
+              Stretch="Fill" Canvas.Top="201.267" RenderTransformOrigin="0.5,0.5" >
+            <Path.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="179.904"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Path.RenderTransform>
         </Path>
-        <Label Content="原油" Canvas.Left="103" Canvas.Top="171" FontSize="20" FontWeight="Bold" Foreground="White"/>
-        <Label Content="483.7&#xD;&#xA;" Canvas.Left="65" Canvas.Top="217" FontSize="15" FontWeight="Bold" Foreground="Red"/>
-        <Label Content="20.12%&#xD;&#xA;" Canvas.Left="136" Canvas.Top="217" FontSize="15" FontWeight="Bold" Foreground="Red"/>
+        <Label Content="原油" Canvas.Left="55" Canvas.Top="183" FontSize="20" FontWeight="Bold" Foreground="White" RenderTransformOrigin="-0.972,0.918"/>
+        <Label Canvas.Left="104" Canvas.Top="187" FontSize="15" FontWeight="Bold" Foreground="Red">
+            <GridSplitter Height="28" Width="5"/>
+        </Label>
+        <Label Content="20.12%&#xD;&#xA;" Canvas.Left="153" Canvas.Top="187" FontSize="15" FontWeight="Bold" Foreground="Red"/>
     </Canvas>
 
 </Window>

@@ -20,8 +20,8 @@ namespace CodeOnlyWpf
             //app.MainWindow.ShowDialog();
 
             // 和上面结果一样
-            Application app = new Application();
-            var windows = new WebBrowserSample();
+            var app = new Application();
+            var windows = new CanvasWindow();
             app.Run(windows);
         }
     }

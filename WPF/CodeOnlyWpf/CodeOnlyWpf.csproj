@@ -54,6 +54,7 @@
     <Compile Include="BaseWindowConfiguration.cs" />
     <Compile Include="WebBrowser\WebBrowserSample.cs" />
     <Compile Include="Widgets\ButtonWithStaticStyle.cs" />
+    <Compile Include="Windows\CanvasWindow.cs" />
     <Compile Include="Windows\CodeWindow.cs" />
     <Compile Include="Windows\CodeWithXamlWindow.cs" />
     <Compile Include="Windows\CommandWindow.cs" />
