@@ -4,6 +4,7 @@ using System.Runtime.Remoting.Channels;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using System.Windows.Navigation;
 
 using SHDocVw;
 
@@ -14,7 +15,7 @@ namespace CodeOnlyWpf.WebBrowser
         private System.Windows.Controls.WebBrowser _currentWebBrowser = new System.Windows.Controls.WebBrowser();
         private SHDocVw.IWebBrowser2 _iWebBrowser2;
 
-        private Label _currentLabel = new Label() { Height = 20};
+        private Label _currentLabel = new Label() { Height = 20 };
 
         public WebBrowserSample()
         {
@@ -82,6 +83,12 @@ namespace CodeOnlyWpf.WebBrowser
             _currentWebBrowser.Navigate(new Uri("http://localhost:5000"));
 
             this.Content = dockPanel;
+
+
+            Func<string> a = delegate
+            {
+                return "10086";
+            };
         }
     }
 }

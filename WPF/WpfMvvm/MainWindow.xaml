@@ -11,29 +11,22 @@
     <Window.Resources>
         <viewModel:PersonViewModel x:Key="PersonViewObj"/>
     </Window.Resources>
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition />
-            <RowDefinition />
-            <RowDefinition />
-        </Grid.RowDefinitions>
+    <Canvas HorizontalAlignment="Left" Height="325" Margin="28,31,0,0" VerticalAlignment="Top" Width="748" RenderTransformOrigin="0.027,-0.137">
+        <Rectangle Fill="Gray" Height="95" Canvas.Left="50" Canvas.Top="165" Width="165" HorizontalAlignment="Left" RadiusY="5" RadiusX="5">
+        </Rectangle>
+        <!-- Draws a horizontal line from (10,60) to (150,60). -->
+        <Line
+            X1="10" Y1="60"
+            X2="70" Y2="60"
+            Stroke="Gray"
+            StrokeThickness="1
+            " Canvas.Left="204" Canvas.Top="154" Width="76"/>
+        <Path x:Name="VerticalArrowHead" Height="20" Width="20" Fill="Gray"
+              VerticalAlignment="Bottom" Data="M3,1 L3,9 L1,5.5 L3,1" Canvas.Left="272.8" Stretch="Fill" Canvas.Top="154" RenderTransformOrigin="0.5,0.5" >
+        </Path>
+        <Label Content="原油" Canvas.Left="103" Canvas.Top="171" FontSize="20" FontWeight="Bold" Foreground="White"/>
+        <Label Content="483.7&#xD;&#xA;" Canvas.Left="65" Canvas.Top="217" FontSize="15" FontWeight="Bold" Foreground="Red"/>
+        <Label Content="20.12%&#xD;&#xA;" Canvas.Left="136" Canvas.Top="217" FontSize="15" FontWeight="Bold" Foreground="Red"/>
+    </Canvas>
 
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition />
-            <ColumnDefinition />
-        </Grid.ColumnDefinitions>
-
-        <Label x:Name="lblName" Grid.Row="0" Grid.Column="0" Width="200" Height="100" Background="Bisque"
-               Content="{Binding UserName,UpdateSourceTrigger=PropertyChanged}" />
-
-        <Label Grid.Row="0" Grid.Column="1" Width="200" Height="100" Background="MediumAquamarine"
-               Content="{Binding Gender,UpdateSourceTrigger=PropertyChanged}" />
-
-        <Label Grid.Row="1" Grid.Column="0"
-               Background="{Binding AgeDisplayColor,UpdateSourceTrigger=PropertyChanged}">
-        </Label>
-
-        <Button Grid.Row="1" Grid.Column="1" Content="ShowInfo" FontSize="40" FontFamily="Consolas"
-                Command="{Binding BtnClick,Source={StaticResource PersonViewObj}}" />
-    </Grid>
 </Window>
