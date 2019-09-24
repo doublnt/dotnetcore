@@ -217,7 +217,28 @@ namespace CSharpFundamental
             //InteropServicesSample.ShowTheMessageBox();
             //InteropServicesSample.ShowTheOutputWindowResult();
 
-            TestNull.RunWillNullDic();
+            //TestNull.RunWillNullDic();
+
+            Console.WriteLine(GetSimCode("AU1000"));
+            Console.WriteLine(GetSimCode("AGTD"));
+            Console.WriteLine(GetSimCode("s2222"));
+        }
+
+        private static string GetSimCode(string code)
+        {
+            var charCode = code.ToCharArray();
+
+            int index = charCode.Length;
+
+            for (int i = index - 1; i >= 0; i--)
+            {
+                if (charCode[i] >= '0' && charCode[i] <= '9')
+                {
+                    index = i;
+                }
+            }
+
+            return code.Substring(0, index);
         }
 
         //private static void Swap(ref int x, ref int y)
