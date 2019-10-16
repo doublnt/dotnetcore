@@ -9,6 +9,12 @@ namespace CodeOnlyWpf.Windows
     public class CanvasWindow : Window
     {
         private Canvas _canvas = new Canvas();
+             
+        private const string Palm = "sdfsdf";
+
+        private static readonly string _ses = "sfdf";
+
+        private static Border _border;
 
         public CanvasWindow()
         {
