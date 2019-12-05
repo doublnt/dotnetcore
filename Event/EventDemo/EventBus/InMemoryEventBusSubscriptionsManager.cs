@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -6,7 +6,6 @@ using Autofac;
 using EventDemo.Abstraction;
 using EventDemo.CarDemo;
 using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json;
 
 namespace EventDemo.EventBus {
     public class InMemoryEventBusSubscriptionsManager : IEventBusSubscriptionsManager {
@@ -18,7 +17,7 @@ namespace EventDemo.EventBus {
         public InMemoryEventBusSubscriptionsManager (IServiceCollection service) {
             _handler = new Dictionary<string, List<Type>> ();
             _eventTypes = new List<Type> ();
-            _service = service.BuildServiceProvider ();
+            _service = service.BuildServiceProvider();
             OnEventRemoved += BeiginProcess;
         }
 
