@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
 
+using CSharpFundamental.AsyncAndAwait;
 using CSharpFundamental.Dictionary;
 using CSharpFundamental.InteropServiceCom;
 using CSharpFundamental.StringMethod;
@@ -219,9 +221,29 @@ namespace CSharpFundamental
 
             //TestNull.RunWillNullDic();
 
-            Console.WriteLine(GetSimCode("AU1000"));
-            Console.WriteLine(GetSimCode("AGTD"));
-            Console.WriteLine(GetSimCode("s2222"));
+            //Console.WriteLine(GetSimCode("AU1000"));
+            //Console.WriteLine(GetSimCode("AGTD"));
+            //Console.WriteLine(GetSimCode("s2222"));
+
+            //var value = await new AwaitDemo().GetResponse();
+
+
+            var awaitDemo = new AwaitDemo();
+
+            var response1 = awaitDemo.GetAsync("111");
+
+            //var response1 = await awaitDemo.GetAsync("111");
+
+            Console.WriteLine("First is done.");
+
+            var response2 = awaitDemo.GetAsync2("222");
+
+            //var response2 = await awaitDemo.GetAsync2("222");
+
+            Console.WriteLine("Second is done.");
+
+
+            Console.ReadLine();
         }
 
         private static string GetSimCode(string code)
