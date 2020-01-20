@@ -16,7 +16,9 @@ namespace CSharpFundamental
     {
         private static void Main(string[] args)
         {
-            EnumTest.TestEqual();
+            new StopWatch().Run();
+
+            Console.ReadLine();
         }
     }
 }
