@@ -1,4 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 
 namespace CSharpFundamental
 {
@@ -6,23 +10,44 @@ namespace CSharpFundamental
     {
         private static Func<string> TestFunc;
 
+        private static List<string> _containerList2 = new List<string>();
+
         public static void Main(string[] args)
         {
-            InvokeDelegate();
-            Console.WriteLine(TestFunc());
+            Task.Run(delegate
+            {
+                HaveMoneyNeedProductToContinue();
+            });
+
+            HaveProductNeedMoneyToContinue();
+        }
+        public static void HaveProductNeedMoneyToContinue()
+        {
+            Thread.Sleep(2000);
+
+            lock (_containerList2)
+            {
+                _containerList2.FirstOrDefault();
+            }
         }
 
-        private static void InvokeDelegate()
+        public static void HaveMoneyNeedProductToContinue()
         {
-            TestFunc += GetResult;
-            // Equal to below
-            
-            
+            lock (_containerList2)
+            {
+                Thread.Sleep(TimeSpan.FromDays(1));
+            }
+
         }
 
-        public static string GetResult()
+        public static string FormatNumber(long num, int format)
         {
-            return "TESTTEST";
+            if (num >= format)
+            {
+                return (num / format).ToString("0.##M");
+            }
+
+            return num.ToString();
         }
     }
 }
