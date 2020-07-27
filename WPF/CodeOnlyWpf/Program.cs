@@ -18,7 +18,7 @@ namespace CodeOnlyWpf
 
             // 和上面结果一样
             var app = new Application();
-            var windows = new DockPanelWindow();
+            var windows = new StackPanelWindow();
             app.Run(windows);
         }
     }
