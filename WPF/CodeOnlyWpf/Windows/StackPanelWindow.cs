@@ -1,4 +1,5 @@
 ﻿using System.Net.Http;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -27,8 +28,9 @@ namespace CodeOnlyWpf.Windows
 
             var button = new Button() { Content = "Test" };
             wrapPanel.Children.Add(button);
-            var button2 = new Button() { Content = "111" };
-            wrapPanel.Children.Add(button2);
+            _textBlock.Text = "111111111";
+
+            wrapPanel.Children.Add(_textBlock);
 
             button.Click += Button_Click;
             border.Child = wrapPanel;
@@ -37,18 +39,11 @@ namespace CodeOnlyWpf.Windows
             Content = scrollView;
         }
 
+        private TextBlock _textBlock = new TextBlock();
+
         private async void Button_Click(object sender, RoutedEventArgs e)
         {
-            // Cause deadlock
-            // var value = GetContent().Result;
-
-            var value = await GetContent();
-            var button = sender as Button;
-
-            if (button != null)
-            {
-                button.Content = value.Length;
-            }
+            await GetContent();
         }
 
         private async Task<string> GetContent()
