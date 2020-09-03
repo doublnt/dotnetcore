@@ -49,22 +49,41 @@ namespace CodeOnlyWpf.Windows
 
         private TextBlock _textBlock = new TextBlock();
 
-        private async void Button_Click(object sender, RoutedEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
             //GetContent().Wait();
 
             //var a = GetContent().Result;
 
-            _textBlock.Text = Thread.CurrentThread.ManagedThreadId.ToString();
+            //_textBlock.Text = Thread.CurrentThread.ManagedThreadId.ToString();
 
-            await GetContent();
+            //await GetContent();
 
-            _textBlock.Text = "111";
+            //_textBlock.Text = "111";
 
-            SynchronizationContext.Current.Post(_ => { }, null);
+            //SynchronizationContext.Current.Post(_ => { }, null);
 
-            Task.Delay(3000)
-                .Run(() => { _textBlock.Text = "222"; });
+            //Thread.Sleep(3000);
+            var cancelToken = new CancellationTokenSource();
+
+            Task.Run(new Action(async () =>
+            {
+                try
+                {
+                    await Task.Delay(3000, cancelToken.Token);
+
+                    Dispatcher.Invoke(() =>
+                    {
+                        _textBlock.Text = "111";
+                    });
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+            }));
+
+            cancelToken.Cancel();
         }
 
         private async Task<string> GetContent()
