@@ -84,6 +84,14 @@ namespace CodeOnlyWpf.Windows
             }));
 
             cancelToken.Cancel();
+
+
+            //var t = Task.Factory.StartNew(delegate
+            //{
+            //    var a = 100;
+
+            //    return a;
+            //}).UnWrap();
         }
 
         private async Task<string> GetContent()
