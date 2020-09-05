@@ -2,6 +2,7 @@
 using System.Configuration;
 using System.Windows;
 
+using CodeOnlyWpf.Controls;
 using CodeOnlyWpf.WebBrowser;
 using CodeOnlyWpf.Windows;
 
@@ -17,6 +18,7 @@ namespace CodeOnlyWpf
             //app.MainWindow.ShowDialog();
 
             // 和上面结果一样
+
             var app = new Application();
             var windows = new StackPanelWindow();
             app.Run(windows);

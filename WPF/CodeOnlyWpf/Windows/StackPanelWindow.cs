@@ -15,6 +15,13 @@ namespace CodeOnlyWpf.Windows
         public StackPanelWindow()
         {
             InitializeComponent();
+
+            this.MouseDown += StackPanelWindow_PreviewMouseDown;
+        }
+
+        private void StackPanelWindow_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            MessageBox.Show($"Who touch me{ e.OriginalSource}");
         }
 
         private void InitializeComponent()
@@ -31,6 +38,8 @@ namespace CodeOnlyWpf.Windows
             {
                 Content = "Click1"
             };
+
+
             wrapPanel.Children.Add(button);
 
             var button2 = new Button
@@ -45,6 +54,12 @@ namespace CodeOnlyWpf.Windows
             border.Child = wrapPanel;
             scrollView.Content = border;
             Content = scrollView;
+        }
+
+        private void Button2_PreviewMouseDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
+        {
+            var senderTag = (sender as FrameworkElement).ToString();
+            MessageBox.Show($"Who touch me. {senderTag}");
         }
 
         private TextBlock _textBlock = new TextBlock();

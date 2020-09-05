@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseWindowConfiguration.cs" />
+    <Compile Include="Controls\TimeSelect.cs" />
     <Compile Include="WebBrowser\WebBrowserSample.cs" />
     <Compile Include="Widgets\ButtonWithStaticStyle.cs" />
     <Compile Include="Windows\CanvasWindow.cs" />

@@ -42,5 +42,10 @@ namespace CodeOnlyWpf.Controls
 
             return false;
         }
+
+        public TimeSelect()
+        {
+            Scroll = 10086;
+        }
     }
 }
