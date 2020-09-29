@@ -36,7 +36,7 @@ public class TreeNode
 /// 链接：https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-search-tree
 /// 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
 /// </summary>
-public class Solution
+public class t235
 {
     public TreeNode LowestCommonAncestor(TreeNode root, TreeNode p, TreeNode q)
     {

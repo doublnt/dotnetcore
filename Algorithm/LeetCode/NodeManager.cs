@@ -3,7 +3,7 @@ using System.Xml;
 
 namespace LeetCode
 {
-    public class Temp
+    public class NodeManager
     {
         public void main()
         {
