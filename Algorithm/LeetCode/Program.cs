@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace SortBinarySample
+namespace LeetCode
 {
     class Program
     {

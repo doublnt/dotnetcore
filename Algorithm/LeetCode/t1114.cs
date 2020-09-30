@@ -1,48 +1,46 @@
 ﻿using System;
 
-/// <summary>
-/// https://leetcode-cn.com/problems/print-in-order/
-/// </summary>
-public class Foo
+namespace LeetCode
 {
-    public Foo()
+    /// <summary>
+    /// https://leetcode-cn.com/problems/print-in-order/
+    /// </summary>
+    public class FooTemp
     {
+        private bool _isFirstEnd = false;
+        private bool _isSecondEnd = false;
 
-    }
-
-    private bool _isFirstEnd = false;
-    private bool _isSecondEnd = false;
-
-    public void First(Action printFirst)
-    {
-
-        // printFirst() outputs "first". Do not change or remove this line.
-        printFirst();
-        _isFirstEnd = true;
-    }
-
-    public void Second(Action printSecond)
-    {
-
-        // printSecond() outputs "second". Do not change or remove this line.
-
-        while (!_isFirstEnd)
+        public void First(Action printFirst)
         {
 
+            // printFirst() outputs "first". Do not change or remove this line.
+            printFirst();
+            _isFirstEnd = true;
         }
-        printSecond();
-        _isSecondEnd = true;
-    }
 
-    public void Third(Action printThird)
-    {
-
-        // printThird() outputs "third". Do not change or remove this line.
-        while (!_isSecondEnd)
+        public void Second(Action printSecond)
         {
 
+            // printSecond() outputs "second". Do not change or remove this line.
+
+            while (!_isFirstEnd)
+            {
+
+            }
+            printSecond();
+            _isSecondEnd = true;
         }
 
-        printThird();
+        public void Third(Action printThird)
+        {
+
+            // printThird() outputs "third". Do not change or remove this line.
+            while (!_isSecondEnd)
+            {
+
+            }
+
+            printThird();
+        }
     }
 }
