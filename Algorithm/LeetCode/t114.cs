@@ -5,7 +5,7 @@ namespace LeetCode
     /// <summary>
     /// https://leetcode-cn.com/problems/print-in-order/
     /// </summary>
-    public class FooTemp
+    public class t114
     {
         private bool _isFirstEnd = false;
         private bool _isSecondEnd = false;

@@ -1,14 +1,13 @@
 ﻿using System;
-using System.Xml;
+using System.Collections.Generic;
+using System.Text;
 
 namespace LeetCode
 {
-    public class Temp
+    public class BinaryTreeTraversal
     {
-        public void main()
+        public static Node CreateNodeTree()
         {
-            Console.WriteLine("Hello World!");
-
             var node1 = new Node(1);
             var node2 = new Node(2);
             var node3 = new Node(3);
@@ -29,11 +28,42 @@ namespace LeetCode
             node5._left = node5._right = null;
             node6._left = node6._right = null;
 
-            var node = Connect(node1);
-
+            return node1;
         }
 
-        private static Node Connect(Node root)
+        public static void TopTraversal(Node root)
+        {
+            if (root != null)
+            {
+                Console.Write(root._val + " ");
+
+                TopTraversal(root._left);
+                TopTraversal(root._right);
+            }
+        }
+
+        public static void BackTraversal(Node root)
+        {
+            if (root != null)
+            {
+                BackTraversal(root._left);
+                BackTraversal(root._right);
+
+                Console.Write(root._val + " ");
+            }
+        }
+
+        public static void MiddleTraversal(Node root)
+        {
+            if (root != null)
+            {
+                BackTraversal(root._left);
+                Console.Write(root._val + " ");
+                BackTraversal(root._right);
+            }
+        }
+
+        public static Node Connect(Node root)
         {
             if (root == null)
             {
@@ -69,19 +99,6 @@ namespace LeetCode
             }
 
             return root;
-        }
-    }
-
-    public class Node
-    {
-        public int _val;
-        public Node _left;
-        public Node _right;
-        public Node _next;
-
-        public Node(int val)
-        {
-            _val = val;
         }
     }
 }

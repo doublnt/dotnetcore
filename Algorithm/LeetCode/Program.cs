@@ -6,7 +6,8 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(GetTopValue(5, 3) / Factorial(3));
+            var node = BinaryTreeTraversal.CreateNodeTree();
+            BinaryTreeTraversal.TopTraversal(node);
         }
 
         public static int GetTopValue(int end, int top)
