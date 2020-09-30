@@ -34,7 +34,7 @@ namespace LeetCode
     {
         public Node LowestCommonAncestor(Node root, Node p, Node q)
         {
-            if (p._val < q._val)
+            if (p.val < q.val)
             {
                 return GetNode(root, p, q);
             }
@@ -44,22 +44,22 @@ namespace LeetCode
 
         private Node GetNode(Node root, Node p, Node q)
         {
-            if (root == null || root._left == null || root._right == null)
+            if (root == null || root.left == null || root.right == null)
             {
                 return root;
             }
 
-            if (p._val <= root._val && q._val >= root._val)
+            if (p.val <= root.val && q.val >= root.val)
             {
                 return root;
             }
 
-            if (p._val < root._val && q._val < root._val)
+            if (p.val < root.val && q.val < root.val)
             {
-                return GetNode(root._left, p, q);
+                return GetNode(root.left, p, q);
             }
 
-            return GetNode(root._right, p, q);
+            return GetNode(root.right, p, q);
         }
     }
 }

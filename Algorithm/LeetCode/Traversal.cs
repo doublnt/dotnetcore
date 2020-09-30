@@ -4,7 +4,7 @@ using System.Text;
 
 namespace LeetCode
 {
-    public class BinaryTreeTraversal
+    public class Traversal
     {
         public static Node CreateNodeTree()
         {
@@ -15,18 +15,18 @@ namespace LeetCode
             var node5 = new Node(5);
             var node6 = new Node(6);
 
-            node1._left = node2;
-            node1._right = node3;
+            node1.left = node2;
+            node1.right = node3;
 
-            node2._left = node4;
-            node2._right = null;
+            node2.left = node4;
+            node2.right = null;
 
-            node3._left = node5;
-            node3._right = node6;
+            node3.left = node5;
+            node3.right = node6;
 
-            node4._left = node4._right = null;
-            node5._left = node5._right = null;
-            node6._left = node6._right = null;
+            node4.left = node4.right = null;
+            node5.left = node5.right = null;
+            node6.left = node6.right = null;
 
             return node1;
         }
@@ -35,10 +35,10 @@ namespace LeetCode
         {
             if (root != null)
             {
-                Console.Write(root._val + " ");
+                Console.Write(root.val + " ");
 
-                TopTraversal(root._left);
-                TopTraversal(root._right);
+                TopTraversal(root.left);
+                TopTraversal(root.right);
             }
         }
 
@@ -46,10 +46,10 @@ namespace LeetCode
         {
             if (root != null)
             {
-                BackTraversal(root._left);
-                BackTraversal(root._right);
+                BackTraversal(root.left);
+                BackTraversal(root.right);
 
-                Console.Write(root._val + " ");
+                Console.Write(root.val + " ");
             }
         }
 
@@ -57,9 +57,9 @@ namespace LeetCode
         {
             if (root != null)
             {
-                BackTraversal(root._left);
-                Console.Write(root._val + " ");
-                BackTraversal(root._right);
+                BackTraversal(root.left);
+                Console.Write(root.val + " ");
+                BackTraversal(root.right);
             }
         }
 
@@ -80,22 +80,22 @@ namespace LeetCode
 
                 while (cur != null)
                 {
-                    if (cur._left != null)
+                    if (cur.left != null)
                     {
-                        pre._next = cur._left;
-                        pre = pre._next;
+                        pre.next = cur.left;
+                        pre = pre.next;
                     }
 
-                    if (cur._right != null)
+                    if (cur.right != null)
                     {
-                        pre._next = cur._right;
-                        pre = pre._next;
+                        pre.next = cur.right;
+                        pre = pre.next;
                     }
 
-                    cur = cur._next;
+                    cur = cur.next;
                 }
 
-                cur = nextNode._next;
+                cur = nextNode.next;
             }
 
             return root;

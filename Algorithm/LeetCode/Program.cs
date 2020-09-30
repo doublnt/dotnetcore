@@ -6,8 +6,8 @@ namespace LeetCode
     {
         static void Main(string[] args)
         {
-            var node = BinaryTreeTraversal.CreateNodeTree();
-            BinaryTreeTraversal.TopTraversal(node);
+            var node = Traversal.CreateNodeTree();
+            Traversal.TopTraversal(node);
         }
 
         public static int GetTopValue(int end, int top)

@@ -6,14 +6,14 @@ namespace LeetCode
 {
     public class Node
     {
-        public int _val;
-        public Node _left;
-        public Node _right;
-        public Node _next;
+        public int val;
+        public Node left;
+        public Node right;
+        public Node next;
 
         public Node(int val)
         {
-            _val = val;
+            this.val = val;
         }
     }
 }

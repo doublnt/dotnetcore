@@ -47,22 +47,22 @@ namespace LeetCode
 
                 while (cur != null)
                 {
-                    if (cur._left != null)
+                    if (cur.left != null)
                     {
-                        pre._next = cur._left;
-                        pre = pre._next;
+                        pre.next = cur.left;
+                        pre = pre.next;
                     }
 
-                    if (cur._right != null)
+                    if (cur.right != null)
                     {
-                        pre._next = cur._right;
-                        pre = pre._next;
+                        pre.next = cur.right;
+                        pre = pre.next;
                     }
 
-                    cur = cur._next;
+                    cur = cur.next;
                 }
 
-                cur = dummy._next;
+                cur = dummy.next;
             }
 
             return root;
