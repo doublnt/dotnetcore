@@ -9,6 +9,7 @@
         {{ message }}
     </div>
     <div id="app-2">
+        <!--绑定 title 属性attribute-->
         <span v-bind:title="message">
             Hover to see.
         </span>
@@ -37,6 +38,18 @@
         <ol>
             <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
         </ol>
+    </div>
+    <div id="computed">
+        Original: {{message}}
+        <br/>
+        Reversed: {{reversedMessage}}
+    </div>
+
+    <div id="input-computed">
+        <input v-model="firstName">
+        <input v-model="lastName">
+
+        <p>{{fullName}}</p>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

@@ -75,11 +75,25 @@ vm.a
 var vm = new Vue({
     el: '#computed',
     data: {
-        message: "GG"
+        message: "GG111"
     },
     computed: {
         reversedMessage: function () {
-            return this.message.reverse()
+            return this.message.split('').reverse().join('')
+        }
+    }
+})
+
+
+var vm = new Vue({
+    el: '#input-computed',
+    data: {
+        firstName: 'AA',
+        lastName: 'BB'
+    },
+    computed: {
+        fullName: function () {
+            return this.firstName + "," + this.lastName
         }
     }
 })
