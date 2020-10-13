@@ -71,3 +71,15 @@ data.a
 
 data.a = 3
 vm.a
+
+var vm = new Vue({
+    el: '#computed',
+    data: {
+        message: "GG"
+    },
+    computed: {
+        reversedMessage: function () {
+            return this.message.reverse()
+        }
+    }
+})
