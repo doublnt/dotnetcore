@@ -2,6 +2,7 @@
 
 <head>
     <title>Introduce</title>
+    <link rel="stylesheet" href="../components/css/display.css">
 </head>
 
 <body>
@@ -41,8 +42,7 @@
     </div>
     <div id="computed">
         Original: {{message}}
-        <br/>
-        Reversed: {{reversedMessage}}
+        <br/> Reversed: {{reversedMessage}}
     </div>
 
     <div id="input-computed">
@@ -50,6 +50,10 @@
         <input v-model="lastName">
 
         <p>{{fullName}}</p>
+    </div>
+
+    <div class="static" id="class-bind" v-bind:class="{active:isActive}">
+        {{isActive}}
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>

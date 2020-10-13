@@ -32,7 +32,7 @@ var app5 = new Vue({
         message: "Hello"
     },
     methods: {
-        reverseMessage: function () {
+        reverseMessage: function() {
             this.message = this.message.split('').reverse().join('')
         }
     }
@@ -78,7 +78,7 @@ var vm = new Vue({
         message: "GG111"
     },
     computed: {
-        reversedMessage: function () {
+        reversedMessage: function() {
             return this.message.split('').reverse().join('')
         }
     }
@@ -92,8 +92,15 @@ var vm = new Vue({
         lastName: 'BB'
     },
     computed: {
-        fullName: function () {
+        fullName: function() {
             return this.firstName + "," + this.lastName
         }
+    }
+})
+
+var vm = new Vue({
+    el: "#class-bind",
+    data: {
+        isActive: true
     }
 })
