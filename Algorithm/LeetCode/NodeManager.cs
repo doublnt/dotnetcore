@@ -9,12 +9,12 @@ namespace LeetCode
         {
             Console.WriteLine("Hello World!");
 
-            var node1 = new Node(1);
-            var node2 = new Node(2);
-            var node3 = new Node(3);
-            var node4 = new Node(4);
-            var node5 = new Node(5);
-            var node6 = new Node(6);
+            var node1 = new Node1(1);
+            var node2 = new Node1(2);
+            var node3 = new Node1(3);
+            var node4 = new Node1(4);
+            var node5 = new Node1(5);
+            var node6 = new Node1(6);
 
             node1._left = node2;
             node1._right = node3;
@@ -33,20 +33,20 @@ namespace LeetCode
 
         }
 
-        private static Node Connect(Node root)
+        private static Node1 Connect(Node1 root)
         {
             if (root == null)
             {
                 return root;
             }
 
-            Node cur = root;
+            Node1 cur = root;
 
             while (cur != null)
             {
-                Node nextNode = new Node(0);
+                Node1 nextNode = new Node1(0);
 
-                Node pre = nextNode;
+                Node1 pre = nextNode;
 
                 while (cur != null)
                 {
@@ -72,14 +72,14 @@ namespace LeetCode
         }
     }
 
-    public class Node
+    public class Node1
     {
         public int _val;
-        public Node _left;
-        public Node _right;
-        public Node _next;
+        public Node1 _left;
+        public Node1 _right;
+        public Node1 _next;
 
-        public Node(int val)
+        public Node1(int val)
         {
             _val = val;
         }
