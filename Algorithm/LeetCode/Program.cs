@@ -1,12 +1,13 @@
 ﻿using System;
 
-namespace SortBinarySample
+namespace LeetCode
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine(GetTopValue(5, 3) / Factorial(3));
+            var node = Traversal.CreateNodeTree();
+            Traversal.TopTraversal(node);
         }
 
         public static int GetTopValue(int end, int top)

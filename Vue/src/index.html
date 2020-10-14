@@ -1,0 +1,63 @@
+<html>
+
+<head>
+    <title>Introduce</title>
+    <link rel="stylesheet" href="../components/css/display.css">
+</head>
+
+<body>
+    <div id="app">
+        {{ message }}
+    </div>
+    <div id="app-2">
+        <!--绑定 title 属性attribute-->
+        <span v-bind:title="message">
+            Hover to see.
+        </span>
+    </div>
+    <div id="app-3">
+        <span v-if="seen">Now you see me.</span>
+    </div>
+    <div id="app-4">
+        <ol>
+            <li v-for="todo in todos">
+                {{todo.text}}
+            </li>
+        </ol>
+    </div>
+    <div id="app-5">
+        <p>{{message}}</p>
+        <button v-on:click="reverseMessage">Reverse</button>
+        <span v-on:click="reverseMessage">SpanReverse1</span>
+        <span @click="reverseMessage">SpanReverse2</span>
+    </div>
+    <div id="app-6">
+        <p>{{message}}</p>
+        <input v-model="message">
+    </div>
+    <div id="app-7">
+        <ol>
+            <todo-item v-for="item in groceryList" v-bind:todo="item" v-bind:key="item.id"></todo-item>
+        </ol>
+    </div>
+    <div id="computed">
+        Original: {{message}}
+        <br/> Reversed: {{reversedMessage}}
+    </div>
+
+    <div id="input-computed">
+        <input v-model="firstName">
+        <input v-model="lastName">
+
+        <p>{{fullName}}</p>
+    </div>
+
+    <div class="static" id="class-bind" v-bind:class="{active:isActive}">
+        {{isActive}}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="../components/input/display.js"></script>
+</body>
+
+</html>

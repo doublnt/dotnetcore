@@ -1,0 +1,9 @@
+.active {
+    font-size: x-large;
+    background-color: aqua;
+}
+
+.inactive {
+    width: 12;
+    height: 12;
+}
