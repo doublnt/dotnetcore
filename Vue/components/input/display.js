@@ -122,3 +122,23 @@ var vm = new Vue({
         counter: 0
     }
 })
+
+var vm = new Vue({
+    el: '#checkbox',
+    data: {
+        checked: 'false'
+    }
+})
+
+Vue.component('button-demo', {
+    data: function() {
+        return {
+            count: 0
+        }
+    },
+    template: '<button v-on:click="count++">you clicked me {{count}} times</button>'
+})
+
+var vm = new Vue({
+    el: '#button-component'
+})

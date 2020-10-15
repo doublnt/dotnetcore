@@ -67,6 +67,15 @@
         <p> the button have been clicked {{counter}}</p>
     </div>
 
+    <div id="checkbox">
+        <input type="checkbox" v-model="checked">
+        <label for="checkbox">{{ checked }}</label>
+    </div>
+
+    <div id="button-component">
+        <button-demo></button-demo>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="../components/input/display.js"></script>
 </body>
