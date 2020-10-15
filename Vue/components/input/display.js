@@ -104,3 +104,21 @@ var vm = new Vue({
         isActive: true
     }
 })
+
+var vm = new Vue({
+    el: '#for-demo',
+    data: {
+        object: {
+            name: '111',
+            title: '222',
+            info: '333'
+        }
+    }
+})
+
+var vm = new Vue({
+    el: '#event-handler-1',
+    data: {
+        counter: 0
+    }
+})

@@ -56,6 +56,17 @@
         {{isActive}}
     </div>
 
+    <div id="for-demo">
+        <li v-for="(index, item, info) in object">
+            {{index}} : {{item}} : {{info}}
+        </li>
+    </div>
+
+    <div id="event-handler-1">
+        <button v-on:click="counter+=1">Add 1</button>
+        <p> the button have been clicked {{counter}}</p>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="../components/input/display.js"></script>
 </body>
