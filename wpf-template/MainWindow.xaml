@@ -3,10 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:wpf_template"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
+    <Window.Resources>
+        <CollectionViewSource Source="{Binding Source={x:Static Application.Current}, Path = Photos}" x:Key="ListPhotos"/>
+    </Window.Resources>
     <Grid>
-
+        <StackPanel>
+            <TextBlock Text="Common Style"></TextBlock>
+            <TextBlock Style="{StaticResource TitleText}" Text="Styled TextBlock"/>
+            <ListBox ItemsSource="{Binding Source={StaticResource ListPhotos}}" Width="680" Margin="10" SelectedIndex="0"/>
+        </StackPanel>
     </Grid>
 </Window>
