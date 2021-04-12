@@ -1,5 +1,4 @@
-﻿using Prism.Commands;
-using System;
+﻿using System;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Controls;
@@ -14,7 +13,7 @@ namespace WpfMvvm.ViewModel
     public class PersonViewModel : INotifyPropertyChanged
     {
         private readonly Person _person;
-        private DelegateCommand _personCommand;
+        private PersonViewModelCommand _personCommand;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -28,7 +27,7 @@ namespace WpfMvvm.ViewModel
                 Message = "This is a test message.",
                 Name = "Yin in 10jqka"
             };
-            _personCommand = new DelegateCommand(ActionMethod, IsValid);
+            _personCommand = new PersonViewModelCommand(ActionMethod, IsValid);
         }
 
         public string UserName
