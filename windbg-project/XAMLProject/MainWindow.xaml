@@ -1,0 +1,26 @@
+﻿<Window x:Class="XAMLProject.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:XAMLProject"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <StackPanel>
+        <Button Click="Button_Click">My Text</Button>
+        <Button Template="{StaticResource RoundButton}" Height="80" Width="80" Click="Button_Click">Button Three</Button>
+
+        <TextBlock x:Name="blash" FontSize="20" Text="My Task List:"></TextBlock>
+        <ListBox Width="400" Margin="10" ItemsSource="{Binding Source={StaticResource myToDoList}}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Path=TaskName}"/>
+                        <TextBlock Text="{Binding Path=Description}"/>
+                        <TextBlock Text="{Binding Path=Priority}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </StackPanel>
+</Window>

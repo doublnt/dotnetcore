@@ -1,0 +1,17 @@
+﻿<Window x:Class="DEADLockWpf.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:DEADLockWpf"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <StackPanel>
+            <Button Width="200" Click="Button_Click" Margin="0,20,0,20">死锁模拟</Button>
+            <TextBlock x:Name="txtBlock" Text="I am empty now...."/>
+            <Button Click="Button_Click_1">CPU爆满模拟</Button>
+            <Button Click="Button_Click_2">内存爆满模拟</Button>
+        </StackPanel>
+    </Grid>
+</Window>
