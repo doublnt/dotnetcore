@@ -7,20 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <StackPanel>
-        <Button Click="Button_Click">My Text</Button>
-        <Button Template="{StaticResource RoundButton}" Height="80" Width="80" Click="Button_Click">Button Three</Button>
-
+        <Button Margin="30">My Text</Button>
+        <Button Height="80" Width="80" >Button Three</Button>
         <TextBlock x:Name="blash" FontSize="20" Text="My Task List:"></TextBlock>
-        <ListBox Width="400" Margin="10" ItemsSource="{Binding Source={StaticResource myToDoList}}">
-            <ListBox.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Text="{Binding Path=TaskName}"/>
-                        <TextBlock Text="{Binding Path=Description}"/>
-                        <TextBlock Text="{Binding Path=Priority}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListBox.ItemTemplate>
-        </ListBox>
+        <ListBox Width="400" Margin="10" x:Name="list_box" ItemTemplate="{DynamicResource CustomListBoxItem}"/>
     </StackPanel>
 </Window>

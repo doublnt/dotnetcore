@@ -3,25 +3,33 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace XAMLProject
 {
-    public class Task
+    public class Task : DependencyObject
     {
         public string TaskName { get; set; }
-        public string Description { get; set; }
-        public int Priority { get; set; }
-        public TaskType Type { get; set; }
 
         public override string ToString()
         {
-            return TaskName.ToString(); 
+            return TaskName.ToString();
         }
-    }
 
-    public enum TaskType
-    {
-        Home = 0,
-        Work = 1
+        public static readonly DependencyProperty IsSpinningPropery = DependencyProperty.Register(
+            "IsSpinning", typeof(bool), typeof(Task));
+
+        public bool IsSpinning
+        {
+            get
+            {
+                return (bool)GetValue(IsSpinningPropery);
+            }
+
+            set
+            {
+                SetValue(IsSpinningPropery, value);
+            }
+        }
     }
 }

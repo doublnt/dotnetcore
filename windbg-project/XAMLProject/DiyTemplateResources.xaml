@@ -3,27 +3,6 @@
                     xmlns:local="clr-namespace:XAMLProject">
     <ControlTemplate x:Key="RoundButton" TargetType="Button">
         <Grid>
-            <!--<VisualStateManager.VisualStateGroups>
-                <VisualStateGroup Name="CommonStates">
-                    <VisualState Name="Normal">
-                        <Storyboard>
-                            <ColorAnimation Storyboard.TargetName="buttonBackground"
-                                            Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
-                                            To="{TemplateBinding Background}"
-                                            Duration="0:0:0.3"/>
-
-                        </Storyboard>
-                    </VisualState>
-                    <VisualState Name="MouseOver">
-                        <Storyboard>
-                            <ColorAnimation Storyboard.TargetName="buttonBackground"
-                                            Storyboard.TargetProperty="(Shape.Fill).(SolidColorBrush.Color)"
-                                            To="Yellow"
-                                            Duration="0:0:0.3"/>
-                        </Storyboard>
-                    </VisualState>
-                </VisualStateGroup>
-            </VisualStateManager.VisualStateGroups>-->
             <Ellipse Name="buttonBackground" Fill="{TemplateBinding Background}" Stroke="{TemplateBinding Foreground}"></Ellipse>
             <ContentPresenter x:Name="contentPresenter" HorizontalAlignment="Center" VerticalAlignment="Center"></ContentPresenter>
         </Grid>
@@ -39,5 +18,18 @@
         <Border Margin="100"></Border>
     </DataTemplate>
 
-    <local:Task x:Key="myToDoList" TaskName="111" Description="222" Priority="333"></local:Task>
+    <DataTemplate x:Key="CustomListBoxItem" x:Name="list_box_item">
+        <WrapPanel>
+            <TextBlock Text="{Binding Path=TaskName}" Style="{DynamicResource CustomItemStyle}" />
+            <TextBlock Text="{Binding Path=IsSpinning}" Style="{DynamicResource CustomItemStyle}"/>
+        </WrapPanel>
+    </DataTemplate>
+    <Style x:Key="CustomItemStyle" TargetType="TextBlock">
+        <Setter Property="Background" Value="Red"/>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="Cyan"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
 </ResourceDictionary>
