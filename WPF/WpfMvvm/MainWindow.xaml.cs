@@ -23,14 +23,9 @@ namespace WpfMvvm
     /// </summary>
     public partial class MainWindow : Window
     {
-        private readonly PersonViewModel _personViewModel;
-        private Button _button;
-
         public MainWindow()
         {
             InitializeComponent();
-
-            //_personViewModel = new PersonViewModel();
         }
     }
 }
