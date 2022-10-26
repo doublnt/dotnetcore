@@ -15,7 +15,7 @@
     <PackageReference Include="aliyun-net-sdk-core" Version="1.5.11" />
     <PackageReference Include="Microsoft.Net.Http" Version="2.2.29" />
     <PackageReference Include="Moq" Version="4.16.1" />
-    <PackageReference Include="NLog" Version="4.6.8" />
+    <PackageReference Include="NLog" Version="5.0.5" />
     <PackageReference Include="Pose" Version="1.2.1" />
   </ItemGroup>
 
